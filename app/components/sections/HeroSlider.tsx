@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react'
 import Link from 'next/link'
@@ -86,6 +86,45 @@ export default function HeroSlider({
     return Math.abs(offset) * velocity
   }
 
+  // Deterministic seeded RNG to avoid hydration mismatches between server and client.
+  // We base the seed on the currentSlide so each slide has a consistent set of particles.
+  function mulberry32(seed: number) {
+    return function () {
+      let t = (seed += 0x6d2b79f5)
+      t = Math.imul(t ^ (t >>> 15), t | 1)
+      t ^= t + Math.imul(t ^ (t >>> 7), t | 61)
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296
+    }
+  }
+
+  const particles = useMemo(() => {
+    const rand = mulberry32(123456 + currentSlide)
+    return Array.from({ length: 12 }).map(() => ({
+      width: rand() * 6 + 4,
+      height: rand() * 6 + 4,
+      left: `${Math.round(rand() * 10000) / 100}%`,
+      top: `${Math.round(rand() * 10000) / 100}%`,
+      x: rand() * 100 - 50,
+      y: rand() * 100 - 50,
+      scale: rand() * 2 + 0.5,
+      duration: rand() * 4 + 3,
+    }))
+  }, [currentSlide])
+
+  const shapes = useMemo(() => {
+    const rand = mulberry32(654321 + currentSlide)
+    return Array.from({ length: 6 }).map((_, i) => ({
+      width: rand() * 20 + 10,
+      height: rand() * 20 + 10,
+      left: `${Math.round(rand() * 10000) / 100}%`,
+      top: `${Math.round(rand() * 10000) / 100}%`,
+      borderRadius: i % 2 === 0 ? '50%' : '0%',
+      x: rand() * 50 - 25,
+      y: rand() * 50 - 25,
+      duration: rand() * 8 + 5,
+    }))
+  }, [currentSlide])
+
   return (
     <div
       className={`relative w-full h-screen overflow-hidden py-20 bg-gradient-to-br from-emerald-600 via-green-600 to-teal-700 ${className}`}
@@ -141,24 +180,25 @@ export default function HeroSlider({
 
             {/* Animated Background Elements */}
             <div className="absolute inset-0 overflow-hidden">
-              {[...Array(12)].map((_, i) => (
+              {particles.map((p, i) => (
                 <motion.div
                   key={i}
                   className="absolute rounded-full bg-white/10"
                   style={{
-                    width: Math.random() * 6 + 4,
-                    height: Math.random() * 6 + 4,
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
+                    width: p.width,
+                    height: p.height,
+                    left: p.left,
+                    top: p.top,
+                    opacity: 0.2,
                   }}
                   animate={{
-                    x: [0, Math.random() * 100 - 50],
-                    y: [0, Math.random() * 100 - 50],
-                    scale: [1, Math.random() * 2 + 0.5, 1],
+                    x: [0, p.x],
+                    y: [0, p.y],
+                    scale: [1, p.scale, 1],
                     opacity: [0.2, 0.8, 0.2],
                   }}
                   transition={{
-                    duration: Math.random() * 4 + 3,
+                    duration: p.duration,
                     repeat: Infinity,
                     ease: "easeInOut",
                   }}
@@ -166,24 +206,24 @@ export default function HeroSlider({
               ))}
 
               {/* Floating Geometric Shapes */}
-              {[...Array(6)].map((_, i) => (
+              {shapes.map((s, i) => (
                 <motion.div
                   key={`shape-${i}`}
                   className="absolute border border-white/20"
                   style={{
-                    width: Math.random() * 20 + 10,
-                    height: Math.random() * 20 + 10,
-                    left: `${Math.random() * 100}%`,
-                    top: `${Math.random() * 100}%`,
-                    borderRadius: i % 2 === 0 ? "50%" : "0%",
+                    width: s.width,
+                    height: s.height,
+                    left: s.left,
+                    top: s.top,
+                    borderRadius: s.borderRadius,
                   }}
                   animate={{
                     rotate: [0, 360],
-                    x: [0, Math.random() * 50 - 25],
-                    y: [0, Math.random() * 50 - 25],
+                    x: [0, s.x],
+                    y: [0, s.y],
                   }}
                   transition={{
-                    duration: Math.random() * 8 + 5,
+                    duration: s.duration,
                     repeat: Infinity,
                     ease: "linear",
                   }}

@@ -26,7 +26,7 @@ export default function Home() {
               Welcome to Machine Learning Lab
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Established in 2003 under the visionary leadership of Dr. Yung-Cheol Byun, our lab at 
+              Established in 2003 under the visionary leadership of Prof. Dr. Yung-Cheol Byun, our lab at 
               Jeju National University pioneers breakthrough research in artificial intelligence, machine learning, 
               and innovative technology solutions that transform industries and improve lives across the globe.
             </p>
@@ -263,7 +263,7 @@ export default function Home() {
       </section>
 
       {/* Team Preview */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 via-emerald-50/40 to-green-50/60 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800">
+      <section className="py-20 bg-gradient-to-br from-gray-50 via-emerald-50/40 to-green-50/60 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -271,134 +271,210 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold mb-6 bg-gradient-to-r from-emerald-700 via-green-600 to-teal-700 bg-clip-text text-transparent">
-              Meet Our Lab Director
+            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-emerald-700 via-green-600 to-teal-700 bg-clip-text text-transparent">
+              Meet Our Leadership Team
             </h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
               Leading cutting-edge research in artificial intelligence and machine learning at Jeju National University
             </p>
           </motion.div>
 
-          {/* Director Spotlight */}
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-5xl mx-auto"
-          >
-            <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 md:p-12 shadow-2xl hover:shadow-3xl transition-all duration-300 border border-emerald-100 dark:border-emerald-800">
-              <div className="grid lg:grid-cols-2 gap-12 items-center">
-                {/* Photo and Basic Info */}
-                <div className="text-center lg:text-left">
-                  <div className="relative inline-block mb-6 group">
-                    <div className="w-64 h-64 rounded-full mx-auto lg:mx-0 overflow-hidden bg-gradient-to-br from-emerald-400 via-green-500 to-teal-500 p-2 shadow-2xl group-hover:shadow-emerald-500/50 transition-all duration-500">
-                      <div className="w-full h-full rounded-full bg-white dark:bg-gray-700 overflow-hidden relative">
-                        <img 
-                          src="/Prof.png" 
-                          alt="Dr. Yung-Cheol Byun"
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                        {/* Hover Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-t from-emerald-600/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        {/* Animated Ring */}
-                        <div className="absolute inset-0 rounded-full border-2 border-emerald-400 opacity-0 group-hover:opacity-100 animate-pulse"></div>
-                      </div>
-                    </div>
-                    
-                    {/* Floating Badge with Animation */}
-                    <div className="absolute -bottom-3 -right-3 w-20 h-20 bg-gradient-to-br from-emerald-600 to-green-600 rounded-full flex items-center justify-center shadow-xl group-hover:scale-110 transition-transform duration-300 border-4 border-white dark:border-gray-800">
-                      <Users className="h-10 w-10 text-white group-hover:animate-bounce" />
-                    </div>
-                    
-                    {/* Status Indicator */}
-                    <div className="absolute top-4 right-4 w-6 h-6 bg-green-500 rounded-full border-3 border-white dark:border-gray-700 shadow-lg animate-pulse">
-                      <div className="w-full h-full bg-green-400 rounded-full animate-ping"></div>
-                    </div>
-                    
-                    {/* Decorative Elements */}
-                    <div className="absolute -top-2 -left-2 w-8 h-8 bg-gradient-to-br from-emerald-300 to-green-400 rounded-full opacity-70 group-hover:scale-125 transition-transform duration-300"></div>
-                    <div className="absolute top-8 -right-1 w-4 h-4 bg-gradient-to-br from-teal-300 to-emerald-400 rounded-full opacity-60 group-hover:scale-150 transition-transform duration-500"></div>
-                    <div className="absolute -bottom-1 left-8 w-6 h-6 bg-gradient-to-br from-green-300 to-teal-400 rounded-full opacity-50 group-hover:scale-110 transition-transform duration-400"></div>
-                  </div>
-                  
-                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
-                    Dr. Yung-Cheol Byun
-                  </h3>
-                  <p className="text-xl text-emerald-600 dark:text-emerald-400 font-semibold mb-4">
-                    Professor & Lab Director
-                  </p>
-                  
-                  {/* Education */}
-                  <div className="bg-gradient-to-r from-emerald-50 to-green-50 dark:from-gray-700 dark:to-gray-600 rounded-2xl p-4 mb-6">
-                    <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3">Education</h4>
-                    <div className="space-y-2 text-sm text-gray-600 dark:text-gray-300">
-                      <div>🎓 <strong>Ph.D.</strong> Yonsei University (1995)</div>
-                      <div>🎓 <strong>M.S.</strong> Yonsei University (2001)</div>
-                      <div>🎓 <strong>B.S.</strong> Jeju National University (1993)</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Detailed Information */}
-                <div className="space-y-6">
-                  {/* Bio */}
-                  <div>
-                    <h4 className="text-2xl font-bold bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent mb-4">
-                      About
-                    </h4>
-                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                      Dr. Yung-Cheol Byun worked as a special lecturer in SAMSUNG Electronics (2000-2001) and 
-                      as a senior researcher at ETRI (2001-2003). He joined Jeju National University as an 
-                      assistant professor in 2003 and is now an associate professor in the Computer Engineering Department.
-                    </p>
-                  </div>
-
-                  {/* Research Interests */}
-                  <div>
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-4">
-                      🔬 Research Interests
-                    </h4>
-                    <div className="grid grid-cols-2 gap-3">
-                      {[
-                        "AI & Machine Learning",
-                        "Pattern Recognition", 
-                        "LLM & Generative Models",
-                        "Deep Learning Applications",
-                        "Big Data & Knowledge Discovery",
-                        "Time Series Analysis",
-                        "Medical Image Processing",
-                        "Recommendation Systems"
-                      ].map((interest, idx) => (
-                        <div key={idx} className="flex items-center gap-2 bg-white dark:bg-gray-700 rounded-lg p-3 shadow-sm border border-emerald-100 dark:border-emerald-800">
-                          <div className="w-2 h-2 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full"></div>
-                          <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{interest}</span>
+          {/* Directors Grid - Side by Side */}
+          <div className="grid lg:grid-cols-2 gap-10">
+            {/* Director Spotlight - Prof. Dr. Yung-Cheol Byun */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              className="w-full"
+            >
+              <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-emerald-50 dark:border-emerald-900 group">
+                {/* Top colored bar */}
+                <div className="h-3 bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500"></div>
+                
+                <div className="p-8">
+                  {/* Image and Content Layout */}
+                  <div className="flex gap-8">
+                    {/* Image Section */}
+                    <div className="flex-shrink-0">
+                      <div className="relative">
+                        {/* Circular Image with Gradient Border */}
+                        <div className="w-40 h-40 rounded-full overflow-hidden bg-gradient-to-br from-emerald-400 via-green-500 to-teal-500 p-2 shadow-lg group-hover:shadow-emerald-500/50 transition-all duration-500">
+                          <img 
+                            src="/Prof.png" 
+                            alt="Prof. Dr. Yung-Cheol Byun"
+                            className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
                         </div>
-                      ))}
+                        
+                        {/* Decorative Dots */}
+                        <div className="absolute -top-2 -left-2 w-5 h-5 bg-emerald-300 rounded-full opacity-70"></div>
+                        <div className="absolute top-6 -right-3 w-3 h-3 bg-green-400 rounded-full opacity-60"></div>
+                        <div className="absolute -bottom-1 left-8 w-4 h-4 bg-emerald-200 rounded-full opacity-50"></div>
+                        
+                        {/* Badge */}
+                        <div className="absolute -bottom-3 -right-3 w-14 h-14 bg-gradient-to-br from-emerald-600 to-green-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white dark:border-gray-800 group-hover:scale-110 transition-transform duration-300">
+                          <Users className="h-7 w-7 text-white" />
+                        </div>
+                      </div>
                     </div>
-                  </div>
 
-                  {/* Experience Highlights */}
-                  <div className="bg-gradient-to-br from-emerald-600 to-green-600 rounded-2xl p-6 text-white">
-                    <h4 className="text-lg font-bold mb-4">🏆 Career Highlights</h4>
-                    <div className="grid grid-cols-3 gap-4 text-center">
-                      <div>
-                        <div className="text-2xl font-bold">20+</div>
-                        <div className="text-sm opacity-90">Years Experience</div>
+                    {/* Content Section */}
+                    <div className="flex-1 flex flex-col justify-start">
+                      {/* Name and Title */}
+                      <div className="mb-4">
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+                          Prof. Dr. Yung-Cheol Byun
+                        </h3>
+                        <p className="text-emerald-600 dark:text-emerald-400 font-semibold text-sm">
+                          Professor & Lab Director
+                        </p>
                       </div>
-                      <div>
-                        <div className="text-2xl font-bold">ETRI</div>
-                        <div className="text-sm opacity-90">Senior Researcher</div>
+
+                      {/* Bio */}
+                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                        Special lecturer at SAMSUNG Electronics (2000-2001), Senior researcher at ETRI (2001-2003). Joined JNU as assistant professor in 2003, now associate professor in Computer Engineering.
+                      </p>
+
+                      {/* Education */}
+                      <div className="mb-4">
+                        <h4 className="text-xs font-bold text-gray-900 dark:text-white mb-2 uppercase tracking-wide">Education:</h4>
+                        <div className="space-y-1 text-xs text-gray-600 dark:text-gray-400">
+                          <div className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></div>
+                            <span><strong>Ph.D.</strong> - Yonsei University (1995)</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></div>
+                            <span><strong>M.S.</strong> - Yonsei University (2001)</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full"></div>
+                            <span><strong>B.S.</strong> - Jeju National University (1993)</span>
+                          </div>
+                        </div>
                       </div>
+
+                      {/* Research Interests */}
                       <div>
-                        <div className="text-2xl font-bold">JNU</div>
-                        <div className="text-sm opacity-90">Professor Since 2003</div>
+                        <h4 className="text-xs font-bold text-gray-900 dark:text-white mb-2 uppercase tracking-wide">Research Interests:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          {[
+                            "AI & ML",
+                            "Pattern Recognition",
+                            "LLM Models",
+                            "Deep Learning",
+                            "Big Data",
+                            "Time Series"
+                          ].map((interest, idx) => (
+                            <div key={idx} className="flex items-center gap-2 bg-emerald-50 dark:bg-gray-700 rounded-lg px-3 py-2 border border-emerald-100 dark:border-emerald-800 hover:bg-emerald-100 dark:hover:bg-gray-600 transition-colors">
+                              <div className="w-2 h-2 bg-emerald-600 rounded-full flex-shrink-0"></div>
+                              <span className="text-xs font-medium text-gray-700 dark:text-gray-300">{interest}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+
+            {/* Research Professor - Yong Woon Kim */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="w-full"
+            >
+              <div className="bg-white dark:bg-gray-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-blue-50 dark:border-blue-900 group">
+                {/* Top colored bar */}
+                <div className="h-3 bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500"></div>
+                
+                <div className="p-8">
+                  {/* Image and Content Layout */}
+                  <div className="flex gap-8">
+                    {/* Image Section */}
+                    <div className="flex-shrink-0">
+                      <div className="relative">
+                        {/* Circular Image with Gradient Border */}
+                        <div className="w-40 h-40 rounded-full overflow-hidden bg-gradient-to-br from-blue-400 via-cyan-500 to-teal-500 p-2 shadow-lg group-hover:shadow-blue-500/50 transition-all duration-500">
+                          <img 
+                            src="/Prof_kim.jpg" 
+                            alt="Prof. Dr.Yong Woon Kim"
+                            className="w-full h-full rounded-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                        </div>
+                        
+                        {/* Decorative Dots */}
+                        <div className="absolute -top-2 -left-2 w-5 h-5 bg-blue-300 rounded-full opacity-70"></div>
+                        <div className="absolute top-6 -right-3 w-3 h-3 bg-cyan-400 rounded-full opacity-60"></div>
+                        <div className="absolute -bottom-1 left-8 w-4 h-4 bg-blue-200 rounded-full opacity-50"></div>
+                        
+                        {/* Badge */}
+                        <div className="absolute -bottom-3 -right-3 w-14 h-14 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-full flex items-center justify-center shadow-lg border-4 border-white dark:border-gray-800 group-hover:scale-110 transition-transform duration-300">
+                          <Users className="h-7 w-7 text-white" />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="flex-1 flex flex-col justify-start">
+                      {/* Name and Title */}
+                      <div className="mb-4">
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-1">
+                          Prof. Dr. Yong Woon Kim
+                        </h3>
+                        <p className="text-blue-600 dark:text-blue-400 font-semibold text-sm">
+                          Research Professor
+                        </p>
+                      </div>
+
+                      {/* Bio */}
+                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                        Dedicated Research Professor at Jeju National University with expertise in IoT, edge computing, and artificial intelligence. Strong background in deep learning applications and modern computing paradigms.
+                      </p>
+
+                      {/* Education */}
+                      <div className="mb-4">
+                        <h4 className="text-xs font-bold text-gray-900 dark:text-white mb-2 uppercase tracking-wide">Education:</h4>
+                        <div className="space-y-1 text-xs text-gray-600 dark:text-gray-400">
+                          <div className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                            <span><strong>Ph.D.</strong> - Yohar University (2010)</span>
+                          </div>
+                          <div className="flex items-center gap-2">
+                            <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
+                            <span><strong>M.S.</strong> - Yohar University (2005)</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Research Interests */}
+                      <div>
+                        <h4 className="text-xs font-bold text-gray-900 dark:text-white mb-2 uppercase tracking-wide">Research Interests:</h4>
+                        <div className="grid grid-cols-2 gap-2">
+                          {[
+                            "IoT Tech",
+                            "Edge Computing",
+                            "AI Systems",
+                            "Deep Learning",
+                            "Cloud Computing",
+                            "Distributed"
+                          ].map((interest, idx) => (
+                            <div key={idx} className="flex items-center gap-2 bg-blue-50 dark:bg-gray-700 rounded-lg px-3 py-2 border border-blue-100 dark:border-blue-800 hover:bg-blue-100 dark:hover:bg-gray-600 transition-colors">
+                              <div className="w-2 h-2 bg-blue-600 rounded-full flex-shrink-0"></div>
+                              <span className="text-xs font-medium text-gray-700 dark:text-gray-300">{interest}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
 
           <div className="text-center mt-12">
             <Link

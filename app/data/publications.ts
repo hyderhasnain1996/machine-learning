@@ -17,6 +17,38 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    id: "pub-2025-000",
+    title: "A hybrid deep learning framework for multivariate energy forecasting and peak load prediction in electric vehicle charging infrastructure",
+    authors: ["Muhammad Waqar", "Yong-Woon Kim", "Yung-Cheol Byun"],
+    journal: "Applied Energy",
+    year: 2025,
+  impactFactor: "11",
+    doi: "",
+    link: "https://www.sciencedirect.com/science/article/pii/S0306261925016940?via%3Dihub",
+    category: "energy-systems",
+    tags: ["Deep Learning", "Energy Forecasting", "EV Charging", "Load Prediction"],
+    type: "journal",
+    featured: true,
+    abstract: "A hybrid deep learning framework for multivariate energy forecasting and peak load prediction in electric vehicle charging infrastructure.",
+    citations: 0
+  },
+  {
+    id: "pub-2025-002",
+    title: "A Robust Deep Learning Framework for Mitigating Label Noise With Dual Selective Attention",
+    authors: ["Hasnain Hyder", "Gulsher Baloch", "Amreen Batool", "Yong-Woon Kim", "Yung-Cheol Byun"],
+    journal: "IEEE Access",
+    year: 2025,
+    impactFactor: "3.6",
+    doi: "",
+    link: "https://ieeexplore.ieee.org/abstract/document/11062817",
+    category: "machine-learning",
+    tags: ["Label Noise", "Attention", "Deep Learning", "Robustness"],
+    type: "journal",
+    featured: true,
+    abstract: "A robust deep learning framework (Dual Selective Attention Network - DSAN) proposed to improve robustness against mislabeled data in deep learning tasks.",
+    citations: 2
+  },
+  {
     id: "pub-2025-001",
     title: "A Lightweight multi-path convolutional neural network architecture using optimal features selection for multiclass classification of brain tumor using magnetic resonance images",
     authors: ["Amreen Batool", "Yung-Cheol Byun"],

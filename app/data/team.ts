@@ -428,6 +428,94 @@ export const teamMembers: TeamMember[] = [
     status: "active",
     joinDate: "2021-03-01",
   },
+  {
+    id: "anik-debnath",
+    name: "Anik Debnath",
+    role: "Masters",
+    title: "Graduate Student",
+    email: "anik.debnath@example.com",
+    image: "/Anik.JPG",
+    bio: "Anik Debnath is a graduate student working on image processing, NLP, and machine learning projects within the lab.",
+    researchInterests: ["Image Processing", "NLP", "Machine Learning"],
+    education: [
+      {
+        degree: "M.S.",
+        institution: "Jeju National University",
+        year: 2024,
+        field: "Computer Science"
+      }
+    ],
+    publications: 0,
+    citations: 0,
+    hIndex: 0,
+    googleScholar: "https://scholar.google.com/citations?user=EGIkpOMAAAAJ&hl=en",
+    socialLinks: {},
+    status: "active",
+    joinDate: "2023-09-01",
+  },
+  {
+    id: "raj-kumar",
+    name: "Raj Kumar",
+    role: "Master",
+    title: "Graduate Student",
+    email: "raj.kumar@example.com",
+    image: "/Raj.jpg",
+    bio: "Raj Kumar is a master's student focusing on machine learning, deep learning, computer vision, and smart agriculture.",
+    researchInterests: [
+      "Machine Learning",
+      "Deep Learning",
+      "Computer Vision",
+      "Smart Agriculture",
+      "Renewable Energy",
+      "Robotics",
+    ],
+    education: [
+      {
+        degree: "M.S.",
+        institution: "Jeju National University",
+        year: 2024,
+        field: "Computer Science"
+      }
+    ],
+    publications: 0,
+    citations: 0,
+    hIndex: 0,
+    googleScholar: "https://scholar.google.com/citations?user=03U0M-YAAAAJ&hl=en&authuser=1",
+    socialLinks: {},
+    status: "active",
+    joinDate: "2023-09-01",
+  },
+  {
+    id: "nazrul-amin",
+    name: "Nazrul Amin",
+    role: "Master",
+    title: "Graduate Student",
+    email: "nazrul.amin@example.com",
+    image: "/Nazrul.png",
+    bio: "Nazrul Amin is a master's student working on machine learning, deep learning, medical imaging, smart agriculture, and IoT.",
+    researchInterests: [
+      "Machine Learning",
+      "Deep Learning",
+      "Medical Imaging",
+      "Smart Agriculture",
+      "IoT",
+    ],
+    education: [
+      {
+        degree: "M.S.",
+        institution: "Jeju National University",
+        year: 2024,
+        field: "Computer Science"
+      }
+    ],
+    publications: 0,
+    citations: 0,
+    hIndex: 0,
+    googleScholar: "https://scholar.google.com/citations?user=fFd-BXEAAAAJ&hl=en",
+    socialLinks: {},
+    status: "active",
+    joinDate: "2023-09-01",
+  },
 ];
 
 // Alumni data
