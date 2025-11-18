@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Brain, Menu, X, Home, Beaker, BookOpen, Users, Newspaper, Mail, Search, Moon, Sun, Camera } from 'lucide-react'
+import { Brain, Menu, X, Home, Beaker, BookOpen, Users, Newspaper, Mail, Search, Moon, Sun, Camera, Rocket } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 const navigationItems = [
   { name: "Home", href: "/", icon: Home },
   { name: "Research", href: "/research", icon: Beaker },
+  { name: "Projects", href: "/projects", icon: Rocket },
   { name: "Publications", href: "/publications", icon: BookOpen },
   { name: "Team", href: "/team", icon: Users },
   { name: "Gallery", href: "/gallery", icon: Camera },

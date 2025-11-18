@@ -112,7 +112,7 @@ export const teamMembers: TeamMember[] = [
     publications: 150,
     citations: 2850,
     hIndex: 28,
-    googleScholar: "https://scholar.google.com/citations?user=example",
+    googleScholar: "https://scholar.google.com/citations?user=jfGGqJIAAAAJ&hl=ko",
     achievements: [
       "Best Paper Award - IEEE Conference on AI 2023",
       "Excellence in Research Award - JNU 2022",
@@ -180,7 +180,7 @@ export const teamMembers: TeamMember[] = [
     publications: 45,
     citations: 800,
     hIndex: 18,
-    googleScholar: "https://scholar.google.com/citations?user=example",
+    googleScholar: "https://scholar.google.com/citations?user=ikuCcYQAAAAJ&hl=ko",
     achievements: [
       "Outstanding Research Award in IoT Technologies",
       "Best Paper Award at AI Conference 2023",
@@ -196,12 +196,12 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: "amreen-batool",
-    name: "Amreen Batool",
-    role: "Ph.D. Student",
-    title: "Doctoral Researcher",
+    name: "Dr. Amreen Batool",
+    role: "Post-Doctoral Fellow",
+    title: "Post-Doctoral Researcher",
     email: "amreen@example.com",
     image: "/Batool.JPG",
-    bio: "Amreen Batool is a dedicated Ph.D. student specializing in medical AI and blockchain applications. Her research focuses on developing innovative AI solutions for healthcare challenges, particularly in medical image analysis and secure health data management. She has published several high-impact papers in top-tier journals and conferences.",
+    bio: "Dr. Amreen Batool is a Post-Doctoral Fellow specializing in medical AI and blockchain applications. Her research focuses on developing innovative AI solutions for healthcare challenges, particularly in medical image analysis and secure health data management. She has published several high-impact papers in top-tier journals and conferences.",
     researchInterests: [
       "Medical Image Analysis",
       "Deep Learning for Healthcare",
@@ -213,9 +213,9 @@ export const teamMembers: TeamMember[] = [
     ],
     education: [
       {
-        degree: "Ph.D. in Computer Engineering (In Progress)",
+        degree: "Ph.D. in Computer Engineering",
         institution: "Jeju National University",
-        year: 2026,
+        year: 2024,
         field: "Medical AI and Blockchain",
       },
       {
@@ -381,6 +381,41 @@ export const teamMembers: TeamMember[] = [
     joinDate: "2022-03-01",
   },
   {
+    id: "jiyoung-ko",
+    name: "Jiyoung Ko",
+    role: "Ph.D. Student",
+    title: "Masters & Ph.D. Researcher",
+    email: "jiyoung.ko@example.com",
+    image: "/Jiyoung.jpg",
+    bio: "Jiyoung Ko is a Ph.D. student specializing in machine learning, predictive modelling, and recommendation systems. Her research focuses on developing intelligent algorithms for data-driven predictions and personalized recommendation systems.",
+    researchInterests: [
+      "Machine Learning",
+      "Predictive Modelling",
+      "Recommendation Systems",
+      "Data Mining",
+      "Deep Learning",
+    ],
+    education: [
+      {
+        degree: "Ph.D. in Computer Engineering (In Progress)",
+        institution: "Jeju National University",
+        year: 2026,
+        field: "Machine Learning and Recommendation Systems",
+      },
+      {
+        degree: "M.S. in Computer Science",
+        institution: "Jeju National University",
+        year: 2023,
+      },
+    ],
+    publications: 0,
+    citations: 0,
+    hIndex: 0,
+    googleScholar: "https://scholar.google.com/",
+    status: "active",
+    joinDate: "2023-03-01",
+  },
+  {
     id: "muhammad-waqar",
     name: "Muhammad Waqar",
     role: "Ph.D. Student",
@@ -516,6 +551,63 @@ export const teamMembers: TeamMember[] = [
     status: "active",
     joinDate: "2023-09-01",
   },
+  {
+    id: "yuseok-kim",
+    name: "Yu-Seok Kim",
+    role: "Master",
+    title: "Graduate Student",
+    email: "yuseok.kim@example.com",
+    image: "/yuseok.jpg",
+    bio: "Yu-Seok Kim is a master's student specializing in machine learning, large language models, and model optimization techniques.",
+    researchInterests: [
+      "Machine Learning",
+      "LLM",
+      "Model Quantization & Efficiency",
+      "Image Processing",
+    ],
+    education: [
+      {
+        degree: "M.S.",
+        institution: "Jeju National University",
+        year: 2025,
+        field: "Computer Science"
+      }
+    ],
+    publications: 0,
+    citations: 0,
+    hIndex: 0,
+    googleScholar: "https://scholar.google.com/",
+    socialLinks: {},
+    status: "active",
+    joinDate: "2024-09-01",
+  },
+  {
+    id: "julliane-camarista",
+    name: "Julliane Pearl M. Camarista",
+    role: "GKS",
+    title: "Graduate Student",
+    email: "julliane.camarista@example.com",
+    image: "/Julliane Pearl M- Camarista.jpg",
+    bio: "Julliane Pearl M. Camarista is a GKS student focusing on machine learning research and applications.",
+    researchInterests: [
+      "Machine Learning",
+    ],
+    education: [
+      {
+        degree: "M.S.",
+        institution: "Jeju National University",
+        year: 2025,
+        field: "Computer Science"
+      }
+    ],
+    publications: 0,
+    citations: 0,
+    hIndex: 0,
+    googleScholar: "https://scholar.google.com/",
+    socialLinks: {},
+    status: "active",
+    joinDate: "2024-09-01",
+  },
 ];
 
 // Alumni data
@@ -575,11 +667,186 @@ export const alumniMembers: TeamMember[] = [
     status: "alumni",
     currentPosition: "Research Fellow",
     currentAffiliation: "Vrije Universiteit Brussel, Belgium"
+  },
+  {
+    id: "yongjun-kim",
+    name: "Dr. Yongjun Kim",
+    role: "Former Ph.D. Student",
+    title: "Ph.D.",
+    image: "/Jun.jpg",
+    bio: "Dr. Yongjun Kim completed his Ph.D. at our lab, focusing on machine learning and artificial intelligence. He is currently working as a researcher at KIST AI/R Lab in South Korea.",
+    researchInterests: [
+      "Machine Learning",
+      "Artificial Intelligence",
+      "Deep Learning",
+      "Computer Vision"
+    ],
+    education: [
+      {
+        degree: "Ph.D. in Computer Engineering",
+        institution: "Jeju National University",
+        year: 2023
+      }
+    ],
+    publications: 0,
+    citations: 0,
+    googleScholar: "https://scholar.google.com/",
+    status: "alumni",
+    joinDate: "2018-03-01",
+    graduationDate: "2023-08-31",
+    currentPosition: "Researcher",
+    currentAffiliation: "KIST AI/R Lab, South Korea"
+  },
+  {
+    id: "debapryia-hazra",
+    name: "Dr. Debapryia Hazra",
+    role: "Former Ph.D. Student",
+    title: "Ph.D.",
+    image: "/deba.jpg",
+    bio: "Dr. Debapryia Hazra completed her Ph.D. at our lab, specializing in machine learning and data science. She is currently working at Stanford University in the United States of America.",
+    researchInterests: [
+      "Machine Learning",
+      "Data Science",
+      "Deep Learning",
+      "Artificial Intelligence"
+    ],
+    education: [
+      {
+        degree: "Ph.D. in Computer Engineering",
+        institution: "Jeju National University",
+        year: 2023
+      }
+    ],
+    publications: 0,
+    citations: 0,
+    googleScholar: "https://scholar.google.com/",
+    status: "alumni",
+    joinDate: "2018-03-01",
+    graduationDate: "2023-08-31",
+    currentPosition: "Researcher",
+    currentAffiliation: "Stanford University, United States of America"
+  },
+  {
+    id: "zeinab-shahbazi",
+    name: "Dr. Zeinab Shahbazi",
+    role: "Former Ph.D. Student",
+    title: "Ph.D.",
+    image: "/image.png",
+    bio: "Dr. Zeinab Shahbazi completed her Ph.D. at our lab, focusing on machine learning and artificial intelligence. She is currently working at Barcelona University in Spain.",
+    researchInterests: [
+      "Machine Learning",
+      "Artificial Intelligence",
+      "Deep Learning",
+      "Data Science"
+    ],
+    education: [
+      {
+        degree: "Ph.D. in Computer Engineering",
+        institution: "Jeju National University",
+        year: 2023
+      }
+    ],
+    publications: 0,
+    citations: 0,
+    googleScholar: "https://scholar.google.com/",
+    status: "alumni",
+    joinDate: "2018-03-01",
+    graduationDate: "2023-08-31",
+    currentPosition: "Researcher",
+    currentAffiliation: "Barcelona University, Spain"
+  },
+  {
+    id: "pyae-phyo",
+    name: "Dr. Pyae Pyae Phyo",
+    role: "Former Post-Doctoral Fellow",
+    title: "Post Doc",
+    image: "/phyo.jpeg",
+    bio: "Dr. Pyae Pyae Phyo completed her Post-Doctoral research at our lab, specializing in machine learning and artificial intelligence. She is currently working at Eindhoven University of Technology in the Netherlands.",
+    researchInterests: [
+      "Machine Learning",
+      "Artificial Intelligence",
+      "Deep Learning",
+      "Computer Vision"
+    ],
+    education: [
+      {
+        degree: "Ph.D. in Computer Engineering",
+        institution: "Jeju National University",
+        year: 2022
+      }
+    ],
+    publications: 0,
+    citations: 0,
+    googleScholar: "https://scholar.google.com/",
+    status: "alumni",
+    joinDate: "2017-03-01",
+    graduationDate: "2022-08-31",
+    currentPosition: "Post-Doctoral Researcher",
+    currentAffiliation: "Eindhoven University of Technology, Netherlands"
+  },
+  {
+    id: "prince-khan",
+    name: "Dr. Prince Waqas Khan",
+    role: "Former Ph.D. Student",
+    title: "Ph.D.",
+    image: "/Prince.jpeg",
+    bio: "Dr. Prince Waqas Khan completed his Ph.D. at our lab, focusing on machine learning and data science. He is currently working at West Virginia University in Morgantown, WV, USA.",
+    researchInterests: [
+      "Machine Learning",
+      "Data Science",
+      "Artificial Intelligence",
+      "Deep Learning"
+    ],
+    education: [
+      {
+        degree: "Ph.D. in Computer Engineering",
+        institution: "Jeju National University",
+        year: 2023
+      }
+    ],
+    publications: 0,
+    citations: 0,
+    googleScholar: "https://scholar.google.com/",
+    status: "alumni",
+    joinDate: "2018-03-01",
+    graduationDate: "2023-08-31",
+    currentPosition: "Researcher",
+    currentAffiliation: "West Virginia University, Morgantown, WV, USA"
+  },
+  {
+    id: "mudassar-liaq",
+    name: "Mr. Mudassar Liaq",
+    role: "Former Master's Student",
+    title: "Masters",
+    image: "/liaq.jpg",
+    bio: "Mr. Mudassar Liaq completed his Master's degree at our lab, specializing in machine learning and computer science. He is currently studying at Lakehead University in Canada.",
+    researchInterests: [
+      "Machine Learning",
+      "Computer Science",
+      "Artificial Intelligence",
+      "Data Analytics"
+    ],
+    education: [
+      {
+        degree: "M.S. in Computer Science",
+        institution: "Jeju National University",
+        year: 2023
+      }
+    ],
+    publications: 0,
+    citations: 0,
+    googleScholar: "https://scholar.google.com/",
+    status: "alumni",
+    joinDate: "2021-03-01",
+    graduationDate: "2023-08-31",
+    currentPosition: "Student",
+    currentAffiliation: "Lakehead University, Canada"
   }
 ]
 
 export const facultyMembers = teamMembers.filter(member => member.role.includes("Professor"))
-export const currentStudents = teamMembers.filter(member => member.status === "active" && !member.role.includes("Professor"))
+export const postDocFellows = teamMembers.filter(member => member.role.includes("Post-Doctoral"))
+export const currentStudents = teamMembers.filter(member => member.status === "active" && !member.role.includes("Professor") && !member.role.includes("Post-Doctoral"))
 export const allAlumni = alumniMembers
 
 export const teamStats = {
