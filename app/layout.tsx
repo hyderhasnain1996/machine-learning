@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Providers from "./components/providers/Providers";
 import Navigation from "./components/layout/Navigation";
 import Footer from "./components/layout/Footer";
+import ChatBot from "./components/chatbot/ChatBot";
 import "./globals.css";
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +55,7 @@ export default function RootLayout({
           <Navigation />
           <main className="min-h-screen">{children}</main>
           <Footer />
+          <ChatBot />
         </Providers>
       </body>
     </html>
