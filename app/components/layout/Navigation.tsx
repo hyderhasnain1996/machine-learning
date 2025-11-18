@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Brain, Menu, X, Home, Beaker, BookOpen, Users, Newspaper, Mail, Search, Moon, Sun, Camera, Rocket } from 'lucide-react'
+import { Brain, Menu, X, Home, Beaker, BookOpen, Users, Newspaper, Mail, Search, Moon, Sun, Camera, Rocket, Sparkles, Zap } from 'lucide-react'
 import { useTheme } from 'next-themes'
 
 const navigationItems = [
@@ -66,33 +66,42 @@ export default function Navigation() {
         initial="hidden"
         animate="visible"
         variants={navVariants}
-        className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-          isScrolled 
-            ? 'bg-white/90 dark:bg-gray-900/90 backdrop-blur-md shadow-lg border-b border-gray-200/20 dark:border-gray-700/20' 
-            : 'bg-transparent'
+        className={`fixed top-0 w-full z-50 transition-all duration-500 ${
+          isScrolled
+            ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-2xl border-b border-emerald-200/30 dark:border-emerald-500/20'
+            : 'bg-gradient-to-b from-black/30 via-black/10 to-transparent backdrop-blur-sm'
         }`}
       >
+        {/* Futuristic top accent line */}
+        <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-emerald-500 to-transparent transition-opacity duration-500 ${
+          isScrolled ? 'opacity-100' : 'opacity-0'
+        }`}>
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-emerald-400 to-teal-400 animate-pulse"></div>
+        </div>
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16 lg:h-20">
-            {/* Logo */}
-            <motion.div variants={itemVariants}>
-              <Link href="/" className="flex items-center space-x-3 group">
-                <div className="relative">
-                  <Brain className={`h-8 w-8 transition-colors duration-300 ${
-                    isScrolled ? 'text-emerald-600' : 'text-white'
-                  } group-hover:text-emerald-500`} />
-                  <div className="absolute inset-0 bg-emerald-500/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="flex justify-between items-center h-20">
+            {/* Clean Professional Logo */}
+            <motion.div variants={itemVariants} className="flex-shrink-0">
+              <Link href="/" className="flex items-center gap-3 group">
+                {/* Logo Icon */}
+                <div className={`relative w-11 h-11 rounded-lg bg-gradient-to-br from-emerald-500 via-green-500 to-teal-500 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg ${
+                  isScrolled ? 'shadow-md shadow-emerald-500/30' : 'shadow-lg shadow-white/20'
+                }`}>
+                  <Brain className="h-6 w-6 text-white" />
                 </div>
+
+                {/* Logo Text */}
                 <div className="hidden sm:block">
-                  <span className={`text-xl font-bold transition-colors duration-300 ${
-                    isScrolled 
-                      ? 'bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text text-transparent' 
+                  <div className={`text-lg font-bold tracking-tight transition-colors duration-300 ${
+                    isScrolled
+                      ? 'bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text text-transparent'
                       : 'text-white'
                   }`}>
                     ML Lab JNU
-                  </span>
-                  <div className={`text-xs transition-colors duration-300 ${
-                    isScrolled ? 'text-gray-600 dark:text-gray-400' : 'text-white/80'
+                  </div>
+                  <div className={`text-xs font-medium transition-colors duration-300 ${
+                    isScrolled ? 'text-gray-500 dark:text-gray-400' : 'text-emerald-100'
                   }`}>
                     Jeju National University
                   </div>
@@ -100,53 +109,45 @@ export default function Navigation() {
               </Link>
             </motion.div>
 
-            {/* Desktop Navigation */}
-            <motion.div 
+            {/* Desktop Navigation - Clean & Professional */}
+            <motion.div
               variants={itemVariants}
-              className="hidden lg:flex items-center space-x-1"
+              className="hidden lg:flex items-center gap-1 bg-white/10 dark:bg-slate-800/30 backdrop-blur-md rounded-full px-2 py-1.5 border border-white/20 dark:border-slate-700/50"
             >
               {navigationItems.map((item) => {
                 const Icon = item.icon
                 const isActive = pathname === item.href
-                
+
                 return (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`group relative px-4 py-2 rounded-full transition-all duration-300 flex items-center space-x-2 ${
+                    className={`group relative px-3 py-2 rounded-full transition-all duration-300 flex items-center gap-1.5 ${
                       isActive
-                        ? isScrolled
-                          ? 'bg-blue-600 text-white'
-                          : 'bg-white/20 text-white backdrop-blur-sm'
+                        ? 'bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 text-white shadow-md shadow-emerald-500/40'
                         : isScrolled
-                          ? 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                          : 'text-white/80 hover:text-white hover:bg-white/10'
+                          ? 'text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-slate-700/50'
+                          : 'text-white/90 hover:bg-white/20'
                     }`}
                   >
                     <Icon className="h-4 w-4" />
-                    <span className="font-medium">{item.name}</span>
-                    {isActive && (
-                      <motion.div
-                        layoutId="activeTab"
-                        className="absolute inset-0 bg-emerald-600 rounded-full -z-10"
-                        initial={false}
-                        transition={{ type: "spring", stiffness: 500, damping: 30 }}
-                      />
-                    )}
+                    <span className="font-medium text-sm">
+                      {item.name}
+                    </span>
                   </Link>
                 )
               })}
             </motion.div>
 
-            {/* Actions */}
-            <motion.div variants={itemVariants} className="flex items-center space-x-3">
+            {/* Actions - Clean Buttons */}
+            <motion.div variants={itemVariants} className="flex items-center gap-2">
               {/* Search Button */}
               <button
                 onClick={toggleSearch}
-                className={`p-2 rounded-full transition-all duration-300 ${
+                className={`p-2.5 rounded-lg transition-all duration-300 ${
                   isScrolled
-                    ? 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                    : 'text-white/80 hover:text-white hover:bg-white/10'
+                    ? 'bg-emerald-50 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-slate-700'
+                    : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm'
                 }`}
                 aria-label="Search"
               >
@@ -157,10 +158,10 @@ export default function Navigation() {
               {mounted && (
                 <button
                   onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                  className={`p-2 rounded-full transition-all duration-300 ${
+                  className={`p-2.5 rounded-lg transition-all duration-300 ${
                     isScrolled
-                      ? 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                      : 'text-white/80 hover:text-white hover:bg-white/10'
+                      ? 'bg-emerald-50 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-slate-700'
+                      : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm'
                   }`}
                   aria-label="Toggle theme"
                 >
@@ -175,10 +176,10 @@ export default function Navigation() {
               {/* Mobile Menu Button */}
               <button
                 onClick={toggleMenu}
-                className={`lg:hidden p-2 rounded-full transition-all duration-300 ${
+                className={`lg:hidden p-2.5 rounded-lg transition-all duration-300 ${
                   isScrolled
-                    ? 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
-                    : 'text-white/80 hover:text-white hover:bg-white/10'
+                    ? 'bg-emerald-50 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-slate-700'
+                    : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm'
                 }`}
                 aria-label="Toggle menu"
               >
@@ -192,7 +193,7 @@ export default function Navigation() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Clean Design */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
@@ -200,32 +201,34 @@ export default function Navigation() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden bg-white/95 dark:bg-gray-900/95 backdrop-blur-md border-t border-gray-200/20 dark:border-gray-700/20"
+              className="lg:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-emerald-200/30 dark:border-emerald-500/20 shadow-xl"
             >
               <div className="max-w-7xl mx-auto px-4 py-4">
-                <div className="space-y-2">
+                <div className="space-y-1">
                   {navigationItems.map((item, index) => {
                     const Icon = item.icon
                     const isActive = pathname === item.href
-                    
+
                     return (
                       <motion.div
                         key={item.name}
                         initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: index * 0.1 }}
+                        transition={{ delay: index * 0.05 }}
                       >
                         <Link
                           href={item.href}
                           onClick={closeMenu}
-                          className={`flex items-center space-x-3 px-4 py-3 rounded-lg transition-all duration-300 ${
+                          className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ${
                             isActive
-                              ? 'bg-blue-600 text-white'
-                              : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                              ? 'bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 text-white shadow-md shadow-emerald-500/30'
+                              : 'bg-gray-50 dark:bg-slate-800/50 text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-slate-700'
                           }`}
                         >
                           <Icon className="h-5 w-5" />
-                          <span className="font-medium">{item.name}</span>
+                          <span className="font-medium">
+                            {item.name}
+                          </span>
                         </Link>
                       </motion.div>
                     )
