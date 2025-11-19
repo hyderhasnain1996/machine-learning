@@ -69,12 +69,12 @@ export default function Research() {
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="relative group"
+                  className="relative group flex"
                 >
                   {/* Gradient border effect */}
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
 
-                  <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300">
+                  <div className="relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 flex flex-col w-full">
                     {/* Blinking indicator dots */}
                     <div className="absolute -top-2 -right-2 flex items-center gap-2">
                       <span className="relative flex h-3 w-3">

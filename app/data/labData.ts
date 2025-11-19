@@ -34,6 +34,35 @@ export const labInfo = {
 
 export const researchAreas = [
   {
+    id: "lightweight-edge",
+    title: "Lightweight Models for Edge Devices",
+    description: "Pioneering research in model compression, quantization, knowledge distillation, and optimization techniques to deploy efficient AI models on resource-constrained edge devices with minimal power consumption and maximum performance.",
+    icon: "Cpu",
+    gradient: "from-orange-500 via-amber-500 to-yellow-600",
+    color: "orange",
+    keywords: ["Model Compression", "Quantization", "Knowledge Distillation", "Edge AI", "On-Device Learning", "Model Optimization"],
+    applications: [
+      "Mobile AI Applications",
+      "Drone-based AI Systems",
+      "Embedded Vision Systems",
+      "Low-Power Inference",
+      "Real-time Edge Processing",
+      "Teacher-Student Model Training"
+    ],
+    projects: [
+      {
+        title: "Lightweight LLM for Tourism",
+        description: "Developing low-power LLM models optimized for mobile and edge devices in tourism applications",
+        status: "Active"
+      },
+      {
+        title: "On-Device AI for Drones",
+        description: "Building efficient AI models for real-time solar panel inspection using drones",
+        status: "Active"
+      }
+    ]
+  },
+  {
     id: "machine-learning",
     title: "Machine Learning & AI",
     description: "Advanced research in artificial intelligence, deep learning, and machine learning applications for real-world problems including renewable energy, transportation, and smart systems.",
@@ -43,7 +72,7 @@ export const researchAreas = [
     keywords: ["Deep Learning", "Neural Networks", "Predictive Modeling", "Time Series Analysis", "Pattern Recognition"],
     applications: [
       "Renewable Energy Optimization",
-      "Smart Transportation Systems", 
+      "Smart Transportation Systems",
       "Predictive Maintenance",
       "Recommendation Systems",
       "Natural Language Processing"
@@ -213,105 +242,6 @@ export interface Project {
 export const currentProjects: Project[] = [
   {
     id: 1,
-    title: "Lightweight LLM Technology for Smart Tourism",
-    shortTitle: "Smart Tourism AI",
-    description: "Developing a low-power LLM-based AI recommendation service for smart tourism with personalized information delivery.",
-    objectives: [
-      "Develop low-power LLM model engine optimized for mobile and edge devices",
-      "Enhance LLM using RAG (Retrieval-Augmented Generation) technology",
-      "Collect and integrate comprehensive tourism data for model training",
-      "Build integrated AI tourism platform with personalized recommendations"
-    ],
-    technologies: ["Large Language Models", "RAG", "Edge Computing", "Mobile AI", "Tourism Data Analytics"],
-    keyFeatures: [
-      "Low-power consumption for extended battery life",
-      "Real-time personalized tourism recommendations",
-      "Integration with local tourism databases",
-      "Multi-language support for international tourists"
-    ],
-    status: "Active",
-    image: "/mllab.jpeg",
-    gradient: "from-blue-500 via-cyan-500 to-teal-600",
-    category: "LLM & Tourism",
-    partner: "Local Tourism Company",
-    icon: "MapPin"
-  },
-  {
-    id: 2,
-    title: "LLM-Based Smart Farm Service",
-    shortTitle: "Smart Farming AI",
-    description: "Creating a lightweight LLM for wasabi smart farming optimization with sovereign AI capabilities and real-time IoT integration.",
-    objectives: [
-      "Develop lightweight LLM for mobile and edge computing in agriculture",
-      "Build sovereign LLM system using RAG with IoT sensor data",
-      "Integrate international and domestic wasabi variety information",
-      "Optimize cultivation processes from planning to harvest"
-    ],
-    technologies: ["Lightweight LLM", "RAG", "IoT Sensors", "Edge AI", "Agricultural Analytics"],
-    keyFeatures: [
-      "Real-time IoT sensor data integration",
-      "Cultivation know-how recommendations",
-      "Product quality and yield optimization",
-      "Production cost analysis and reduction"
-    ],
-    status: "Active",
-    image: "/IMG_0731.jpg",
-    gradient: "from-green-500 via-emerald-500 to-lime-600",
-    category: "Smart Agriculture",
-    partner: "Agricultural Research Institute",
-    icon: "Sprout"
-  },
-  {
-    id: 3,
-    title: "Establishing On-Device AI for Drone-Based Solar Panel Inspection",
-    shortTitle: "Drone Solar Inspection",
-    description: "Building a smart preventive maintenance system using on-device AI on drones for automated solar panel inspection and fault prediction.",
-    objectives: [
-      "Deploy on-device AI directly on inspection drones",
-      "Integrate high-resolution cameras and thermal imaging",
-      "Develop real-time defect detection algorithms",
-      "Implement predictive maintenance alerting system"
-    ],
-    technologies: ["On-Device AI", "Computer Vision", "Thermal Imaging", "IoT Sensors", "Predictive Analytics"],
-    keyFeatures: [
-      "Real-time crack and corrosion detection",
-      "Overheating prediction and alerts",
-      "Automated inspection flight paths",
-      "Instant manager notifications for issues"
-    ],
-    status: "Active",
-    image: "/bg-1.jpg",
-    gradient: "from-orange-500 via-amber-500 to-yellow-600",
-    category: "Renewable Energy",
-    partner: "Solar Energy Company",
-    icon: "Sun"
-  },
-  {
-    id: 4,
-    title: "AI-Based Roof Edge Extraction for Solar Panel Installation",
-    shortTitle: "Solar Roof Analysis",
-    description: "Combining ViT and LLM technology to identify roof edges and obstacles from aerial imagery for optimal solar panel installation planning.",
-    objectives: [
-      "Develop ViT model for obstacle detection on roofs",
-      "Restore hidden roof areas using AI reconstruction",
-      "Implement precise edge detection algorithms",
-      "Create LLM-based reasoning for installation planning"
-    ],
-    technologies: ["Vision Transformer (ViT)", "Large Language Models", "Edge Detection", "Satellite Imagery", "3D Reconstruction"],
-    keyFeatures: [
-      "Automatic obstacle identification",
-      "Hidden area restoration and mapping",
-      "Structural suitability assessment",
-      "Optimal panel arrangement suggestions"
-    ],
-    status: "Active",
-    image: "/mllab.jpeg",
-    gradient: "from-purple-500 via-violet-500 to-indigo-600",
-    category: "Renewable Energy",
-    icon: "Home"
-  },
-  {
-    id: 5,
     title: "LLM for Traffic Digital Twin",
     shortTitle: "Traffic Digital Twin",
     description: "Using LLM to automatically generate traffic scenarios for building and optimizing city transportation digital twins.",
@@ -329,11 +259,110 @@ export const currentProjects: Project[] = [
       "Physical-digital twin synchronization"
     ],
     status: "Active",
-    image: "/IMG_0731.jpg",
+    image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&q=80",
     gradient: "from-red-500 via-rose-500 to-pink-600",
     category: "Smart City",
     partner: "City Transportation Authority",
     icon: "Car"
+  },
+  {
+    id: 2,
+    title: "Lightweight LLM Technology for Smart Tourism",
+    shortTitle: "Smart Tourism AI",
+    description: "Developing a low-power LLM-based AI recommendation service for smart tourism with personalized information delivery.",
+    objectives: [
+      "Develop low-power LLM model engine optimized for mobile and edge devices",
+      "Enhance LLM using RAG (Retrieval-Augmented Generation) technology",
+      "Collect and integrate comprehensive tourism data for model training",
+      "Build integrated AI tourism platform with personalized recommendations"
+    ],
+    technologies: ["Large Language Models", "RAG", "Edge Computing", "Mobile AI", "Tourism Data Analytics"],
+    keyFeatures: [
+      "Low-power consumption for extended battery life",
+      "Real-time personalized tourism recommendations",
+      "Integration with local tourism databases",
+      "Multi-language support for international tourists"
+    ],
+    status: "Active",
+    image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80",
+    gradient: "from-blue-500 via-cyan-500 to-teal-600",
+    category: "LLM & Tourism",
+    partner: "Local Tourism Company",
+    icon: "MapPin"
+  },
+  {
+    id: 3,
+    title: "LLM-Based Smart Farm Service",
+    shortTitle: "Smart Farming AI",
+    description: "Creating a lightweight LLM for wasabi smart farming optimization with sovereign AI capabilities and real-time IoT integration.",
+    objectives: [
+      "Develop lightweight LLM for mobile and edge computing in agriculture",
+      "Build sovereign LLM system using RAG with IoT sensor data",
+      "Integrate international and domestic wasabi variety information",
+      "Optimize cultivation processes from planning to harvest"
+    ],
+    technologies: ["Lightweight LLM", "RAG", "IoT Sensors", "Edge AI", "Agricultural Analytics"],
+    keyFeatures: [
+      "Real-time IoT sensor data integration",
+      "Cultivation know-how recommendations",
+      "Product quality and yield optimization",
+      "Production cost analysis and reduction"
+    ],
+    status: "Active",
+    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80",
+    gradient: "from-green-500 via-emerald-500 to-lime-600",
+    category: "Smart Agriculture",
+    partner: "Agricultural Research Institute",
+    icon: "Sprout"
+  },
+  {
+    id: 4,
+    title: "Establishing On-Device AI for Drone-Based Solar Panel Inspection",
+    shortTitle: "Drone Solar Inspection",
+    description: "Building a smart preventive maintenance system using on-device AI on drones for automated solar panel inspection and fault prediction.",
+    objectives: [
+      "Deploy on-device AI directly on inspection drones",
+      "Integrate high-resolution cameras and thermal imaging",
+      "Develop real-time defect detection algorithms",
+      "Implement predictive maintenance alerting system"
+    ],
+    technologies: ["On-Device AI", "Computer Vision", "Thermal Imaging", "IoT Sensors", "Predictive Analytics"],
+    keyFeatures: [
+      "Real-time crack and corrosion detection",
+      "Overheating prediction and alerts",
+      "Automated inspection flight paths",
+      "Instant manager notifications for issues"
+    ],
+    status: "Active",
+    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?w=800&q=80",
+    gradient: "from-orange-500 via-amber-500 to-yellow-600",
+    category: "Renewable Energy",
+    partner: "Solar Energy Company",
+    icon: "Sun"
+  },
+  {
+    id: 5,
+    title: "AI-Based Roof Edge Extraction for Solar Panel Installation",
+    shortTitle: "Solar Roof Analysis",
+    description: "Combining ViT and LLM technology to identify roof edges and obstacles from aerial imagery for optimal solar panel installation planning.",
+    objectives: [
+      "Develop ViT model for obstacle detection on roofs",
+      "Restore hidden roof areas using AI reconstruction",
+      "Implement precise edge detection algorithms",
+      "Create LLM-based reasoning for installation planning"
+    ],
+    technologies: ["Vision Transformer (ViT)", "Large Language Models", "Edge Detection", "Satellite Imagery", "3D Reconstruction"],
+    keyFeatures: [
+      "Automatic obstacle identification",
+      "Hidden area restoration and mapping",
+      "Structural suitability assessment",
+      "Optimal panel arrangement suggestions"
+    ],
+    status: "Active",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80",
+    gradient: "from-purple-500 via-violet-500 to-indigo-600",
+    category: "Renewable Energy",
+    icon: "Home"
   },
   {
     id: 6,
@@ -354,7 +383,7 @@ export const currentProjects: Project[] = [
       "AI-driven energy optimization"
     ],
     status: "Active",
-    image: "/bg-1.jpg",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
     gradient: "from-teal-500 via-cyan-500 to-blue-600",
     category: "Smart Building",
     partner: "Building Management Systems Inc.",

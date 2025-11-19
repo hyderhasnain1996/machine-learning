@@ -6,82 +6,52 @@ import { X } from 'lucide-react'
 
 const galleryImages = [
   {
-    id: 1,
-    src: "/ios-1.jpeg",
-    alt: "Lab Event 1",
-    category: "events"
-  },
-  {
-    id: 2,
-    src: "/img-4400.jpg",
-    alt: "Lab Activity 1",
-    category: "activities"
-  },
-  {
     id: 3,
     src: "/IMG_5952.JPG",
-    alt: "Team Photo 1",
+    alt: "Graduation Ceremony",
     category: "team"
-  },
-  {
-    id: 4,
-    src: "/IMG_6522.JPG",
-    alt: "Team Photo 2",
-    category: "team"
-  },
-  {
-    id: 5,
-    src: "/IMG_5371.JPG",
-    alt: "Team Photo 3",
-    category: "team"
-  },
-  {
-    id: 6,
-    src: "/gal.jpg",
-    alt: "Lab Activity 2",
-    category: "activities"
-  },
-  {
-    id: 7,
-    src: "/1652954862334.jpeg",
-    alt: "Lab Event 2",
-    category: "events"
-  },
-  {
-    id: 8,
-    src: "/IMG_6546.JPG",
-    alt: "Team Photo 4",
-    category: "team"
-  },
-  {
-    id: 9,
-    src: "/1724247130065-23.JPG",
-    alt: "Recent Event 1",
-    category: "events"
-  },
-  {
-    id: 10,
-    src: "/img-6213.jpg",
-    alt: "Lab Activity 3",
-    category: "activities"
-  },
-  {
-    id: 11,
-    src: "/IMG_6563.JPG",
-    alt: "Team Photo 5",
-    category: "team"
-  },
-  {
-    id: 12,
-    src: "/20210812-174805.jpeg",
-    alt: "Lab Event 3",
-    category: "events"
   },
   {
     id: 13,
     src: "/mllab.jpeg",
-    alt: "ML Lab",
+    alt: "Group Photos",
     category: "facilities"
+  },
+  {
+    id: 14,
+    src: "/IMG_0412.jpg",
+    alt: "Lab Event",
+    category: "events"
+  },
+  {
+    id: 15,
+    src: "/IMG_6082.jpg",
+    alt: "Team Meeting",
+    category: "team"
+  },
+  {
+    id: 16,
+    src: "/IMG_4147 (1).jpg",
+    alt: "Research Activity",
+    category: "activities"
+  },
+  {
+    id: 17,
+    src: "/IMG_4173.jpg",
+    alt: "Lab Activity",
+    category: "activities"
+  },
+  {
+    id: 18,
+    src: "/IMG_1495.jpg",
+    alt: "Team Event",
+    category: "events"
+  },
+  {
+    id: 19,
+    src: "/img-4400.jpg",
+    alt: "Lab Activity",
+    category: "activities"
   }
 ]
 
@@ -106,17 +76,42 @@ export default function Gallery() {
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] min-h-[400px] overflow-hidden pt-32 pb-20">
         {/* Background Image */}
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(/gal.jpg)`,
+            backgroundImage: `url(https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=1920&q=80)`,
           }}
         />
-        
+
         {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-green-600 to-teal-700 opacity-85" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-        
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-green-600 to-teal-700 opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+
+        {/* Decorative animated blobs */}
+        <div className="absolute top-20 left-20 w-72 h-72 bg-emerald-400/20 rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
+        <div className="absolute top-40 right-20 w-72 h-72 bg-green-400/20 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-teal-400/20 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-4000"></div>
+
+        {/* Blinking accent dots */}
+        <div className="absolute top-10 left-20">
+          <span className="relative flex h-4 w-4">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-white"></span>
+          </span>
+        </div>
+        <div className="absolute bottom-10 right-20">
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-200 opacity-75" style={{ animationDelay: '1s' }}></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-100"></span>
+          </span>
+        </div>
+        <div className="absolute top-1/2 left-10">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" style={{ animationDelay: '0.5s' }}></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+          </span>
+        </div>
+
         <div className="relative z-10 h-full flex flex-col items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -124,10 +119,22 @@ export default function Gallery() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-5xl font-bold mb-6 text-white">
+            {/* Decorative badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/20">
+              <svg className="h-5 w-5 text-emerald-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+              </svg>
+              <span className="text-sm font-semibold text-emerald-100">Photo Gallery</span>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+              </span>
+            </div>
+
+            <h1 className="text-6xl font-bold mb-6 text-white drop-shadow-2xl">
               Gallery
             </h1>
-            <p className="text-xl text-emerald-50 max-w-3xl mx-auto">
+            <p className="text-xl text-emerald-50 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
               Explore moments from our lab activities, team events, research presentations,
               and memorable experiences at Machine Learning Lab.
             </p>

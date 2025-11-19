@@ -130,37 +130,38 @@ export const teamMembers: TeamMember[] = [
   },
   {
     id: "yong-woon-kim",
-    name: "Yong Woon Kim",
+    name: "Dr. Yong-Woon Kim",
     role: "Research Professor",
     title: "Research Professor",
     email: "yongwoon.kim@jnu.ac.kr",
     image: "/Prof_kim.jpg",
     bio: "Dr. Yong Woon Kim is a distinguished Research Professor bringing extensive expertise in IoT, Edge Computing, and Artificial Intelligence. His research focuses on developing innovative solutions that bridge the gap between theoretical AI concepts and practical applications, particularly in deep learning and image segmentation technologies.",
     researchInterests: [
-      "IoT (Internet of Things)",
-      "Edge Computing",
-      "Artificial Intelligence",
-      "Deep Learning",
+      "Large Language Model",
       "Image Segmentation",
+      "Robotics",
+      "IoT (Internet of Things)",
+      "Machine Learning & AI",
+      "Green Hydrogen",
     ],
     education: [
       {
-        degree: "Ph.D.",
-        institution: "Major University",
-        year: 2010,
+        degree: "Ph.D. in Computer Science and Engineering",
+        institution: "CHRIST University",
+        year: 2023,
         field: "Computer Science & Engineering",
       },
       {
-        degree: "M.S.",
-        institution: "Major University",
-        year: 2005,
+        degree: "M.S. in Computer Science",
+        institution: "Yonsei University",
+        year: 1997,
         field: "Computer Science",
       },
       {
-        degree: "B.S.",
-        institution: "Major University",
-        year: 2003,
-        field: "Computer Engineering",
+        degree: "B.S. in Computer Science",
+        institution: "Yonsei University",
+        year: 1994,
+        field: "Computer Science",
       },
     ],
     experience: [
@@ -230,9 +231,6 @@ export const teamMembers: TeamMember[] = [
         year: 2018,
       },
     ],
-    publications: 25,
-    citations: 420,
-    hIndex: 12,
     googleScholar: "https://scholar.google.com/citations?user=teUAdhkAAAAJ&hl",
     currentProjects: [
       "Brain Tumor Classification using Multi-path CNN",
@@ -521,6 +519,63 @@ export const teamMembers: TeamMember[] = [
     joinDate: "2023-09-01",
   },
   {
+    id: "julliane-camarista",
+    name: "Julliane Pearl M. Camarista",
+    role: "GKS",
+    title: "Graduate Student",
+    email: "julliane.camarista@example.com",
+    image: "/Julliane Pearl M- Camarista.jpg",
+    bio: "Julliane Pearl M. Camarista is a GKS student focusing on machine learning research and applications.",
+    researchInterests: [
+      "Machine Learning",
+    ],
+    education: [
+      {
+        degree: "M.S.",
+        institution: "Jeju National University",
+        year: 2025,
+        field: "Computer Science"
+      }
+    ],
+    publications: 0,
+    citations: 0,
+    hIndex: 0,
+    googleScholar: "https://scholar.google.com/",
+    socialLinks: {},
+    status: "active",
+    joinDate: "2024-09-01",
+  },
+  {
+    id: "yuseok-kim",
+    name: "Yuseok Kim",
+    role: "Master",
+    title: "Graduate Student",
+    email: "yuseok.kim@example.com",
+    image: "/yuseok.jpg",
+    bio: "Yu-Seok Kim is a master's student specializing in machine learning, large language models, and model optimization techniques.",
+    researchInterests: [
+      "Machine Learning",
+      "LLM",
+      "Model Quantization & Efficiency",
+      "Image Processing",
+    ],
+    education: [
+      {
+        degree: "M.S.",
+        institution: "Jeju National University",
+        year: 2025,
+        field: "Computer Science"
+      }
+    ],
+    publications: 0,
+    citations: 0,
+    hIndex: 0,
+    googleScholar: "https://scholar.google.com/",
+    socialLinks: {},
+    status: "active",
+    joinDate: "2024-09-01",
+  },
+  {
     id: "nazrul-amin",
     name: "Nazrul Amin",
     role: "Master",
@@ -550,63 +605,6 @@ export const teamMembers: TeamMember[] = [
     socialLinks: {},
     status: "active",
     joinDate: "2023-09-01",
-  },
-  {
-    id: "yuseok-kim",
-    name: "Yu-Seok Kim",
-    role: "Master",
-    title: "Graduate Student",
-    email: "yuseok.kim@example.com",
-    image: "/yuseok.jpg",
-    bio: "Yu-Seok Kim is a master's student specializing in machine learning, large language models, and model optimization techniques.",
-    researchInterests: [
-      "Machine Learning",
-      "LLM",
-      "Model Quantization & Efficiency",
-      "Image Processing",
-    ],
-    education: [
-      {
-        degree: "M.S.",
-        institution: "Jeju National University",
-        year: 2025,
-        field: "Computer Science"
-      }
-    ],
-    publications: 0,
-    citations: 0,
-    hIndex: 0,
-    googleScholar: "https://scholar.google.com/",
-    socialLinks: {},
-    status: "active",
-    joinDate: "2024-09-01",
-  },
-  {
-    id: "julliane-camarista",
-    name: "Julliane Pearl M. Camarista",
-    role: "GKS",
-    title: "Graduate Student",
-    email: "julliane.camarista@example.com",
-    image: "/Julliane Pearl M- Camarista.jpg",
-    bio: "Julliane Pearl M. Camarista is a GKS student focusing on machine learning research and applications.",
-    researchInterests: [
-      "Machine Learning",
-    ],
-    education: [
-      {
-        degree: "M.S.",
-        institution: "Jeju National University",
-        year: 2025,
-        field: "Computer Science"
-      }
-    ],
-    publications: 0,
-    citations: 0,
-    hIndex: 0,
-    googleScholar: "https://scholar.google.com/",
-    socialLinks: {},
-    status: "active",
-    joinDate: "2024-09-01",
   },
 ];
 

@@ -21,17 +21,42 @@ export default function Publications() {
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] min-h-[400px] overflow-hidden pt-32 pb-20">
-        {/* Background Image */}
-        <div 
+        {/* Background Image - Futuristic Research/Publication Theme */}
+        <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(/journal_img.png)`,
+            backgroundImage: `url(https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?w=1920&q=80)`,
           }}
         />
-        
+
         {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-green-600 to-teal-700 opacity-85" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-green-600 to-teal-700 opacity-90" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+
+        {/* Decorative animated blobs */}
+        <div className="absolute top-20 left-20 w-72 h-72 bg-emerald-400/20 rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
+        <div className="absolute top-40 right-20 w-72 h-72 bg-green-400/20 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-teal-400/20 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-4000"></div>
+
+        {/* Blinking accent dots */}
+        <div className="absolute top-10 left-20">
+          <span className="relative flex h-4 w-4">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-4 w-4 bg-white"></span>
+          </span>
+        </div>
+        <div className="absolute bottom-10 right-20">
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-200 opacity-75" style={{ animationDelay: '1s' }}></span>
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-100"></span>
+          </span>
+        </div>
+        <div className="absolute top-1/2 left-10">
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75" style={{ animationDelay: '0.5s' }}></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+          </span>
+        </div>
         
         <div className="relative z-10 h-full flex flex-col items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -40,13 +65,41 @@ export default function Publications() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-5xl font-bold mb-6 text-white">
+            {/* Decorative badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/20">
+              <BookOpen className="h-5 w-5 text-emerald-200" />
+              <span className="text-sm font-semibold text-emerald-100">Research Publications</span>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
+              </span>
+            </div>
+
+            <h1 className="text-6xl font-bold mb-6 text-white drop-shadow-2xl">
               Publications
             </h1>
-            <p className="text-xl text-emerald-50 max-w-3xl mx-auto">
+            <p className="text-xl text-emerald-50 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
               Our latest research contributions to the scientific community,
-              published in top-tier journals and conferences.
+              published in top-tier journals and conferences worldwide.
             </p>
+
+            {/* Stats */}
+            <div className="flex items-center justify-center gap-8 mt-8">
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-1">200+</div>
+                <div className="text-sm text-emerald-200">Publications</div>
+              </div>
+              <div className="w-px h-12 bg-white/30"></div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-1">100+</div>
+                <div className="text-sm text-emerald-200">Journals</div>
+              </div>
+              <div className="w-px h-12 bg-white/30"></div>
+              <div className="text-center">
+                <div className="text-3xl font-bold text-white mb-1">5000+</div>
+                <div className="text-sm text-emerald-200">Citations</div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>

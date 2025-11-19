@@ -138,7 +138,7 @@ export default function Team() {
                           <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${isFirstProfessor ? 'from-emerald-600 to-green-600' : 'from-blue-600 to-indigo-600'} text-white px-5 py-2 rounded-full shadow-xl border-3 border-white dark:border-gray-800 group-hover:scale-105 transition-transform duration-300`}>
                             <div className="flex items-center gap-2">
                               <Award className="h-4 w-4" />
-                              <span className="font-bold text-xs">{isFirstProfessor ? 'Lab Director' : 'Professor'}</span>
+                              <span className="font-bold text-xs">{isFirstProfessor ? 'Lab Director' : member.role}</span>
                               <span className="relative flex h-1.5 w-1.5 ml-1">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
@@ -154,7 +154,7 @@ export default function Team() {
                           {member.name}
                         </h3>
                         <p className={`text-lg text-${accentColor}-600 dark:text-${accentColor}-400 font-semibold`}>
-                          Professor of Computer Engineering
+                          {member.title}
                         </p>
                       </div>
 
@@ -243,28 +243,50 @@ export default function Team() {
               </p>
             </motion.div>
 
-            <div className="max-w-md mx-auto">
+            <div className="flex justify-center items-center w-full">
               {postDocFellows.map((member, index) => (
                 <motion.div
                   key={member.id}
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="relative group"
+                  className="relative group w-full max-w-md mx-auto"
                 >
                   {/* Gradient border effect */}
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 rounded-3xl blur-lg opacity-30 group-hover:opacity-60 transition duration-500"></div>
 
-                  <div className="relative bg-white dark:bg-gray-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col h-full">
+                  <div className="relative bg-white dark:bg-gray-800 rounded-3xl shadow-2xl hover:shadow-2xl transition-all duration-500 overflow-hidden flex flex-col h-full">
                     {/* Top gradient bar */}
-                    <div className="h-2 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500"></div>
+                    <div className="h-2 bg-gradient-to-r from-purple-500 via-pink-500 to-rose-500 relative">
+                      <div className="absolute -top-1 right-4">
+                        <span className="relative flex h-3 w-3">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
+                          <span className="relative inline-flex rounded-full h-3 w-3 bg-purple-500"></span>
+                        </span>
+                      </div>
+                    </div>
 
-                    <div className="p-6 flex flex-col flex-1">
+                    <div className="p-8 flex flex-col flex-1">
                       {/* Photo and Badge */}
                       <div className="flex flex-col items-center mb-6">
                         <div className="relative">
-                          <div className="w-40 h-40 rounded-full overflow-hidden bg-gradient-to-br from-purple-400 via-pink-400 to-rose-400 p-1 shadow-xl">
-                            <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-gray-800 p-0.5">
+                          {/* Blinking decorative dots around image */}
+                          <div className="absolute -top-3 -left-3 w-3 h-3 bg-purple-400 rounded-full animate-ping opacity-75"></div>
+                          <div className="absolute -top-3 -left-3 w-3 h-3 bg-purple-500 rounded-full"></div>
+
+                          <div className="absolute top-6 -right-4 w-2 h-2 bg-pink-400 rounded-full animate-pulse"></div>
+
+                          <div className="absolute -bottom-3 left-8 w-4 h-4 bg-rose-400 rounded-full animate-ping opacity-75" style={{ animationDelay: '0.5s' }}></div>
+                          <div className="absolute -bottom-3 left-8 w-4 h-4 bg-rose-500 rounded-full"></div>
+
+                          <div className="absolute bottom-12 -right-3 w-2 h-2 bg-pink-300 rounded-full animate-ping opacity-75" style={{ animationDelay: '1s' }}></div>
+                          <div className="absolute bottom-12 -right-3 w-2 h-2 bg-pink-400 rounded-full"></div>
+
+                          {/* Rotating ring effect */}
+                          <div className="absolute inset-0 rounded-full border-2 border-purple-400 border-dashed animate-spin opacity-30" style={{ animationDuration: '20s' }}></div>
+
+                          <div className="w-48 h-48 rounded-full overflow-hidden bg-gradient-to-br from-purple-400 via-pink-400 to-rose-400 p-1.5 shadow-2xl group-hover:shadow-purple-500/50 transition-all duration-500 animate-pulse" style={{ animationDuration: '3s' }}>
+                            <div className="w-full h-full rounded-full overflow-hidden bg-white dark:bg-gray-800 p-1">
                               {member.image ? (
                                 <img
                                   src={member.image}
@@ -279,21 +301,25 @@ export default function Team() {
                             </div>
                           </div>
                           {/* Badge */}
-                          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-4 py-1.5 rounded-full text-xs font-semibold shadow-lg whitespace-nowrap">
-                            Post-Doc
+                          <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-5 py-2 rounded-full shadow-xl border-3 border-white dark:border-gray-800 group-hover:scale-105 transition-transform duration-300">
+                            <div className="flex items-center gap-2">
+                              <Award className="h-4 w-4" />
+                              <span className="font-bold text-xs">Post-Doc</span>
+                              <span className="relative flex h-1.5 w-1.5 ml-1">
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
+                              </span>
+                            </div>
                           </div>
                         </div>
                       </div>
 
                       {/* Name and Title */}
-                      <div className="text-center mb-4">
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
+                      <div className="text-center mb-6">
+                        <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
                           {member.name}
                         </h3>
-                        <p className="text-base text-purple-600 dark:text-purple-400 font-semibold mb-1">
-                          {member.role}
-                        </p>
-                        <p className="text-sm text-gray-600 dark:text-gray-400">
+                        <p className="text-lg text-purple-600 dark:text-purple-400 font-semibold">
                           {member.title}
                         </p>
                       </div>
@@ -323,21 +349,19 @@ export default function Team() {
                       {/* Education */}
                       {member.education && member.education.length > 0 && (
                         <div className="mb-6">
-                          <div className="flex items-center justify-center gap-2 mb-3">
-                            <GraduationCap className="h-4 w-4 text-purple-600 dark:text-purple-400" />
-                            <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wide">
-                              Education
-                            </h4>
-                          </div>
-                          <div className="space-y-2 text-center">
+                          <h4 className="flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-wide">
+                            <GraduationCap className="h-4 w-4 text-purple-600" />
+                            Education
+                          </h4>
+                          <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                             {member.education.slice(0, 3).map((edu, idx) => (
-                              <div key={idx} className="text-sm">
-                                <p className="font-semibold text-gray-800 dark:text-gray-200">
-                                  {edu.degree}
-                                </p>
-                                <p className="text-xs text-gray-500 dark:text-gray-400">
-                                  {edu.institution} ({edu.year})
-                                </p>
+                              <div key={idx} className="flex items-start gap-2 p-2.5 bg-purple-50 dark:bg-gray-700/50 rounded-lg">
+                                <div className="w-1.5 h-1.5 bg-purple-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                                <div>
+                                  <p className="font-semibold text-gray-900 dark:text-white text-xs">
+                                    {edu.degree} - {edu.institution} ({edu.year})
+                                  </p>
+                                </div>
                               </div>
                             ))}
                           </div>
@@ -347,19 +371,18 @@ export default function Team() {
                       {/* Research Interests */}
                       {member.researchInterests && (
                         <div className="mb-6 flex-1">
-                          <div className="flex items-center justify-center gap-2 mb-3">
-                            <BookOpen className="h-4 w-4 text-purple-600 dark:text-purple-400" />
-                            <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wide">
-                              Research Interests
-                            </h4>
-                          </div>
+                          <h4 className="flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-wide">
+                            <BookOpen className="h-4 w-4 text-purple-600" />
+                            Research Interests
+                          </h4>
                           <div className="grid grid-cols-2 gap-2">
-                            {member.researchInterests.map((interest, idx) => (
+                            {member.researchInterests.slice(0, 6).map((interest, idx) => (
                               <div
                                 key={idx}
-                                className="bg-gradient-to-r from-purple-50 to-pink-50 dark:from-purple-900/30 dark:to-pink-900/30 text-purple-700 dark:text-purple-300 text-xs px-2.5 py-1.5 rounded-lg font-medium border border-purple-200 dark:border-purple-700 text-center"
+                                className="flex items-center gap-1.5 bg-gradient-to-r from-purple-50 to-pink-50 dark:from-gray-700 dark:to-gray-700/50 rounded-lg px-2.5 py-2 border border-purple-100 dark:border-purple-800 hover:from-purple-100 hover:to-pink-100 dark:hover:bg-gray-600 transition-all group/item"
                               >
-                                {interest}
+                                <div className="w-1.5 h-1.5 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full flex-shrink-0"></div>
+                                <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">{interest}</span>
                               </div>
                             ))}
                           </div>
@@ -368,16 +391,16 @@ export default function Team() {
 
                       {/* Google Scholar Link */}
                       {member.googleScholar && (
-                        <div className="mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <div className="mt-auto pt-6 border-t border-gray-200 dark:border-gray-700">
                           <a
                             href={member.googleScholar}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-6 py-3 rounded-full font-semibold hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl text-sm"
+                            className="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-6 py-3 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl group/btn"
                           >
                             <BookOpen className="h-4 w-4" />
-                            <span>Google Scholar</span>
-                            <ExternalLink className="h-4 w-4" />
+                            <span className="text-sm">Google Scholar</span>
+                            <ExternalLink className="h-4 w-4 group-hover/btn:translate-x-0.5 transition-transform" />
                           </a>
                         </div>
                       )}
