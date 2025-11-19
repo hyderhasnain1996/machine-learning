@@ -7,73 +7,51 @@ import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react'
 const newsItems = [
   {
     id: 1,
+    title: "AI & LLM Workshop for University Students: Building Industry Applications",
+    excerpt: "Join us for a hands-on workshop teaching university students how to leverage AI and Large Language Models to build real-world applications across various industries.",
+    date: "2024-12-20",
+    category: "Event",
+    author: "ML Lab Team",
+    readTime: "2 min read",
+    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1200&q=80",
+    tags: ["AI", "LLM", "Workshop"]
+  },
+  {
+    id: 2,
     title: "Breakthrough in Medical AI: New Deep Learning Model for Cancer Detection",
     excerpt: "Our lab has developed a revolutionary AI system achieving 98% accuracy in early-stage cancer detection through advanced image analysis.",
     date: "2024-12-15",
     category: "Research",
     author: "ML Lab Team",
     readTime: "4 min read",
-    image: "/mllab.jpeg",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1200&q=80",
     tags: ["Medical AI", "Cancer Detection", "Deep Learning"]
   },
   {
-    id: 2,
+    id: 3,
     title: "International Recognition: Best Paper Award at NeurIPS 2024",
     excerpt: "Our groundbreaking research on efficient neural networks for edge computing has received the prestigious Best Paper Award at NeurIPS 2024.",
     date: "2024-12-10",
     category: "Achievement",
     author: "Prof. Yung-Cheol Byun",
     readTime: "3 min read",
-    image: "/mllab.jpeg",
+    image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1200&q=80",
     tags: ["Award", "NeurIPS", "Edge Computing"]
   },
   {
-    id: 3,
+    id: 4,
     title: "Smart Agriculture Revolution: AI-Powered Crop Monitoring System",
     excerpt: "Our IoT-based intelligent farming solution is being deployed across 500+ farms in South Korea, increasing crop yields by 30%.",
     date: "2024-12-05",
     category: "Innovation",
     author: "Dr. Research Team",
     readTime: "5 min read",
-    image: "/bg-1.jpg",
+    image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1200&q=80",
     tags: ["Smart Agriculture", "IoT", "Sustainability"]
-  },
-  {
-    id: 4,
-    title: "Global Partnership: Collaboration with MIT CSAIL Announced",
-    excerpt: "Strategic partnership with MIT's Computer Science and Artificial Intelligence Laboratory to advance quantum machine learning research.",
-    date: "2024-11-28",
-    category: "Partnership",
-    author: "International Relations",
-    readTime: "3 min read",
-    image: "/IMG_5952.JPG",
-    tags: ["MIT", "Partnership", "Quantum ML"]
-  },
-  {
-    id: 5,
-    title: "Workshop on Blockchain and IoT Security",
-    excerpt: "Join us for a comprehensive workshop covering the latest developments in blockchain technology and IoT security implementations.",
-    date: "2024-11-20",
-    category: "Event",
-    author: "Research Team",
-    readTime: "1 min read",
-    image: "/gal.jpg",
-    tags: ["Event", "Workshop", "Blockchain"]
-  },
-  {
-    id: 6,
-    title: "Open Source Release: ML Toolkit for Edge Computing",
-    excerpt: "We've released our machine learning toolkit for edge computing devices, featuring optimized algorithms for resource-constrained environments.",
-    date: "2024-11-15",
-    category: "Software",
-    author: "Development Team",
-    readTime: "5 min read",
-    image: "/mllab.jpeg",
-    tags: ["Software", "Open Source", "Edge Computing"]
   }
 ]
 
-const categories = ["All", "Research", "Achievement", "Team", "Partnership", "Event", "Software"]
+const categories = ["All", "Research", "Achievement", "Team", "Partnership", "Event", "Software", "Innovation"]
 
 export default function News() {
   return (

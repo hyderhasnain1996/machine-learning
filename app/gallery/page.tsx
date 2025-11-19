@@ -36,12 +36,6 @@ const galleryImages = [
     category: "activities"
   },
   {
-    id: 17,
-    src: "/IMG_4173.jpg",
-    alt: "Lab Activity",
-    category: "activities"
-  },
-  {
     id: 18,
     src: "/IMG_1495.jpg",
     alt: "Team Event",
@@ -52,6 +46,12 @@ const galleryImages = [
     src: "/img-4400.jpg",
     alt: "Lab Activity",
     category: "activities"
+  },
+  {
+    id: 20,
+    src: "/group-photo.jpg",
+    alt: "Group Photo",
+    category: "team"
   }
 ]
 
