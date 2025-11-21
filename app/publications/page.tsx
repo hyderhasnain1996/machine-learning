@@ -242,24 +242,13 @@ export default function Publications() {
                     )}
                   </div>
                   <div className="flex items-center gap-2">
-                    {publication.doi && (
-                      <a
-                        href={`https://doi.org/${publication.doi}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
-                        title="View Paper"
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                      </a>
-                    )}
                     {publication.link && (
                       <a
                         href={publication.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-600 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
-                        title="Additional Link"
+                        className="text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
+                        title="View Paper"
                       >
                         <ExternalLink className="h-4 w-4" />
                       </a>

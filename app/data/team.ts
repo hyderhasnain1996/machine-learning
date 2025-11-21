@@ -581,7 +581,7 @@ export const teamMembers: TeamMember[] = [
     role: "Master",
     title: "Graduate Student",
     email: "nazrul.amin@example.com",
-    image: "/Nazrul.png",
+    image: "/1760808139295 (1).jpg",
     bio: "Nazrul Amin is a master's student working on machine learning, deep learning, medical imaging, smart agriculture, and IoT.",
     researchInterests: [
       "Machine Learning",
