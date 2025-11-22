@@ -273,7 +273,7 @@ export const publications: Publication[] = [
   {
     id: "pub-2024-007",
     title: "AETUnet: Enhancing Retinal Segmentation With Parameter-Efficient UNet Architecture and Lightweight Attention Mechanism",
-    authors: ["Nazrul Amin", "Yung-Cheol Byun"],
+    authors: ["Kinza Nazir", "Yung-Cheol Byun"],
     journal: "IEEE Access",
     year: 2024,
     impactFactor: "3.4",
