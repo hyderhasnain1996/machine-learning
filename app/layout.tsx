@@ -32,6 +32,11 @@ export const metadata: Metadata = {
   authors: [
     { name: "Dr. Yung-Cheol Byun", url: "mailto:yungcheolbyun@gmail.com" },
   ],
+  icons: {
+    icon: "/logo.png",
+    shortcut: "/logo.png",
+    apple: "/logo.png",
+  },
   openGraph: {
     title: "Machine Learning Lab | Jeju National University",
     description:
