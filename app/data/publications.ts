@@ -299,6 +299,22 @@ export const publications: Publication[] = [
     type: "journal",
     abstract: "Intelligent PID control system for automated guided vehicles using genetic algorithm optimization and machine learning prediction.",
     citations: 8
+  },
+  {
+    id: "pub-2025-yolov8",
+    title: "Improved YOLOv8 framework for efficient solar panel defect detection",
+    authors: ["Amreen Batool", "Yong-Woon Kim", "Yung-Cheol Byun"],
+    journal: "Journal of Building Engineering",
+    year: 2025,
+    impactFactor: "6.4",
+    doi: "10.1016/j.jobe.2025.113031",
+    link: "https://doi.org/10.1016/j.jobe.2025.113031",
+    category: "computer-vision",
+    tags: ["YOLOv8", "Solar Panel", "Defect Detection", "SE Block", "Object Detection"],
+    type: "journal",
+    featured: true,
+    abstract: "SE Block integration enhances YOLOv8, improving focus on complex PV panel defects. Improved YOLOv8-SEB achieves competitive performance and reduces bounding box loss, setting a benchmark in defect detection for renewable energy sectors.",
+    citations: 0
   }
 ]
 
