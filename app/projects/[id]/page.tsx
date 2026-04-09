@@ -366,7 +366,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
 
               <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {(localArchComponents ?? []).map((comp, i) => {
-                  const Icon = moduleIconMap[comp.icon] ?? Cpu
+                  const Icon = (comp.icon ? moduleIconMap[comp.icon] : undefined) ?? Cpu
                   const gradients = [
                     'from-violet-500 to-purple-600',
                     'from-blue-500 to-cyan-600',

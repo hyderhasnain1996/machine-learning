@@ -9,6 +9,7 @@ import { translations } from '../i18n/translations'
 export default function Team() {
   const { lang } = useLanguage()
   const tt = translations[lang].team
+  // lang kept for potential future use
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -64,7 +65,7 @@ export default function Team() {
               {tt.facultyMembers}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              {lang === 'ko' ? '본 연구실의 연구를 이끄는 저명한 교수진을 소개합니다' : 'Meet the distinguished professors leading our research initiatives'}
+              {tt.facultySubtitle}
             </p>
           </motion.div>
 
@@ -142,7 +143,7 @@ export default function Team() {
                           <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${isFirstProfessor ? 'from-emerald-600 to-green-600' : 'from-blue-600 to-indigo-600'} text-white px-5 py-2 rounded-full shadow-xl border-3 border-white dark:border-gray-800 group-hover:scale-105 transition-transform duration-300`}>
                             <div className="flex items-center gap-2">
                               <Award className="h-4 w-4" />
-                              <span className="font-bold text-xs">{isFirstProfessor ? 'Lab Director' : member.role}</span>
+                              <span className="font-bold text-xs">{isFirstProfessor ? tt.labDirectorBadge : member.role}</span>
                               <span className="relative flex h-1.5 w-1.5 ml-1">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
@@ -168,7 +169,7 @@ export default function Team() {
                         <div>
                           <h4 className={`flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-wide`}>
                             <GraduationCap className={`h-4 w-4 text-${accentColor}-600`} />
-                            Education
+                            {tt.education}
                           </h4>
                           <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                             {member.education && member.education.slice(0, 3).map((edu, idx) => (
@@ -189,7 +190,7 @@ export default function Team() {
                           <div>
                             <h4 className={`flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-wide`}>
                               <BookOpen className={`h-4 w-4 text-${accentColor}-600`} />
-                              Research Interests
+                              {tt.researchInterests}
                             </h4>
                             <div className="grid grid-cols-2 gap-2">
                               {member.researchInterests.slice(0, 6).map((interest, idx) => (
@@ -237,13 +238,13 @@ export default function Team() {
             >
               <div className="inline-flex items-center gap-2 px-4 py-2 bg-purple-100 dark:bg-purple-900/30 rounded-full mb-4">
                 <Sparkles className="h-5 w-5 text-purple-600 dark:text-purple-400" />
-                <span className="text-sm font-semibold text-purple-700 dark:text-purple-300">Research Excellence</span>
+                <span className="text-sm font-semibold text-purple-700 dark:text-purple-300">{tt.postDocBadge}</span>
               </div>
               <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-700 via-pink-600 to-rose-600 bg-clip-text text-transparent">
                 {tt.postDocFellows}
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                {lang === 'ko' ? 'AI와 머신러닝의 최전선을 개척하는 연구자들' : 'Accomplished researchers advancing the frontiers of AI and machine learning'}
+                {tt.postDocSubtitle}
               </p>
             </motion.div>
 
@@ -294,7 +295,7 @@ export default function Team() {
                           <div className="absolute -bottom-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-600 to-pink-600 text-white px-5 py-2 rounded-full shadow-lg whitespace-nowrap">
                             <div className="flex items-center gap-2">
                               <Award className="h-3.5 w-3.5" />
-                              <span className="font-bold text-xs">Post-Doctoral Fellow</span>
+                              <span className="font-bold text-xs">{tt.postDocFellowBadge}</span>
                             </div>
                           </div>
                         </div>
@@ -321,7 +322,7 @@ export default function Team() {
                                 <GraduationCap className="h-5 w-5 text-white" />
                               </div>
                               <h4 className="text-base font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wide">
-                                Education
+                                {tt.education}
                               </h4>
                             </div>
                             <div className="space-y-3 pl-1">
@@ -350,7 +351,7 @@ export default function Team() {
                                 <BookOpen className="h-5 w-5 text-white" />
                               </div>
                               <h4 className="text-base font-bold text-purple-600 dark:text-purple-400 uppercase tracking-wide">
-                                Research Interests
+                                {tt.researchInterests}
                               </h4>
                             </div>
                             <div className="grid grid-cols-2 gap-2 pl-1">
@@ -376,7 +377,7 @@ export default function Team() {
                               className="flex items-center justify-center gap-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-xl font-bold transition-all shadow-lg hover:shadow-xl w-full"
                             >
                               <BookOpen className="h-5 w-5" />
-                              <span>View Google Scholar Profile</span>
+                              <span>{tt.viewGoogleScholar}</span>
                               <ExternalLink className="h-5 w-5" />
                             </a>
                           </div>
@@ -402,13 +403,13 @@ export default function Team() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-4">
               <Users className="h-5 w-5 text-blue-600 dark:text-blue-400" />
-              <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">Research Team</span>
+              <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">{tt.researchTeamBadge}</span>
             </div>
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">
               {tt.currentStudents}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              {lang === 'ko' ? '고급 학위를 취득 중인 뛰어난 연구자들' : 'Our talented researchers pursuing advanced degrees'}
+              {tt.studentsSubtitle}
             </p>
           </motion.div>
 
@@ -447,7 +448,7 @@ export default function Team() {
                 {member.researchInterests && (
                   <div className="mb-4">
                     <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                      Research Interests
+                      {tt.researchInterests}
                     </p>
                     <div className="flex flex-wrap gap-1">
                       {member.researchInterests.slice(0, 4).map((interest, idx) => (
@@ -549,18 +550,17 @@ export default function Team() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl font-bold text-white mb-6">
-              Join Our Team
+              {tt.joinTeam}
             </h2>
             <p className="text-xl text-emerald-100 mb-8">
-              We're always looking for passionate researchers and students
-              interested in pushing the boundaries of AI and machine learning.
+              {tt.joinTeamDesc}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-white text-emerald-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
-                Graduate Positions
+                {tt.graduatePositions}
               </button>
               <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-emerald-600 transition-colors duration-300">
-                Research Collaboration
+                {tt.researchCollaboration}
               </button>
             </div>
           </motion.div>

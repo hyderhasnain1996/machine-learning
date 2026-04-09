@@ -48,13 +48,13 @@ export const teamMembers: TeamMember[] = [
     id: "prof-byun",
     name: "Dr. Yung-Cheol Byun",
     role: "Professor & Lab Director",
-    title: "Associate Professor",
+    title: "Professor",
     department: "Department of Computer Engineering",
     email: "yungcheolbyun@gmail.com",
     phone: "+82-64-754-3657",
     office: "Engineering Building 3F-314",
     image: "/Prof.png",
-    bio: "Dr. Yung-Cheol Byun is an Associate Professor in the Computer Engineering Department at Jeju National University. He received his Ph.D. from Yonsei University in 2001 and has extensive experience in machine learning, pattern recognition, and blockchain technologies. He has published over 150 peer-reviewed papers and has been leading cutting-edge research in AI applications for healthcare, renewable energy, and smart systems.",
+    bio: "Dr. Yung-Cheol Byun is a Professor in the Computer Engineering Department at Jeju National University. He received his Ph.D. from Yonsei University in 2001 and has extensive experience in machine learning, pattern recognition, and blockchain technologies. He has published over 150 peer-reviewed papers and has been leading cutting-edge research in AI applications for healthcare, renewable energy, and smart systems.",
     researchInterests: [
       "Machine Learning & AI",
       "Pattern Recognition",
@@ -87,7 +87,7 @@ export const teamMembers: TeamMember[] = [
     ],
     experience: [
       {
-        position: "Associate Professor",
+        position: "Professor",
         organization: "Jeju National University",
         period: "2008 - Present",
         description: "Leading research in machine learning and AI applications",
