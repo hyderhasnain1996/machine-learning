@@ -239,6 +239,32 @@ export const translations = {
       joinTeamDesc: "We're always looking for passionate researchers and students interested in pushing the boundaries of AI and machine learning.",
       graduatePositions: 'Graduate Positions',
       researchCollaboration: 'Research Collaboration',
+      facultyData: [
+        {
+          title: 'Professor',
+          researchInterests: [
+            'Machine Learning & AI', 'Pattern Recognition', 'Blockchain Technology',
+            'Deep Learning Applications', 'Big Data Analytics', 'Time Series Analysis',
+          ],
+          education: [
+            { degree: 'Ph.D. in Computer Science', institution: 'Yonsei University', year: 2001 },
+            { degree: 'M.S. in Computer Science', institution: 'Yonsei University', year: 1995 },
+            { degree: 'B.S. in Computer Engineering', institution: 'Jeju National University', year: 1993 },
+          ],
+        },
+        {
+          title: 'Research Professor',
+          researchInterests: [
+            'Large Language Model', 'Image Segmentation', 'Robotics',
+            'IoT (Internet of Things)', 'Machine Learning & AI', 'Green Hydrogen',
+          ],
+          education: [
+            { degree: 'Ph.D. in Computer Science and Engineering', institution: 'CHRIST University', year: 2023 },
+            { degree: 'M.S. in Computer Science', institution: 'Yonsei University', year: 1997 },
+            { degree: 'B.S. in Computer Science', institution: 'Yonsei University', year: 1994 },
+          ],
+        },
+      ],
     },
     gallery: {
       heroTitle: 'Lab Gallery',
@@ -852,6 +878,32 @@ export const translations = {
       joinTeamDesc: 'AI와 머신러닝의 경계를 넓히는 데 열정을 가진 연구자와 학생을 항상 환영합니다.',
       graduatePositions: '대학원 과정',
       researchCollaboration: '연구 협력',
+      facultyData: [
+        {
+          title: '교수',
+          researchInterests: [
+            '머신러닝 및 AI', '패턴 인식', '블록체인 기술',
+            '딥러닝 응용', '빅데이터 분석', '시계열 분석',
+          ],
+          education: [
+            { degree: '컴퓨터공학 박사', institution: '연세대학교', year: 2001 },
+            { degree: '컴퓨터공학 석사', institution: '연세대학교', year: 1995 },
+            { degree: '컴퓨터공학 학사', institution: '제주대학교', year: 1993 },
+          ],
+        },
+        {
+          title: '연구 교수',
+          researchInterests: [
+            '대규모 언어 모델', '이미지 분할', '로보틱스',
+            'IoT (사물인터넷)', '머신러닝 및 AI', '그린 수소',
+          ],
+          education: [
+            { degree: '컴퓨터공학 박사', institution: 'CHRIST 대학교', year: 2023 },
+            { degree: '컴퓨터공학 석사', institution: '연세대학교', year: 1997 },
+            { degree: '컴퓨터공학 학사', institution: '연세대학교', year: 1994 },
+          ],
+        },
+      ],
     },
     gallery: {
       heroTitle: '연구실 갤러리',

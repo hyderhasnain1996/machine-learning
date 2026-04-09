@@ -80,6 +80,7 @@ export default function Team() {
               const googleScholarLink = member.name.includes("Yung-Cheol")
                 ? "https://scholar.google.com/citations?user=jfGGqJIAAAAJ&hl=ko"
                 : "https://scholar.google.com/citations?user=ikuCcYQAAAAJ&hl=ko";
+              const lf = tt.facultyData[index];
 
               return (
                 <motion.div
@@ -159,7 +160,7 @@ export default function Team() {
                           {member.name}
                         </h3>
                         <p className={`text-lg text-${accentColor}-600 dark:text-${accentColor}-400 font-semibold`}>
-                          {member.title}
+                          {lf?.title ?? member.title}
                         </p>
                       </div>
 
@@ -172,7 +173,7 @@ export default function Team() {
                             {tt.education}
                           </h4>
                           <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                            {member.education && member.education.slice(0, 3).map((edu, idx) => (
+                            {(lf?.education ?? member.education)?.slice(0, 3).map((edu, idx) => (
                               <div key={idx} className={`flex items-start gap-2 p-2.5 bg-${accentColor}-50 dark:bg-gray-700/50 rounded-lg`}>
                                 <div className={`w-1.5 h-1.5 bg-${accentColor}-600 rounded-full mt-1.5 flex-shrink-0`}></div>
                                 <div>
@@ -193,7 +194,7 @@ export default function Team() {
                               {tt.researchInterests}
                             </h4>
                             <div className="grid grid-cols-2 gap-2">
-                              {member.researchInterests.slice(0, 6).map((interest, idx) => (
+                              {(lf?.researchInterests ?? member.researchInterests).slice(0, 6).map((interest, idx) => (
                                 <div key={idx} className={`flex items-center gap-1.5 bg-gradient-to-r ${isFirstProfessor ? 'from-emerald-50 to-green-50' : 'from-blue-50 to-indigo-50'} dark:from-gray-700 dark:to-gray-700/50 rounded-lg px-2.5 py-2 border ${isFirstProfessor ? 'border-emerald-100 dark:border-emerald-800' : 'border-blue-100 dark:border-blue-800'} ${isFirstProfessor ? 'hover:from-emerald-100 hover:to-green-100' : 'hover:from-blue-100 hover:to-indigo-100'} dark:hover:bg-gray-600 transition-all group/item`}>
                                   <div className={`w-1.5 h-1.5 bg-gradient-to-r ${isFirstProfessor ? 'from-emerald-600 to-green-600' : 'from-blue-600 to-indigo-600'} rounded-full flex-shrink-0`}></div>
                                   <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">{interest}</span>
