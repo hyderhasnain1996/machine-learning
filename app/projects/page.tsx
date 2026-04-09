@@ -1,8 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Rocket, MapPin, Sprout, Sun, Home, Car, Building, CheckCircle2, Sparkles, Target, Cpu, Zap, Users, ArrowRight, ExternalLink } from 'lucide-react'
+import { Rocket, MapPin, Sprout, Sun, Home, Car, Building, Video, CheckCircle2, Sparkles, Target, Cpu, Zap, Users, ArrowRight, ExternalLink } from 'lucide-react'
+import Link from 'next/link'
 import { currentProjects } from '../data/labData'
+import { useLanguage } from '../i18n/LanguageContext'
+import { translations } from '../i18n/translations'
 
 const iconMap = {
   MapPin,
@@ -11,10 +14,15 @@ const iconMap = {
   Home,
   Car,
   Building,
-  Rocket
+  Rocket,
+  Video,
 }
 
 export default function Projects() {
+  const { lang } = useLanguage()
+  const tp = translations[lang].projects
+  const localizedProjects = translations[lang].currentProjects
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950">
       {/* Hero Section with Animated Background */}
@@ -85,7 +93,7 @@ export default function Projects() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-5 py-2 bg-white/20 backdrop-blur-md rounded-full mb-6 border border-white/30">
               <Rocket className="h-5 w-5 text-cyan-300" />
-              <span className="text-sm font-semibold text-cyan-100">Current Projects</span>
+              <span className="text-sm font-semibold text-cyan-100">{tp.activeProjects}</span>
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-300"></span>
@@ -94,11 +102,11 @@ export default function Projects() {
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight drop-shadow-2xl">
               <span className="bg-gradient-to-r from-cyan-300 via-blue-200 to-purple-300 bg-clip-text text-transparent">
-                Innovative AI Projects
+                {tp.heroMainTitle}
               </span>
             </h1>
             <p className="text-xl sm:text-2xl lg:text-3xl mb-8 text-blue-100 max-w-4xl mx-auto leading-relaxed drop-shadow-lg">
-              Transforming industries with cutting-edge AI solutions in tourism, agriculture, renewable energy, smart cities, and building management
+              {tp.heroMainDesc}
             </p>
 
             {/* Stats */}
@@ -110,7 +118,7 @@ export default function Projects() {
                 className="text-center"
               >
                 <div className="text-4xl font-bold text-cyan-300 mb-1">6</div>
-                <div className="text-sm text-blue-200">Active Projects</div>
+                <div className="text-sm text-blue-200">{tp.statActiveProjects}</div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -119,7 +127,7 @@ export default function Projects() {
                 className="text-center"
               >
                 <div className="text-4xl font-bold text-purple-300 mb-1">5+</div>
-                <div className="text-sm text-blue-200">Industry Partners</div>
+                <div className="text-sm text-blue-200">{tp.statIndustryPartners}</div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -128,7 +136,7 @@ export default function Projects() {
                 className="text-center"
               >
                 <div className="text-4xl font-bold text-blue-300 mb-1">100%</div>
-                <div className="text-sm text-blue-200">AI-Powered</div>
+                <div className="text-sm text-blue-200">{tp.statAIPowered}</div>
               </motion.div>
             </div>
           </motion.div>
@@ -161,6 +169,7 @@ export default function Projects() {
           <div className="grid lg:grid-cols-2 gap-8">
             {currentProjects.map((project, index) => {
               const IconComponent = iconMap[project.icon as keyof typeof iconMap] || Rocket
+              const localProject = localizedProjects[index]
 
               return (
                 <motion.div
@@ -202,7 +211,7 @@ export default function Projects() {
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
                           </span>
-                          <span className="text-white text-sm font-semibold">{project.status}</span>
+                          <span className="text-white text-sm font-semibold">{project.status === 'Active' ? tp.active : project.status === 'Completed' ? tp.completed : tp.planning}</span>
                         </div>
                       </div>
 
@@ -218,12 +227,12 @@ export default function Projects() {
                     <div className="p-8 flex-1 flex flex-col">
                       {/* Title */}
                       <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-blue-600 group-hover:to-purple-600 transition-all leading-tight">
-                        {project.title}
+                        {localProject?.title ?? project.title}
                       </h3>
 
                       {/* Description */}
                       <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                        {project.description}
+                        {localProject?.description ?? project.description}
                       </p>
 
                       {/* Technologies */}
@@ -231,7 +240,7 @@ export default function Projects() {
                         <div className="flex items-center gap-2 mb-3">
                           <Cpu className="h-4 w-4 text-blue-600 dark:text-blue-400" />
                           <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wide">
-                            Technologies
+                            {tp.technologies}
                           </h4>
                         </div>
                         <div className="flex flex-wrap gap-2">
@@ -256,11 +265,11 @@ export default function Projects() {
                         <div className="flex items-center gap-2 mb-3">
                           <Target className="h-4 w-4 text-purple-600 dark:text-purple-400" />
                           <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wide">
-                            Key Objectives
+                            {tp.objectives}
                           </h4>
                         </div>
                         <div className="space-y-2">
-                          {project.objectives.slice(0, 2).map((objective, idx) => (
+                          {(localProject?.objectives ?? project.objectives).slice(0, 2).map((objective, idx) => (
                             <div key={idx} className="flex items-start gap-2">
                               <CheckCircle2 className="h-4 w-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
                               <span className="text-sm text-gray-600 dark:text-gray-300 line-clamp-1">
@@ -270,7 +279,7 @@ export default function Projects() {
                           ))}
                           {project.objectives.length > 2 && (
                             <span className="text-xs text-gray-500 dark:text-gray-400 pl-6">
-                              +{project.objectives.length - 2} more objectives
+                              +{project.objectives.length - 2} {tp.moreObjectives}
                             </span>
                           )}
                         </div>
@@ -281,7 +290,7 @@ export default function Projects() {
                         <div className="mb-6 pb-6 border-b border-gray-200 dark:border-gray-700">
                           <div className="flex items-center gap-2">
                             <Users className="h-4 w-4 text-gray-500 dark:text-gray-400" />
-                            <span className="text-sm text-gray-600 dark:text-gray-400">Partner:</span>
+                            <span className="text-sm text-gray-600 dark:text-gray-400">{tp.partner}:</span>
                             <span className="text-sm font-semibold text-gray-900 dark:text-white">
                               {project.partner}
                             </span>
@@ -290,11 +299,14 @@ export default function Projects() {
                       )}
 
                       {/* View Details Button */}
-                      <button className={`w-full bg-gradient-to-r ${project.gradient} text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 group/btn flex items-center justify-center gap-2 mt-auto`}>
+                      <Link
+                        href={`/projects/${project.id}`}
+                        className={`w-full bg-gradient-to-r ${project.gradient} text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 group/btn flex items-center justify-center gap-2 mt-auto`}
+                      >
                         <Sparkles className="h-4 w-4" />
-                        <span>View Project Details</span>
+                        <span>{tp.learnMore}</span>
                         <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
-                      </button>
+                      </Link>
                     </div>
                   </div>
                 </motion.div>
@@ -336,26 +348,25 @@ export default function Projects() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full mb-6 border border-white/30">
               <Zap className="h-5 w-5 text-cyan-300" />
-              <span className="text-sm font-semibold text-white">Join Our Mission</span>
+              <span className="text-sm font-semibold text-white">{tp.ctaBadge}</span>
             </div>
 
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-6 drop-shadow-2xl">
-              Collaborate on Cutting-Edge AI Projects
+              {tp.ctaTitle}
             </h2>
             <p className="text-xl text-blue-100 mb-10 leading-relaxed drop-shadow-lg max-w-2xl mx-auto">
-              We welcome partnerships with industry leaders, research institutions, and innovators
-              to push the boundaries of AI technology together.
+              {tp.ctaDesc}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="relative group/btn bg-white text-blue-600 px-10 py-4 rounded-full font-bold hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105">
                 <div className="absolute -inset-1 bg-white/50 rounded-full blur opacity-0 group-hover/btn:opacity-75 transition duration-300"></div>
                 <span className="relative flex items-center gap-2">
-                  Contact Research Team
+                  {tp.ctaContact}
                   <ExternalLink className="h-5 w-5" />
                 </span>
               </button>
               <button className="bg-white/20 backdrop-blur-sm text-white px-10 py-4 rounded-full font-bold hover:bg-white/30 transition-all duration-300 border border-white/30 hover:scale-105">
-                Learn More About Our Lab
+                {tp.ctaLearnMore}
               </button>
             </div>
           </motion.div>

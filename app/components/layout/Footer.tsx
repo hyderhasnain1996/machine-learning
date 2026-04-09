@@ -3,9 +3,26 @@
 import { motion } from 'framer-motion'
 import Link from 'next/link'
 import { Brain, Mail, Phone, MapPin, Clock, ExternalLink, ArrowUp, Github, Linkedin, Twitter } from 'lucide-react'
-import { labInfo, navigationItems } from '@/app/data/labData'
+import { labInfo } from '@/app/data/labData'
+import { useLanguage } from '@/app/i18n/LanguageContext'
+import { translations } from '@/app/i18n/translations'
 
 export default function Footer() {
+  const { lang } = useLanguage()
+  const t = translations[lang]
+  const tf = t.footer
+  const tn = t.nav
+
+  const navigationItems = [
+    { name: tn.home, href: "/" },
+    { name: tn.research, href: "/research" },
+    { name: tn.projects, href: "/projects" },
+    { name: tn.publications, href: "/publications" },
+    { name: tn.team, href: "/team" },
+    { name: tn.news, href: "/news" },
+    { name: tn.contact, href: "/contact" },
+  ]
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -108,10 +125,7 @@ export default function Footer() {
                 </div>
               </div>
               <p className="text-gray-300 mb-8 leading-relaxed max-w-lg text-lg">
-                Pioneering research in artificial intelligence, machine
-                learning, and emerging technologies. Our lab focuses on
-                developing innovative solutions for healthcare, energy, and
-                smart systems that make a positive impact on society.
+                {tf.description}
               </p>
 
               {/* Contact Info Grid with Enhanced Cards */}
@@ -122,7 +136,7 @@ export default function Footer() {
                     <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-md opacity-0 group-hover/card:opacity-100 transition-opacity"></div>
                   </div>
                   <div>
-                    <p className="font-semibold text-white mb-1">Phone</p>
+                    <p className="font-semibold text-white mb-1">{tf.phone}</p>
                     <a
                       href={`tel:${labInfo.phone}`}
                       className="text-gray-300 hover:text-emerald-300 transition-colors text-sm"
@@ -137,7 +151,7 @@ export default function Footer() {
                     <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-md opacity-0 group-hover/card:opacity-100 transition-opacity"></div>
                   </div>
                   <div>
-                    <p className="font-semibold text-white mb-1">Email</p>
+                    <p className="font-semibold text-white mb-1">{tf.email}</p>
                     <a
                       href={`mailto:${labInfo.email}`}
                       className="text-gray-300 hover:text-emerald-300 transition-colors text-sm break-all"
@@ -152,7 +166,7 @@ export default function Footer() {
                     <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-md opacity-0 group-hover/card:opacity-100 transition-opacity"></div>
                   </div>
                   <div>
-                    <p className="font-semibold text-white mb-1">Hours</p>
+                    <p className="font-semibold text-white mb-1">{tf.hours}</p>
                     <p className="text-gray-300 text-sm">{labInfo.workingHours}</p>
                   </div>
                 </div>
@@ -162,7 +176,7 @@ export default function Footer() {
                     <div className="absolute inset-0 bg-emerald-400/20 rounded-full blur-md opacity-0 group-hover/card:opacity-100 transition-opacity"></div>
                   </div>
                   <div>
-                    <p className="font-semibold text-white mb-1">Location</p>
+                    <p className="font-semibold text-white mb-1">{tf.location}</p>
                     <p className="text-gray-300 text-sm">{labInfo.location}</p>
                   </div>
                 </div>
@@ -172,7 +186,7 @@ export default function Footer() {
             {/* Quick Links */}
             <motion.div variants={itemVariants}>
               <h4 className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-6 flex items-center gap-2">
-                Quick Links
+                {tf.quickLinks}
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -198,7 +212,7 @@ export default function Footer() {
             {/* Research Areas */}
             <motion.div variants={itemVariants}>
               <h4 className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-6 flex items-center gap-2">
-                Research Focus
+                {tf.researchFocus}
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -214,7 +228,7 @@ export default function Footer() {
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-0 group-hover:opacity-75 transition-opacity"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 group-hover:scale-150 transition-transform"></span>
                     </span>
-                    <span className="text-sm font-medium">Machine Learning & AI</span>
+                    <span className="text-sm font-medium">{tf.researchItems.mlAI}</span>
                   </Link>
                 </li>
                 <li>
@@ -226,7 +240,7 @@ export default function Footer() {
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-0 group-hover:opacity-75 transition-opacity"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400 group-hover:scale-150 transition-transform"></span>
                     </span>
-                    <span className="text-sm font-medium">Computer Vision</span>
+                    <span className="text-sm font-medium">{tf.researchItems.computerVision}</span>
                   </Link>
                 </li>
                 <li>
@@ -238,7 +252,7 @@ export default function Footer() {
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-0 group-hover:opacity-75 transition-opacity"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-400 group-hover:scale-150 transition-transform"></span>
                     </span>
-                    <span className="text-sm font-medium">LLM & Generative AI</span>
+                    <span className="text-sm font-medium">{tf.researchItems.llmGenAI}</span>
                   </Link>
                 </li>
                 <li>
@@ -250,7 +264,7 @@ export default function Footer() {
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-0 group-hover:opacity-75 transition-opacity"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400 group-hover:scale-150 transition-transform"></span>
                     </span>
-                    <span className="text-sm font-medium">IoT & Edge Computing</span>
+                    <span className="text-sm font-medium">{tf.researchItems.iotEdge}</span>
                   </Link>
                 </li>
               </ul>
@@ -258,7 +272,7 @@ export default function Footer() {
               {/* Social Links */}
               <div className="mt-8">
                 <h4 className="text-xl font-bold bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-4 flex items-center gap-2">
-                  Connect With Us
+                  {tf.connectWithUs}
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-teal-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-teal-500"></span>
@@ -314,7 +328,7 @@ export default function Footer() {
               </div>
               <div>
                 <h4 className="font-bold text-xl bg-gradient-to-r from-emerald-400 to-green-400 bg-clip-text text-transparent mb-3 flex items-center gap-2">
-                  Address
+                  {tf.address}
                   <span className="relative flex h-2 w-2">
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -350,7 +364,7 @@ export default function Footer() {
                     Established {labInfo.established}
                   </span>
                   <span>•</span>
-                  <span>Building the future through AI research</span>
+                  <span>{tf.tagline}</span>
                 </p>
               </motion.div>
 

@@ -3,10 +3,19 @@
 import HeroSlider from "./components/sections/HeroSlider"
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, BookOpen, Award, Eye, Shield, Cpu, Zap, User, ExternalLink, GraduationCap } from "lucide-react";
+import { ArrowRight, Brain, BookOpen, Award, Eye, Cpu, Zap, User, ExternalLink, GraduationCap } from "lucide-react";
 import { researchAreas } from "./data/labData";
 import { featuredPublications } from "./data/publications";
+import { useLanguage } from "./i18n/LanguageContext";
+import { translations } from "./i18n/translations";
+
 export default function Home() {
+  const { lang } = useLanguage()
+  const th = translations[lang].home
+  const tp = translations[lang].publications
+  const tt = translations[lang].team
+  const localizedAreas = translations[lang].researchAreas
+
   return (
    
     <main>
@@ -29,7 +38,7 @@ export default function Home() {
             {/* Decorative badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-100 to-green-100 dark:from-emerald-900/30 dark:to-green-900/30 rounded-full mb-6 border border-emerald-200 dark:border-emerald-700">
               <Zap className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
-              <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">Innovating Since 2003</span>
+              <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">{th.innovatingSince}</span>
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -38,13 +47,11 @@ export default function Home() {
 
             <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.3] px-2">
               <span className="block sm:inline bg-gradient-to-r from-emerald-700 via-green-600 to-teal-700 bg-clip-text text-transparent">
-                Welcome to Machine Learning Lab
+                {th.welcomeTitle}
               </span>
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Established in 2003 under the visionary leadership of <span className="font-semibold text-emerald-700 dark:text-emerald-400">Prof. Dr. Yung-Cheol Byun</span>, our lab at
-              Jeju National University pioneers breakthrough research in artificial intelligence, machine learning,
-              and innovative technology solutions that transform industries and improve lives across the globe.
+              {th.welcomeDesc}
             </p>
           </motion.div>
 
@@ -76,10 +83,10 @@ export default function Home() {
                 </div>
 
                 <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent text-center">
-                  AI-Powered
+                  {th.aiPowered}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-center flex-grow">
-                  Cutting-edge artificial intelligence and machine learning innovations driving the future
+                  {th.aiPoweredDesc}
                 </p>
               </div>
             </motion.div>
@@ -111,10 +118,10 @@ export default function Home() {
                 </div>
 
                 <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent text-center">
-                  Comprehensive
+                  {th.researchDriven}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-center flex-grow">
-                  Complete research ecosystem with publications, team insights, and breakthrough discoveries
+                  {th.researchDrivenDesc}
                 </p>
               </div>
             </motion.div>
@@ -146,10 +153,10 @@ export default function Home() {
                 </div>
 
                 <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent text-center">
-                  Award-Winning
+                  {th.globalImpact}
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 leading-relaxed text-center flex-grow">
-                  International recognition and excellence in research with cutting-edge innovations
+                  {th.globalImpactDesc}
                 </p>
               </div>
             </motion.div>
@@ -190,18 +197,19 @@ export default function Home() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-600 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
               </span>
-              <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">Research Areas</span>
+              <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">{th.researchAreasTitle}</span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text text-transparent">
-              Research Excellence
+              {th.researchAreasTitle}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Discover our pioneering research in AI and machine learning that's shaping the future of technology
+              {th.researchAreasSubtitle}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
             {researchAreas.slice(0, 4).map((area, index) => {
+              const localArea = localizedAreas[index]
               // Map icons for each research area
               const getIcon = (areaId: string) => {
                 switch(areaId) {
@@ -250,10 +258,10 @@ export default function Home() {
 
                       <div className="flex-1">
                         <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                          {area.title}
+                          {localArea?.title ?? area.title}
                         </h3>
                         <p className="text-gray-600 dark:text-gray-300 mb-4 line-clamp-2 leading-relaxed">
-                          {area.description}
+                          {localArea?.description ?? area.description}
                         </p>
                         <div className="flex flex-wrap gap-2">
                           {area.keywords.slice(0, 3).map((keyword, idx) => (
@@ -278,7 +286,7 @@ export default function Home() {
               {/* Button glow effect */}
               <div className="absolute -inset-1 bg-emerald-400/50 rounded-full blur opacity-0 group-hover/btn:opacity-75 transition duration-300"></div>
               <span className="relative flex items-center gap-2">
-                View All Research
+                {th.exploreResearch}
                 <ArrowRight className="h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
@@ -320,22 +328,24 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-100 to-green-100 dark:from-emerald-900/30 dark:to-green-900/30 px-4 py-2 rounded-full mb-6">
               <BookOpen className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
-              <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">Latest Research</span>
+              <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">{th.latestResearch}</span>
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-600 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>
               </span>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-emerald-700 via-green-600 to-teal-700 bg-clip-text text-transparent">
-              Featured Publications
+              {th.featuredPublications}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              Our latest research contributions published in top-tier journals and conferences
+              {th.featuredPublicationsSubtitle}
             </p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {featuredPublications.slice(0, 3).map((publication, index) => (
+            {featuredPublications.slice(0, 3).map((publication, index) => {
+              const lp = th.featuredPubs[index]
+              return (
               <motion.div
                 key={publication.id}
                 initial={{ opacity: 0, y: 50 }}
@@ -368,7 +378,7 @@ export default function Home() {
                     </div>
                     <div className="flex items-center gap-2">
                       <span className="bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-lg">
-                        Featured
+                        {tp.featured}
                       </span>
                     </div>
                   </div>
@@ -385,7 +395,7 @@ export default function Home() {
                   {/* Content */}
                   <div className="space-y-4 flex-grow">
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight line-clamp-3 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                      {publication.title}
+                      {lp?.title ?? publication.title}
                     </h3>
 
                     {/* Authors */}
@@ -393,7 +403,7 @@ export default function Home() {
                       <User className="h-4 w-4 mt-0.5 flex-shrink-0" />
                       <span className="line-clamp-2">
                         {publication.authors.slice(0, 2).join(", ")}
-                        {publication.authors.length > 2 && ` +${publication.authors.length - 2} more`}
+                        {publication.authors.length > 2 && ` +${publication.authors.length - 2} ${tp.moreAuthors}`}
                       </span>
                     </div>
 
@@ -407,14 +417,14 @@ export default function Home() {
 
                     {/* Abstract preview */}
                     <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3 leading-relaxed">
-                      {publication.abstract}
+                      {lp?.abstract ?? publication.abstract}
                     </p>
                   </div>
 
                   {/* Footer */}
                   <div className="mt-6 pt-4 border-t border-gray-200 dark:border-gray-700 flex items-center justify-between">
                     <div className="flex items-center gap-2">
-                      <div className="text-xs font-medium text-gray-500 dark:text-gray-400">Impact Factor</div>
+                      <div className="text-xs font-medium text-gray-500 dark:text-gray-400">{tp.impactFactor}</div>
                       <div className="bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs px-3 py-1.5 rounded-full font-bold shadow-md group-hover:scale-105 transition-transform">
                         {publication.impactFactor}
                       </div>
@@ -425,7 +435,7 @@ export default function Home() {
                   </div>
                 </div>
               </motion.div>
-            ))}
+            )})}
           </div>
 
           <div className="text-center">
@@ -436,7 +446,7 @@ export default function Home() {
               {/* Button glow effect */}
               <div className="absolute -inset-1 bg-emerald-400/50 rounded-full blur opacity-0 group-hover/btn:opacity-75 transition duration-300"></div>
               <span className="relative flex items-center gap-2">
-                View All Publications
+                {th.viewAllPublications}
                 <ArrowRight className="h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
@@ -464,13 +474,13 @@ export default function Home() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-full mb-4">
               <Award className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
-              <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">Leadership</span>
+              <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">{tt.leadership}</span>
             </div>
             <h2 className="text-5xl font-bold mb-6 bg-gradient-to-r from-emerald-700 via-green-600 to-teal-700 bg-clip-text text-transparent">
-              Lab Director
+              {th.labDirector}
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-              Leading cutting-edge research in artificial intelligence and machine learning at Jeju National University
+              {th.labDirectorSubtitle}
             </p>
           </motion.div>
 
@@ -530,7 +540,7 @@ export default function Home() {
                       <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-emerald-600 to-green-600 text-white px-5 py-2 rounded-full shadow-xl border-3 border-white dark:border-gray-800 group-hover:scale-105 transition-transform duration-300">
                         <div className="flex items-center gap-2">
                           <Award className="h-4 w-4" />
-                          <span className="font-bold text-xs">Lab Director</span>
+                          <span className="font-bold text-xs">{th.labDirector}</span>
                           <span className="relative flex h-1.5 w-1.5 ml-1">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
@@ -546,7 +556,7 @@ export default function Home() {
                       Prof. Dr. Yung-Cheol Byun
                     </h3>
                     <p className="text-lg text-emerald-600 dark:text-emerald-400 font-semibold">
-                      Professor of Computer Engineering
+                      {th.professorTitle}
                     </p>
                   </div>
 
@@ -556,27 +566,15 @@ export default function Home() {
                     <div>
                       <h4 className="flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-wide">
                         <GraduationCap className="h-4 w-4 text-emerald-600" />
-                        Education
+                        {th.education}
                       </h4>
                       <div className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                        <div className="flex items-start gap-2 p-2.5 bg-emerald-50 dark:bg-gray-700/50 rounded-lg">
-                          <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-1.5 flex-shrink-0"></div>
-                          <div>
-                            <p className="font-semibold text-gray-900 dark:text-white text-xs">Ph.D. - Yonsei University (1995)</p>
+                        {th.educationList.map((entry, idx) => (
+                          <div key={idx} className="flex items-start gap-2 p-2.5 bg-emerald-50 dark:bg-gray-700/50 rounded-lg">
+                            <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-1.5 flex-shrink-0"></div>
+                            <p className="font-semibold text-gray-900 dark:text-white text-xs">{entry}</p>
                           </div>
-                        </div>
-                        <div className="flex items-start gap-2 p-2.5 bg-emerald-50 dark:bg-gray-700/50 rounded-lg">
-                          <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-1.5 flex-shrink-0"></div>
-                          <div>
-                            <p className="font-semibold text-gray-900 dark:text-white text-xs">M.S. - Yonsei University (2001)</p>
-                          </div>
-                        </div>
-                        <div className="flex items-start gap-2 p-2.5 bg-emerald-50 dark:bg-gray-700/50 rounded-lg">
-                          <div className="w-1.5 h-1.5 bg-emerald-600 rounded-full mt-1.5 flex-shrink-0"></div>
-                          <div>
-                            <p className="font-semibold text-gray-900 dark:text-white text-xs">B.S. - Jeju National University (1993)</p>
-                          </div>
-                        </div>
+                        ))}
                       </div>
                     </div>
 
@@ -584,17 +582,10 @@ export default function Home() {
                     <div>
                       <h4 className="flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-wide">
                         <Brain className="h-4 w-4 text-emerald-600" />
-                        Research Interests
+                        {th.researchInterestsLabel}
                       </h4>
                       <div className="grid grid-cols-2 gap-2">
-                        {[
-                          "AI & ML",
-                          "Pattern Recognition",
-                          "LLM Models",
-                          "Deep Learning",
-                          "Big Data",
-                          "Time Series"
-                        ].map((interest, idx) => (
+                        {th.researchInterestsList.map((interest, idx) => (
                           <div key={idx} className="flex items-center gap-1.5 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-gray-700 dark:to-gray-700/50 rounded-lg px-2.5 py-2 border border-emerald-100 dark:border-emerald-800 hover:from-emerald-100 hover:to-green-100 dark:hover:bg-gray-600 transition-all group/item">
                             <div className="w-1.5 h-1.5 bg-gradient-to-r from-emerald-600 to-green-600 rounded-full flex-shrink-0"></div>
                             <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">{interest}</span>
@@ -627,7 +618,7 @@ export default function Home() {
               href="/team"
               className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-green-600 text-white px-8 py-4 rounded-full font-semibold hover:from-emerald-700 hover:to-green-700 transition-all group transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
-              View Our Complete Team
+              {th.viewFullTeam}
               <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
@@ -648,24 +639,23 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl font-bold text-white mb-6">
-              🚀 Ready to Collaborate?
+              🚀 {th.ctaTitle}
             </h2>
             <p className="text-xl text-emerald-100 mb-8">
-              Join us in pushing the boundaries of artificial intelligence and machine learning.
-              Whether you're a researcher, student, or industry partner, we'd love to hear from you.
+              {th.ctaDesc}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/contact"
                 className="bg-white text-emerald-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
-                💬 Get in Touch
+                💬 {th.contactUs}
               </Link>
               <Link
                 href="/research"
                 className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-emerald-600 transition-all transform hover:scale-105"
               >
-                🔬 Explore Research
+                🔬 {th.exploreResearch}
               </Link>
             </div>
           </motion.div>

@@ -223,6 +223,47 @@ export const heroSlides = [
   }
 ]
 
+export interface ArchitectureComponent {
+  name: string
+  description: string
+  icon: string
+}
+
+export interface PerformanceDataset {
+  name: string
+  setting?: string
+  metrics: { label: string; value: string }[]
+  fps: string
+  latency: string
+}
+
+export interface ProjectDetails {
+  overview: string
+  researchProblem: string
+  howItWorks: { step: number; title: string; description: string }[]
+  architectureImage?: { src: string; caption: string }
+  architectureComponents: ArchitectureComponent[]
+  whyDifferent: string
+  propagationDesign?: { description: string; params: string; trainableParams: string; speed: string }
+  confidenceSignals?: { name: string; description: string }[]
+  confidenceDescription?: string
+  performance: {
+    datasets: PerformanceDataset[]
+    improvement?: string
+  }
+  qualitativeResultsImage?: { src: string; caption: string }
+  edgeDeployment?: {
+    hardware: string
+    powerMode: string
+    precision: string
+    fps: string
+    latency: string
+    metrics: { label: string; value: string }[]
+    description: string
+    realtimeVideos?: { src: string; label: string }[]
+  }
+}
+
 export interface Project {
   id: number
   title: string
@@ -237,9 +278,78 @@ export interface Project {
   category: string
   partner?: string
   icon: string
+  details?: ProjectDetails
 }
 
 export const currentProjects: Project[] = [
+  {
+    id: 7,
+    title: "Hybrid Architecture for Real-Time Query-Based Video Instance Segmentation",
+    shortTitle: "ConfTrackNet",
+    description: "A real-time vision-language segmentation framework that combines heavy detection on key frames with lightweight mask propagation, achieving near-SOTA accuracy at 190+ FPS.",
+    objectives: [
+      "Design a confidence-guided adaptive routing system for video segmentation",
+      "Achieve real-time inference speed (30+ FPS) without sacrificing segmentation quality",
+      "Enable edge deployment on embedded hardware like NVIDIA Jetson",
+      "Eliminate fixed keyframe schedules with dynamic re-detection triggers"
+    ],
+    technologies: ["Vision Transformers", "DistilBERT", "MobileViT-S", "Swin-B", "Deformable Convolution", "Cross-Modal Fusion"],
+    keyFeatures: [
+      "Confidence-guided adaptive routing (no fixed keyframe schedule)",
+      "Frozen MobileViT-S propagation branch at 5.0 ms per frame",
+      "Three-signal confidence estimator (feature similarity, embedding consistency, mask quality)",
+      "~15.8× throughput improvement over heavy baseline",
+      "Edge deployment at ~100 FPS on NVIDIA Jetson AGX Orin"
+    ],
+    status: "Active",
+    image: "https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80",
+    gradient: "from-violet-600 via-purple-600 to-indigo-700",
+    category: "Computer Vision",
+    icon: "Video",
+    details: {
+      overview: "ConfTrackNet is a real-time vision-language segmentation framework designed to identify and segment a target object in video using a natural language query. Instead of performing expensive cross-modal reasoning on every frame, the framework intelligently combines accurate heavy detection on key frames with lightweight mask propagation on intermediate frames. This design enables strong segmentation accuracy while achieving real-time speed, making the model suitable for both desktop and edge deployment.",
+      researchProblem: "Existing query-based video segmentation methods usually apply the full transformer-based vision-language model to every frame. This gives strong accuracy, but it is too slow for real-time applications, often running well below 30 FPS. ConfTrackNet addresses this gap by introducing adaptive routing: it spends heavy computation only when necessary, and uses efficient tracking-style propagation for the rest of the video.",
+      howItWorks: [
+        { step: 1, title: "Text Query Encoding", description: "The input text query is encoded once using a frozen DistilBERT text encoder, so the language information can be reused across all frames — eliminating redundant NLP computation." },
+        { step: 2, title: "Heavy Key-Frame Detection", description: "The first frame is processed by a heavy detection pathway built on Swin-B with cross-modal fusion and a transformer decoder, producing a high-quality initial segmentation mask." },
+        { step: 3, title: "Lightweight Propagation + Confidence Gate", description: "For subsequent frames, a lightweight MobileViT-S pathway propagates the mask using previous mask, current-frame features, and text guidance. A confidence estimator decides whether to trust the result or re-trigger full detection." }
+      ],
+      architectureImage: { src: "/architecture.png", caption: "Full pipeline of ConfTrackNet: the Baseline (heavy) detection pathway (top), Key Frame Detection Module with confidence-guided routing (middle), and the Lightweight Tracking Pipeline for intermediate frames (bottom)." },
+      architectureComponents: [
+        { name: "Text Encoder", description: "Frozen DistilBERT that converts the natural language query into a shared embedding reused across all frames.", icon: "Type" },
+        { name: "Heavy Detection Pathway", description: "Swin-B backbone with cross-modal vision-language fusion and a transformer decoder for accurate key-frame segmentation.", icon: "ScanSearch" },
+        { name: "Lightweight Propagation Pathway", description: "Frozen MobileViT-S with a mask encoder, deformable mask warping module, and multi-scale decoder. Only 3.16M total parameters (0.64M trainable), running at 5.0 ms per frame.", icon: "Zap" },
+        { name: "Multi-Signal Confidence Estimator", description: "Fuses three complementary signals — feature similarity, embedding consistency, and mask quality estimation — into a single reliability score.", icon: "BarChart3" },
+        { name: "Confidence-Guided Re-Detection Gate", description: "Dynamically triggers full inference only when confidence falls below threshold, replacing expensive fixed-interval keyframe schedules.", icon: "GitBranch" }
+      ],
+      whyDifferent: "The main novelty of ConfTrackNet is that it does not use a fixed key-frame schedule. Instead, it uses confidence-guided adaptive routing. The system dynamically decides whether to continue propagating the mask or to perform a fresh full detection. This is more effective than running heavy detection every N frames, because video difficulty changes over time — objects can be partially occluded in one segment and fully visible in another. The paper demonstrates that adaptive routing achieves a significantly better balance between accuracy and speed than any fixed-interval keyframe selection strategy.",
+      propagationDesign: { description: "The lightweight branch uses a frozen MobileViT-S backbone, a mask encoder, a learned deformable mask warping module, and a multi-scale decoder. It is the primary reason the model achieves real-time speed.", params: "3.16M", trainableParams: "0.64M", speed: "5.0 ms / frame" },
+      confidenceSignals: [
+        { name: "Feature Similarity", description: "Checks whether the object appearance remains visually consistent between frames." },
+        { name: "Embedding Consistency", description: "Checks whether the instance identity (as encoded by the text query) is preserved across the propagated mask." },
+        { name: "Mask Quality Estimation", description: "Checks whether the predicted mask spatially aligns well with the current frame's features." }
+      ],
+      confidenceDescription: "These three signals are fused into a single confidence score. Frames with low confidence automatically trigger re-detection via the heavy pathway. The full three-signal configuration achieved the best results in ablation studies.",
+      qualitativeResultsImage: { src: "/qualitative-results.png", caption: "Qualitative segmentation results on Ref-YouTube-VOS. Each block shows (top to bottom): input frames, ground truth masks, and ConfTrackNet predictions. The model accurately tracks and segments the queried object across challenging motion and occlusion scenarios." },
+      performance: {
+        datasets: [
+          { name: "Ref-YouTube-VOS", metrics: [{ label: "J Score", value: "68.53" }, { label: "F Score", value: "69.45" }, { label: "J&F", value: "68.99" }], fps: "190.7", latency: "5.0 ms" },
+          { name: "Ref-DAVIS 2017", setting: "Zero-Shot", metrics: [{ label: "J Score", value: "67.26" }, { label: "F Score", value: "68.50" }, { label: "J&F", value: "67.88" }], fps: "167.7", latency: "6.0 ms" }
+        ],
+        improvement: "~15.8× throughput improvement over the heavy baseline while preserving nearly identical segmentation quality"
+      },
+      edgeDeployment: {
+        hardware: "NVIDIA Jetson AGX Orin 64GB", powerMode: "30W", precision: "FP16", fps: "~100", latency: "10.0 ms",
+        metrics: [{ label: "J Score", value: "68.46" }, { label: "F Score", value: "69.36" }, { label: "J&F", value: "68.91" }],
+        description: "A major strength of ConfTrackNet is practical deployment. The model maintains strong segmentation quality on embedded hardware, making it suitable for real-world edge AI and robotics applications where both accuracy and power efficiency are critical.",
+        realtimeVideos: [
+          { src: "/Media1.mp4", label: "Real-Time Demo — Clip 1" },
+          { src: "/Media2.mp4", label: "Real-Time Demo — Clip 2" },
+          { src: "/Media3.mp4", label: "Real-Time Demo — Clip 3" },
+        ]
+      }
+    }
+  },
   {
     id: 1,
     title: "LLM for Traffic Digital Twin",

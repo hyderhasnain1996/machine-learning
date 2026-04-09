@@ -1,7 +1,11 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:pub.orcid.org)"
+      "WebFetch(domain:pub.orcid.org)",
+      "Bash(grep -n \"Project Overview\\\\|Research Problem\\\\|How the Model Works\\\\|Architecture Diagram\\\\|Model Architecture\\\\|Core Architecture Components\\\\|What Makes It Different\\\\|Propagation Design\\\\|Multi-Signal Fusion\\\\|Confidence Estimation Mechanism\\\\|Benchmarks\\\\|Performance Results\\\\|Visual Results\\\\|Qualitative Results\\\\|Edge AI Deployment\\\\|Real-Time Inference Demo\\\\|Back to All Projects\\\\|Total Parameters\\\\|Trainable Parameters\\\\|Inference Speed\\\\|Hardware\\\\|Power Mode\\\\|Precision\\\\b\\\\|Live$\\\\|Live<\" \"c:/Users/user/OneDrive/Documents/GitHub/machine-learning/app/projects/[id]/page.tsx\")"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\user\\OneDrive\\Documents\\GitHub\\machine-learning\\app\\projects"
     ]
   }
 }

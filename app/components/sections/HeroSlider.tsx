@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronLeft, ChevronRight, Play } from 'lucide-react'
 import Link from 'next/link'
 import { heroSlides } from '@/app/data/labData'
+import { useLanguage } from '@/app/i18n/LanguageContext'
+import { translations } from '@/app/i18n/translations'
 
 interface HeroSliderProps {
   autoplay?: boolean
@@ -24,6 +26,8 @@ export default function HeroSlider({
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isPlaying, setIsPlaying] = useState(autoplay)
   const [progress, setProgress] = useState(0)
+  const { lang } = useLanguage()
+  const localSlides = translations[lang].heroSlides
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
@@ -240,13 +244,13 @@ export default function HeroSlider({
                 className="mb-6"
               >
                 <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-4 border border-white/30">
-                  {heroSlides[currentSlide].subtitle}
+                  {localSlides[currentSlide]?.subtitle ?? heroSlides[currentSlide].subtitle}
                 </span>
                 <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-6 leading-tight bg-gradient-to-r from-white via-white to-white/80 bg-clip-text">
-                  {heroSlides[currentSlide].title}
+                  {localSlides[currentSlide]?.title ?? heroSlides[currentSlide].title}
                 </h1>
                 <p className="text-xl sm:text-2xl lg:text-3xl mb-8 text-white/90 max-w-4xl mx-auto leading-relaxed">
-                  {heroSlides[currentSlide].description}
+                  {localSlides[currentSlide]?.description ?? heroSlides[currentSlide].description}
                 </p>
 
                 {/* Stats Section */}
@@ -283,7 +287,7 @@ export default function HeroSlider({
                   href={heroSlides[currentSlide].link}
                   className="group bg-white text-gray-900 px-8 py-4 rounded-full font-semibold text-lg hover:bg-gray-100 transition-all duration-300 transform hover:scale-105 flex items-center gap-2 shadow-2xl hover:shadow-white/20"
                 >
-                  {heroSlides[currentSlide].cta}
+                  {localSlides[currentSlide]?.cta ?? heroSlides[currentSlide].cta}
                   <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </Link>
                 <button
@@ -293,7 +297,7 @@ export default function HeroSlider({
                   <Play
                     className={`h-5 w-5 ${isPlaying ? "animate-pulse" : ""}`}
                   />
-                  {isPlaying ? "Pause" : "Play"} Tour
+                  {isPlaying ? (lang === 'ko' ? '일시정지' : 'Pause') : (lang === 'ko' ? '재생' : 'Play')} {lang === 'ko' ? '투어' : 'Tour'}
                 </button>
               </motion.div>
             </div>

@@ -2,6 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react'
+import { useLanguage } from '../i18n/LanguageContext'
+import { translations } from '../i18n/translations'
 
 // Mock news data
 const newsItems = [
@@ -51,9 +53,17 @@ const newsItems = [
   }
 ]
 
-const categories = ["All", "Research", "Achievement", "Team", "Partnership", "Event", "Software", "Innovation"]
+const categoryKeys = ["All", "Research", "Achievement", "Team", "Partnership", "Event", "Software", "Innovation"] as const
 
 export default function News() {
+  const { lang } = useLanguage()
+  const tn = translations[lang].news
+
+  const categories = categoryKeys.map(k => ({
+    key: k,
+    label: tn.categories[k as keyof typeof tn.categories],
+  }))
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section */}
@@ -78,11 +88,10 @@ export default function News() {
             className="text-center text-white"
           >
             <h1 className="text-5xl font-bold mb-6 text-white">
-              Latest News
+              {tn.heroTitle}
             </h1>
             <p className="text-xl text-emerald-50 max-w-3xl mx-auto">
-              Stay updated with our latest research breakthroughs, achievements, partnerships,
-              and upcoming events from the Machine Learning Lab.
+              {tn.heroDesc}
             </p>
           </motion.div>
         </div>
@@ -99,17 +108,17 @@ export default function News() {
           >
             {categories.map((category, index) => (
               <motion.button
-                key={category}
+                key={category.key}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 className={`px-6 py-3 rounded-full font-medium transition-colors ${
-                  category === "All"
+                  category.key === "All"
                     ? "bg-blue-600 text-white"
                     : "bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-gray-700 border border-gray-200 dark:border-gray-600"
                 }`}
               >
-                {category}
+                {category.label}
               </motion.button>
             ))}
           </motion.div>
@@ -151,10 +160,10 @@ export default function News() {
                     </span>
                   </div>
                   <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight">
-                    {newsItems[0].title}
+                    {tn.newsItems[0].title}
                   </h2>
                   <p className="text-gray-600 dark:text-gray-300 mb-6 text-lg leading-relaxed">
-                    {newsItems[0].excerpt}
+                    {tn.newsItems[0].excerpt}
                   </p>
                   <div className="flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-6">
                     <div className="flex items-center gap-2">
@@ -174,7 +183,7 @@ export default function News() {
                     ))}
                   </div>
                   <button className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-3.5 rounded-xl font-semibold hover:from-blue-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl group/btn w-fit">
-                    Read More
+                    {tn.readMore}
                     <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                   </button>
                 </div>
@@ -188,7 +197,9 @@ export default function News() {
       <section className="pb-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {newsItems.slice(1).map((item, index) => (
+            {newsItems.slice(1).map((item, index) => {
+              const localItem = tn.newsItems[index + 1]
+              return (
               <motion.article
                 key={item.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -224,11 +235,11 @@ export default function News() {
 
                   <div className="p-6">
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-snug">
-                      {item.title}
+                      {localItem?.title ?? item.title}
                     </h3>
 
                     <p className="text-gray-600 dark:text-gray-300 text-sm mb-4 line-clamp-3 leading-relaxed">
-                      {item.excerpt}
+                      {localItem?.excerpt ?? item.excerpt}
                     </p>
 
                     <div className="flex items-center gap-4 text-xs text-gray-500 dark:text-gray-400 mb-4 pb-4 border-b border-gray-100 dark:border-gray-700">
@@ -251,13 +262,13 @@ export default function News() {
                     </div>
 
                     <button className="inline-flex items-center gap-2 text-blue-600 dark:text-blue-400 font-semibold hover:gap-3 transition-all text-sm group/btn">
-                      Read Article
+                      {tn.readMore}
                       <ArrowRight className="h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />
                     </button>
                   </div>
                 </div>
               </motion.article>
-            ))}
+            )})}
           </div>
         </div>
       </section>

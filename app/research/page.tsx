@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import { Brain, Eye, Shield, Cpu } from 'lucide-react'
 import { researchAreas } from '../data/labData'
+import { useLanguage } from '../i18n/LanguageContext'
+import { translations } from '../i18n/translations'
 
 const iconMap = {
   Brain,
@@ -12,6 +14,11 @@ const iconMap = {
 }
 
 export default function Research() {
+  const { lang } = useLanguage()
+  const t = translations[lang]
+  const tr = t.research
+  const localizedAreas = t.researchAreas
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section */}
@@ -41,12 +48,10 @@ export default function Research() {
             className="text-center text-white"
           >
             <h1 className="text-6xl font-bold mb-6 text-white drop-shadow-2xl">
-              Research Areas
+              {tr.heroTitle}
             </h1>
             <p className="text-xl text-emerald-50 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
-              Exploring the frontiers of artificial intelligence and machine
-              learning through innovative research and cutting-edge
-              applications.
+              {tr.heroDesc}
             </p>
           </motion.div>
         </div>
@@ -62,6 +67,7 @@ export default function Research() {
           <div className="grid md:grid-cols-2 gap-8">
             {researchAreas.map((area, index) => {
               const IconComponent = iconMap[area.icon as keyof typeof iconMap];
+              const localArea = localizedAreas[index];
 
               return (
                 <motion.div
@@ -100,24 +106,24 @@ export default function Research() {
 
                       {/* Title */}
                       <h3 className="text-3xl font-bold text-gray-900 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors flex-1">
-                        {area.title}
+                        {localArea?.title ?? area.title}
                       </h3>
                     </div>
 
                     <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                      {area.description}
+                      {localArea?.description ?? area.description}
                     </p>
 
                     <div className="space-y-4">
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white flex items-center gap-2">
-                        Key Applications:
+                        {tr.applications}:
                         <span className="relative flex h-2 w-2">
                           <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
                           <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
                         </span>
                       </h4>
                       <ul className="space-y-2">
-                        {area.applications.map((application, idx) => (
+                        {(localArea?.applications ?? area.applications).map((application, idx) => (
                           <li
                             key={idx}
                             className="flex items-center text-gray-600 dark:text-gray-300 group/item hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
@@ -131,18 +137,20 @@ export default function Research() {
 
                     <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
                       <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                        Active Projects:
+                        {tr.activeProjects}:
                         <span className="text-xs px-2 py-0.5 bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-300 rounded-full font-medium">
                           {area.projects.length}
                         </span>
                       </h4>
                       <div className="space-y-3">
-                        {area.projects.map((project, idx) => (
+                        {area.projects.map((project, idx) => {
+                          const localProject = localArea?.projects[idx]
+                          const statusLabel = project.status === 'Active' ? tr.active : project.status === 'Completed' ? tr.completed : tr.planning
+                          return (
                           <div
                             key={idx}
                             className="relative bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-700 dark:to-gray-800 rounded-xl p-4 hover:shadow-md transition-all duration-300 group/project"
                           >
-                            {/* Blinking status indicator for active projects */}
                             {project.status === "Active" && (
                               <div className="absolute -top-1 -right-1">
                                 <span className="relative flex h-3 w-3">
@@ -152,10 +160,10 @@ export default function Research() {
                               </div>
                             )}
                             <div className="text-sm font-medium text-blue-600 dark:text-blue-400 mb-2 group-hover/project:text-emerald-600 dark:group-hover/project:text-emerald-400 transition-colors">
-                              {project.title}
+                              {localProject?.title ?? project.title}
                             </div>
                             <div className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed mb-3">
-                              {project.description}
+                              {localProject?.description ?? project.description}
                             </div>
                             <span
                               className={`inline-flex items-center gap-1.5 px-3 py-1 text-xs rounded-full font-medium ${
@@ -170,10 +178,11 @@ export default function Research() {
                                   <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-600"></span>
                                 </span>
                               )}
-                              {project.status}
+                              {statusLabel}
                             </span>
                           </div>
-                        ))}
+                          )
+                        })}
                       </div>
                     </div>
                   </div>
@@ -221,17 +230,17 @@ export default function Research() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-5xl font-bold text-white mb-6 drop-shadow-2xl">
-              Interested in Collaboration?
+              {lang === 'ko' ? '협력에 관심이 있으신가요?' : 'Interested in Collaboration?'}
             </h2>
             <p className="text-xl text-emerald-50 mb-10 leading-relaxed drop-shadow-lg max-w-2xl mx-auto">
-              We welcome partnerships with industry, academia, and research
-              institutions to advance the frontiers of AI and machine learning.
+              {lang === 'ko'
+                ? '산업계, 학계, 연구 기관과의 파트너십을 통해 AI 및 머신러닝의 최전선을 발전시키는 것을 환영합니다.'
+                : 'We welcome partnerships with industry, academia, and research institutions to advance the frontiers of AI and machine learning.'}
             </p>
             <button className="relative group/btn bg-white text-emerald-600 px-10 py-4 rounded-full font-bold hover:bg-gray-50 transition-all duration-300 shadow-2xl hover:shadow-3xl hover:scale-105">
-              {/* Button glow effect */}
               <div className="absolute -inset-1 bg-white/50 rounded-full blur opacity-0 group-hover/btn:opacity-75 transition duration-300"></div>
               <span className="relative flex items-center gap-2">
-                Contact Our Research Team
+                {lang === 'ko' ? '연구팀에 문의하기' : 'Contact Our Research Team'}
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-600 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-600"></span>

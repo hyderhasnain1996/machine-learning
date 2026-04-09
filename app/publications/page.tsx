@@ -4,6 +4,9 @@ import { motion } from 'framer-motion'
 import { useState, useEffect } from 'react'
 import { BookOpen, User, ExternalLink, Award, Filter } from 'lucide-react'
 import { publications as staticPublications, publicationCategories } from '../data/publications'
+import { useLanguage } from '../i18n/LanguageContext'
+import { translations } from '../i18n/translations'
+import { useTranslatePublications } from '../i18n/useTranslatePublications'
 
 const categoryColors: Record<string, { bg: string; text: string; badge: string }> = {
   'medical-ai':       { bg: 'bg-gradient-to-br from-blue-100 to-cyan-200 dark:from-blue-900 dark:to-cyan-800',        text: 'text-blue-600 dark:text-blue-400',    badge: 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200' },
@@ -58,6 +61,8 @@ function mergeWithStatic(orcidPubs: any[]) {
 }
 
 export default function Publications() {
+  const { lang } = useLanguage()
+  const tpub = translations[lang].publications
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
   const [allPublications, setAllPublications] = useState(staticPublications)
@@ -110,6 +115,11 @@ export default function Publications() {
     fetchFromOrcid()
   }, [])
 
+  const { get: getTranslation, loading: translating } = useTranslatePublications(
+    allPublications,
+    lang === 'ko'
+  )
+
   const categories = publicationCategories
 
   const filtered = allPublications.filter(pub => {
@@ -146,31 +156,30 @@ export default function Publications() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-6 border border-white/20">
               <BookOpen className="h-5 w-5 text-emerald-200" />
-              <span className="text-sm font-semibold text-emerald-100">Research Publications</span>
+              <span className="text-sm font-semibold text-emerald-100">{tpub.heroTitle}</span>
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
               </span>
             </div>
-            <h1 className="text-6xl font-bold mb-6 text-white drop-shadow-2xl">Publications</h1>
+            <h1 className="text-6xl font-bold mb-6 text-white drop-shadow-2xl">{tpub.heroTitle}</h1>
             <p className="text-xl text-emerald-50 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
-              Our latest research contributions to the scientific community,
-              published in top-tier journals and conferences worldwide.
+              {tpub.heroDesc}
             </p>
             <div className="flex items-center justify-center gap-8 mt-8">
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-1">{allPublications.length}+</div>
-                <div className="text-sm text-emerald-200">Publications</div>
+                <div className="text-sm text-emerald-200">{tpub.statPublications}</div>
               </div>
               <div className="w-px h-12 bg-white/30"></div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-1">5000+</div>
-                <div className="text-sm text-emerald-200">Citations</div>
+                <div className="text-sm text-emerald-200">{tpub.statCitations}</div>
               </div>
               <div className="w-px h-12 bg-white/30"></div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-white mb-1">100+</div>
-                <div className="text-sm text-emerald-200">Journals</div>
+                <div className="text-sm text-emerald-200">{tpub.statJournals}</div>
               </div>
             </div>
           </motion.div>
@@ -185,7 +194,7 @@ export default function Publications() {
               <div className="flex-1">
                 <input
                   type="text"
-                  placeholder="Search publications..."
+                  placeholder={tpub.searchPlaceholder}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
@@ -200,15 +209,15 @@ export default function Publications() {
                 >
                   {categories.map((category) => (
                     <option key={category.id} value={category.id}>
-                      {category.name} ({category.id === 'all' ? allPublications.length : allPublications.filter(p => p.category === category.id).length})
+                      {tpub.categoryNames[category.id as keyof typeof tpub.categoryNames] ?? category.name} ({category.id === 'all' ? allPublications.length : allPublications.filter(p => p.category === category.id).length})
                     </option>
                   ))}
                 </select>
               </div>
-              {syncing && (
+              {(syncing || translating) && (
                 <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
                   <div className="w-4 h-4 border-2 border-emerald-500 border-t-transparent rounded-full animate-spin"></div>
-                  Checking ORCID...
+                  {tpub.syncing}
                 </div>
               )}
             </div>
@@ -240,12 +249,12 @@ export default function Publications() {
                     <div className="flex items-center gap-2">
                       {publication.featured && (
                         <span className="bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs px-3 py-1 rounded-full font-semibold">
-                          Featured
+                          {tpub.featured}
                         </span>
                       )}
                       {publication.id.startsWith('orcid-') && (
                         <span className="bg-blue-100 text-blue-700 dark:bg-blue-900 dark:text-blue-300 text-xs px-2 py-0.5 rounded-full font-medium">
-                          New
+                          {tpub.newBadge}
                         </span>
                       )}
                       <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
@@ -258,7 +267,7 @@ export default function Publications() {
 
                   <div className="space-y-4">
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-tight line-clamp-3 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
-                      {publication.title}
+                      {getTranslation(publication.id, 'title', publication.title)}
                     </h3>
 
                     {publication.authors.length > 0 && (
@@ -266,29 +275,29 @@ export default function Publications() {
                         <User className="h-4 w-4 shrink-0" />
                         <span className="truncate">
                           {publication.authors.slice(0, 2).join(', ')}
-                          {publication.authors.length > 2 && ` +${publication.authors.length - 2} more`}
+                          {publication.authors.length > 2 && ` +${publication.authors.length - 2} ${tpub.moreAuthors}`}
                         </span>
                       </div>
                     )}
 
                     <div className="flex items-center gap-2 text-sm font-medium text-emerald-600 dark:text-emerald-400">
                       <Award className="h-4 w-4 shrink-0" />
-                      <span className="truncate">{publication.journal}</span>
+                      <span className="truncate">{getTranslation(publication.id, 'journal', publication.journal)}</span>
                     </div>
 
                     {publication.abstract && (
                       <p className="text-sm text-gray-600 dark:text-gray-300 line-clamp-3">
-                        {publication.abstract}
+                        {getTranslation(publication.id, 'abstract', publication.abstract)}
                       </p>
                     )}
 
                     <div className="flex items-center gap-2 flex-wrap">
                       <span className={`px-3 py-1 text-xs rounded-full font-medium ${colors.badge}`}>
-                        {publicationCategories.find(c => c.id === publication.category)?.name || publication.category}
+                        {tpub.categoryNames[publication.category as keyof typeof tpub.categoryNames] ?? publicationCategories.find(c => c.id === publication.category)?.name ?? publication.category}
                       </span>
                       {publication.citations && (
                         <span className="bg-gray-100 text-gray-700 dark:bg-gray-700 dark:text-gray-300 px-2 py-1 text-xs rounded-full">
-                          {publication.citations} citations
+                          {publication.citations} {tpub.citations}
                         </span>
                       )}
                     </div>
@@ -298,7 +307,7 @@ export default function Publications() {
                     <div className="flex items-center gap-2">
                       {publication.impactFactor && (
                         <>
-                          <div className="text-xs text-gray-500 dark:text-gray-400">Impact Factor</div>
+                          <div className="text-xs text-gray-500 dark:text-gray-400">{tpub.impactFactor}</div>
                           <div className="bg-gradient-to-r from-emerald-500 to-green-500 text-white text-xs px-2 py-1 rounded-full font-bold">
                             {publication.impactFactor}
                           </div>
@@ -313,7 +322,7 @@ export default function Publications() {
                         className="flex items-center gap-1 text-sm text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 transition-colors"
                       >
                         <ExternalLink className="h-4 w-4" />
-                        <span>View Paper</span>
+                        <span>{tpub.viewPaper}</span>
                       </a>
                     )}
                   </div>
@@ -329,8 +338,8 @@ export default function Publications() {
               <div className="w-24 h-24 bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-600 rounded-3xl flex items-center justify-center mx-auto mb-6">
                 <BookOpen className="h-12 w-12 text-gray-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-600 dark:text-gray-400 mb-2">No publications found</h3>
-              <p className="text-gray-500 dark:text-gray-500">Try adjusting your search or filter criteria.</p>
+              <h3 className="text-xl font-semibold text-gray-600 dark:text-gray-400 mb-2">{tpub.noPublications}</h3>
+              <p className="text-gray-500 dark:text-gray-500">{tpub.noPublicationsHint}</p>
             </div>
           )}
         </div>

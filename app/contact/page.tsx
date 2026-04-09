@@ -4,8 +4,12 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Clock, Send, User, MessageSquare, Building, Map, Globe } from 'lucide-react'
 import { labInfo } from '../data/labData'
+import { useLanguage } from '../i18n/LanguageContext'
+import { translations } from '../i18n/translations'
 
 export default function Contact() {
+  const { lang } = useLanguage()
+  const tc = translations[lang].contact
   const [activeMap, setActiveMap] = useState('google')
   const [formData, setFormData] = useState({
     name: '',
@@ -60,11 +64,10 @@ export default function Contact() {
             className="text-center text-white"
           >
             <h1 className="text-5xl font-bold mb-6 text-white">
-              Contact Us
+              {tc.heroTitle}
             </h1>
             <p className="text-xl text-emerald-50 max-w-3xl mx-auto">
-              Get in touch with our research team for collaborations, inquiries, or to learn more
-              about our work in machine learning and artificial intelligence.
+              {tc.heroDesc}
             </p>
           </motion.div>
         </div>
@@ -81,12 +84,10 @@ export default function Contact() {
           >
             <div>
               <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-700 to-green-700 bg-clip-text text-transparent mb-6">
-                Get in Touch
+                {tc.getInTouch}
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-                We'd love to hear from you. Whether you're interested in our research,
-                looking for collaboration opportunities, or have questions about our lab,
-                don't hesitate to reach out.
+                {tc.getInTouchDesc}
               </p>
             </div>
 
@@ -99,7 +100,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      Email
+                      {tc.email}
                     </h3>
                     <a
                       href={`mailto:${labInfo.email}`}
@@ -118,7 +119,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      Phone
+                      {tc.phone}
                     </h3>
                     <a
                       href={`tel:${labInfo.phone}`}
@@ -137,7 +138,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      Address
+                      {tc.address}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300">
                       {labInfo.address}
@@ -153,13 +154,13 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      Office Hours
+                      {tc.officeHours}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      Monday - Friday: 9:00 AM - 6:00 PM
+                      {tc.mondayFriday}
                     </p>
                     <p className="text-gray-600 dark:text-gray-300">
-                      Saturday: 10:00 AM - 2:00 PM
+                      {tc.saturday}
                     </p>
                   </div>
                 </div>
@@ -168,7 +169,7 @@ export default function Contact() {
 
             {/* Research Areas Quick Links */}
             <div className="bg-gradient-to-br from-emerald-600 via-green-600 to-teal-600 rounded-2xl p-6 text-white">
-              <h3 className="text-xl font-bold mb-4">🔬 Research Interests</h3>
+              <h3 className="text-xl font-bold mb-4">{tc.researchInterests}</h3>
               <div className="grid grid-cols-2 gap-2">
                 <div className="text-sm flex items-center"><span className="mr-2">🧠</span>Machine Learning</div>
                 <div className="text-sm flex items-center"><span className="mr-2">👁️</span>Computer Vision</div>
@@ -186,7 +187,7 @@ export default function Contact() {
             className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all"
           >
             <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-700 to-green-700 bg-clip-text text-transparent mb-6">
-              Send us a Message
+              {tc.sendMessage}
             </h2>
             
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -202,11 +203,11 @@ export default function Contact() {
                   onChange={handleChange}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 >
-                  <option value="general">General Inquiry</option>
-                  <option value="collaboration">Research Collaboration</option>
-                  <option value="student">Student Application</option>
-                  <option value="visiting">Visiting Researcher</option>
-                  <option value="media">Media & Press</option>
+                  <option value="general">{tc.generalInquiry}</option>
+                  <option value="collaboration">{tc.researchCollab}</option>
+                  <option value="student">{tc.studentApplication}</option>
+                  <option value="visiting">{tc.visitingResearcher}</option>
+                  <option value="media">{tc.mediaPress}</option>
                 </select>
               </div>
 
@@ -214,7 +215,7 @@ export default function Contact() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   <User className="h-4 w-4 inline mr-2" />
-                  Full Name
+                  {tc.fullName}
                 </label>
                 <input
                   type="text"
@@ -223,7 +224,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Your full name"
+                  placeholder={tc.namePlaceholder}
                 />
               </div>
 
@@ -231,7 +232,7 @@ export default function Contact() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   <Mail className="h-4 w-4 inline mr-2" />
-                  Email Address
+                  {tc.emailAddress}
                 </label>
                 <input
                   type="email"
@@ -240,14 +241,14 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="your.email@example.com"
+                  placeholder={tc.emailPlaceholder}
                 />
               </div>
 
               {/* Subject */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-                  Subject
+                  {tc.subject}
                 </label>
                 <input
                   type="text"
@@ -256,7 +257,7 @@ export default function Contact() {
                   onChange={handleChange}
                   required
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  placeholder="Brief subject of your inquiry"
+                  placeholder={tc.subjectPlaceholder}
                 />
               </div>
 
@@ -264,7 +265,7 @@ export default function Contact() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   <MessageSquare className="h-4 w-4 inline mr-2" />
-                  Message
+                  {tc.message}
                 </label>
                 <textarea
                   name="message"
@@ -273,7 +274,7 @@ export default function Contact() {
                   required
                   rows={6}
                   className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-none"
-                  placeholder="Please provide details about your inquiry..."
+                  placeholder={tc.messagePlaceholder}
                 />
               </div>
 
@@ -283,7 +284,7 @@ export default function Contact() {
                 className="w-full bg-gradient-to-r from-emerald-600 to-green-600 text-white py-4 px-6 rounded-lg font-semibold hover:from-emerald-700 hover:to-green-700 transition-all duration-300 flex items-center justify-center gap-2 group transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                Send Message
+                {tc.sendBtn}
               </button>
             </form>
 

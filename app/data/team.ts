@@ -245,54 +245,6 @@ export const teamMembers: TeamMember[] = [
     status: "active",
     joinDate: "2021-09-01",
   },
-  {
-    id: "cyreneo-dofitas",
-    name: "Cyreneo Dofitas Jr.",
-    role: "Ph.D. Student",
-    title: "Doctoral Researcher",
-    email: "cyreneo@example.com",
-    image: "/Cy1.jpg",
-    bio: "Cyreneo Dofitas Jr. is a Ph.D. student focusing on video processing, large language models, and advanced machine learning techniques. His research contributes to the development of intelligent video analysis systems and natural language understanding applications.",
-    researchInterests: [
-      "Video Processing & Analysis",
-      "Large Language Models (LLM)",
-      "Natural Language Processing",
-      "Computer Vision",
-      "Multimodal Learning",
-      "Deep Learning Architectures",
-      "Real-time Video Analytics",
-    ],
-    education: [
-      {
-        degree: "Ph.D. in Computer Engineering (In Progress)",
-        institution: "Jeju National University",
-        year: 2025,
-        field: "Video Processing and NLP",
-      },
-      {
-        degree: "M.S. in Information Technology",
-        institution: "Mindanao State University",
-        year: 2019,
-      },
-      {
-        degree: "B.S. in Computer Science",
-        institution: "Mindanao State University",
-        year: 2017,
-      },
-    ],
-    publications: 18,
-    citations: 245,
-    hIndex: 8,
-    googleScholar:
-      "https://scholar.google.com/citations?user=UUHDK7MAAAAJ&hl=en&oi=ao",
-    currentProjects: [
-      "Intelligent Video Surveillance Systems",
-      "LLM for Video Content Understanding",
-      "Real-time Action Recognition",
-    ],
-    status: "active",
-    joinDate: "2020-03-01",
-  },
 
   {
     id: "kinza-nazir",
@@ -462,31 +414,6 @@ export const teamMembers: TeamMember[] = [
     joinDate: "2021-03-01",
   },
   {
-    id: "anik-debnath",
-    name: "Anik Debnath",
-    role: "Masters",
-    title: "Graduate Student",
-    email: "anik.debnath@example.com",
-    image: "/Anik.JPG",
-    bio: "Anik Debnath is a graduate student working on image processing, NLP, and machine learning projects within the lab.",
-    researchInterests: ["Image Processing", "NLP", "Machine Learning"],
-    education: [
-      {
-        degree: "M.S.",
-        institution: "Jeju National University",
-        year: 2024,
-        field: "Computer Science"
-      }
-    ],
-    publications: 0,
-    citations: 0,
-    hIndex: 0,
-    googleScholar: "https://scholar.google.com/citations?user=EGIkpOMAAAAJ&hl=en",
-    socialLinks: {},
-    status: "active",
-    joinDate: "2023-09-01",
-  },
-  {
     id: "raj-kumar",
     name: "Raj Kumar",
     role: "Master",
@@ -606,10 +533,107 @@ export const teamMembers: TeamMember[] = [
     status: "active",
     joinDate: "2023-09-01",
   },
+  {
+    id: "jinlong-he",
+    name: "Jinlong He",
+    role: "Ph.D. Student",
+    title: "Doctoral Researcher",
+    email: "",
+    image: "/jinlong.jpg",
+    bio: "Jinlong He is a Ph.D. student specializing in the application of artificial intelligence in finance, financial data modeling, and machine learning. His research focuses on developing intelligent systems for financial data analysis and predictive modeling.",
+    researchInterests: [
+      "AI in Finance",
+      "Financial Data Modeling",
+      "Machine Learning",
+    ],
+    education: [
+      {
+        degree: "Ph.D. in Computer Engineering (In Progress)",
+        institution: "Jeju National University",
+        year: 2025,
+        field: "AI in Finance",
+      },
+    ],
+    publications: 0,
+    citations: 0,
+    hIndex: 0,
+    googleScholar: "https://scholar.google.com/citations?hl=zh-CN&user=ZOxIz_YAAAAJ",
+    socialLinks: {},
+    status: "active",
+    joinDate: "2025-03-01",
+  },
 ];
 
 // Alumni data
 export const alumniMembers: TeamMember[] = [
+  {
+    id: "cyreneo-dofitas",
+    name: "Cyreneo Dofitas Jr.",
+    role: "Former Ph.D. Student",
+    title: "Ph.D.",
+    email: "cyreneo@example.com",
+    image: "/Cy1.jpg",
+    bio: "Cyreneo Dofitas Jr. completed his Ph.D. at our lab, focusing on video processing, large language models, and advanced machine learning techniques. His research contributed to the development of intelligent video analysis systems and natural language understanding applications.",
+    researchInterests: [
+      "Video Processing & Analysis",
+      "Large Language Models (LLM)",
+      "Natural Language Processing",
+      "Computer Vision",
+      "Multimodal Learning",
+      "Deep Learning Architectures",
+      "Real-time Video Analytics",
+    ],
+    education: [
+      {
+        degree: "Ph.D. in Computer Engineering",
+        institution: "Jeju National University",
+        year: 2025,
+        field: "Video Processing and NLP",
+      },
+      {
+        degree: "M.S. in Information Technology",
+        institution: "Mindanao State University",
+        year: 2019,
+      },
+      {
+        degree: "B.S. in Computer Science",
+        institution: "Mindanao State University",
+        year: 2017,
+      },
+    ],
+    publications: 18,
+    citations: 245,
+    hIndex: 8,
+    googleScholar: "https://scholar.google.com/citations?user=UUHDK7MAAAAJ&hl=en&oi=ao",
+    status: "alumni",
+    joinDate: "2020-03-01",
+    graduationDate: "2025-08-31",
+  },
+  {
+    id: "anik-debnath",
+    name: "Anik Debnath",
+    role: "Former Masters Student",
+    title: "M.S.",
+    email: "anik.debnath@example.com",
+    image: "/Anik.JPG",
+    bio: "Anik Debnath completed his Master's degree at our lab, working on image processing, NLP, and machine learning projects.",
+    researchInterests: ["Image Processing", "NLP", "Machine Learning"],
+    education: [
+      {
+        degree: "M.S. in Computer Science",
+        institution: "Jeju National University",
+        year: 2024,
+        field: "Computer Science",
+      },
+    ],
+    publications: 0,
+    citations: 0,
+    hIndex: 0,
+    googleScholar: "https://scholar.google.com/citations?user=EGIkpOMAAAAJ&hl=en",
+    status: "alumni",
+    joinDate: "2023-09-01",
+    graduationDate: "2024-08-31",
+  },
   {
     id: "subhajit-chatterjee",
     name: "Dr. Subhajit Chatterjee",
@@ -839,7 +863,7 @@ export const alumniMembers: TeamMember[] = [
     graduationDate: "2023-08-31",
     currentPosition: "Student",
     currentAffiliation: "Lakehead University, Canada"
-  }
+  },
 ]
 
 export const facultyMembers = teamMembers.filter(member => member.role.includes("Professor"))

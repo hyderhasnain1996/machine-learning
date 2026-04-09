@@ -3,8 +3,13 @@
 import { motion } from 'framer-motion'
 import { Mail, MapPin, GraduationCap, BookOpen, ExternalLink, Award, Users, Sparkles } from 'lucide-react'
 import { alumniMembers, facultyMembers, postDocFellows, currentStudents } from '../data/team'
+import { useLanguage } from '../i18n/LanguageContext'
+import { translations } from '../i18n/translations'
 
 export default function Team() {
+  const { lang } = useLanguage()
+  const tt = translations[lang].team
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section */}
@@ -29,11 +34,10 @@ export default function Team() {
             className="text-center text-white"
           >
             <h1 className="text-5xl font-bold mb-6 text-white">
-              Our Team
+              {tt.heroTitle}
             </h1>
             <p className="text-xl text-emerald-50 max-w-3xl mx-auto">
-              Meet the brilliant minds behind our cutting-edge research in machine learning
-              and artificial intelligence.
+              {tt.heroDesc}
             </p>
           </motion.div>
         </div>
@@ -54,13 +58,13 @@ export default function Team() {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-full mb-4">
               <Award className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
-              <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">Leadership</span>
+              <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">{tt.leadership}</span>
             </div>
             <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-emerald-700 via-green-600 to-teal-600 bg-clip-text text-transparent">
-              Faculty Members
+              {tt.facultyMembers}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Meet the distinguished professors leading our research initiatives
+              {lang === 'ko' ? '본 연구실의 연구를 이끄는 저명한 교수진을 소개합니다' : 'Meet the distinguished professors leading our research initiatives'}
             </p>
           </motion.div>
 
@@ -236,10 +240,10 @@ export default function Team() {
                 <span className="text-sm font-semibold text-purple-700 dark:text-purple-300">Research Excellence</span>
               </div>
               <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-purple-700 via-pink-600 to-rose-600 bg-clip-text text-transparent">
-                Post-Doctoral Fellows
+                {tt.postDocFellows}
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                Accomplished researchers advancing the frontiers of AI and machine learning
+                {lang === 'ko' ? 'AI와 머신러닝의 최전선을 개척하는 연구자들' : 'Accomplished researchers advancing the frontiers of AI and machine learning'}
               </p>
             </motion.div>
 
@@ -401,10 +405,10 @@ export default function Team() {
               <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">Research Team</span>
             </div>
             <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-700 to-indigo-600 bg-clip-text text-transparent">
-              Graduate Students
+              {tt.currentStudents}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Our talented researchers pursuing advanced degrees
+              {lang === 'ko' ? '고급 학위를 취득 중인 뛰어난 연구자들' : 'Our talented researchers pursuing advanced degrees'}
             </p>
           </motion.div>
 
@@ -488,7 +492,7 @@ export default function Team() {
               transition={{ duration: 0.6 }}
               className="text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white"
             >
-              Alumni
+              {tt.alumni}
             </motion.h2>
             
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

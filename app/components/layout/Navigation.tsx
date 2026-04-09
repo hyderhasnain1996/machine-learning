@@ -4,19 +4,10 @@ import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { Brain, Menu, X, Home, Beaker, BookOpen, Users, Newspaper, Mail, Search, Moon, Sun, Camera, Rocket, Sparkles, Zap } from 'lucide-react'
+import { Brain, Menu, X, Home, Beaker, BookOpen, Users, Newspaper, Mail, Search, Moon, Sun, Camera, Rocket, Sparkles, Zap, Languages } from 'lucide-react'
 import { useTheme } from 'next-themes'
-
-const navigationItems = [
-  { name: "Home", href: "/", icon: Home },
-  { name: "Research", href: "/research", icon: Beaker },
-  { name: "Projects", href: "/projects", icon: Rocket },
-  { name: "Publications", href: "/publications", icon: BookOpen },
-  { name: "Team", href: "/team", icon: Users },
-  { name: "Gallery", href: "/gallery", icon: Camera },
-  { name: "News", href: "/news", icon: Newspaper },
-  { name: "Contact", href: "/contact", icon: Mail }
-]
+import { useLanguage } from '@/app/i18n/LanguageContext'
+import { translations } from '@/app/i18n/translations'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -25,6 +16,19 @@ export default function Navigation() {
   const pathname = usePathname()
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const { lang, setLang } = useLanguage()
+  const t = translations[lang].nav
+
+  const navigationItems = [
+    { name: t.home, href: "/", icon: Home },
+    { name: t.research, href: "/research", icon: Beaker },
+    { name: t.projects, href: "/projects", icon: Rocket },
+    { name: t.publications, href: "/publications", icon: BookOpen },
+    { name: t.team, href: "/team", icon: Users },
+    { name: t.gallery, href: "/gallery", icon: Camera },
+    { name: t.news, href: "/news", icon: Newspaper },
+    { name: t.contact, href: "/contact", icon: Mail },
+  ]
 
   useEffect(() => {
     setMounted(true)
@@ -153,6 +157,43 @@ export default function Navigation() {
               >
                 <Search className="h-5 w-5" />
               </button>
+
+              {/* Language Toggle */}
+              {mounted && (
+                <div className={`flex items-center rounded-lg overflow-hidden text-xs font-semibold border transition-all duration-300 ${
+                  isScrolled
+                    ? 'border-emerald-200 dark:border-slate-600'
+                    : 'border-white/30'
+                }`}>
+                  <button
+                    onClick={() => setLang('en')}
+                    className={`px-2.5 py-1.5 transition-all duration-200 ${
+                      lang === 'en'
+                        ? 'bg-emerald-500 text-white'
+                        : isScrolled
+                          ? 'text-gray-500 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400'
+                          : 'text-white/60 hover:text-white'
+                    }`}
+                    aria-label="Switch to English"
+                  >
+                    EN
+                  </button>
+                  <div className={`w-px h-4 ${isScrolled ? 'bg-emerald-200 dark:bg-slate-600' : 'bg-white/30'}`} />
+                  <button
+                    onClick={() => setLang('ko')}
+                    className={`px-2.5 py-1.5 transition-all duration-200 ${
+                      lang === 'ko'
+                        ? 'bg-emerald-500 text-white'
+                        : isScrolled
+                          ? 'text-gray-500 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400'
+                          : 'text-white/60 hover:text-white'
+                    }`}
+                    aria-label="Switch to Korean"
+                  >
+                    한국어
+                  </button>
+                </div>
+              )}
 
               {/* Theme Toggle */}
               {mounted && (
