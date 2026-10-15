@@ -646,31 +646,6 @@ export const alumniMembers: TeamMember[] = [
     graduationDate: "2025-08-31",
   },
   {
-    id: "anik-debnath",
-    name: "Anik Debnath",
-    role: "Former Masters Student",
-    title: "M.S.",
-    email: "anik.debnath@example.com",
-    image: "/Anik.JPG",
-    bio: "Anik Debnath completed his Master's degree at our lab, working on image processing, NLP, and machine learning projects.",
-    researchInterests: ["Image Processing", "NLP", "Machine Learning"],
-    education: [
-      {
-        degree: "M.S. in Computer Science",
-        institution: "Jeju National University",
-        year: 2024,
-        field: "Computer Science",
-      },
-    ],
-    publications: 0,
-    citations: 0,
-    hIndex: 0,
-    googleScholar: "https://scholar.google.com/citations?user=EGIkpOMAAAAJ&hl=en",
-    status: "alumni",
-    joinDate: "2023-09-01",
-    graduationDate: "2024-08-31",
-  },
-  {
     id: "subhajit-chatterjee",
     name: "Dr. Subhajit Chatterjee",
     role: "Former Ph.D. Student & Post Doc",
@@ -966,6 +941,31 @@ export const alumniMembers: TeamMember[] = [
     status: "alumni",
     currentPosition: "Lecturer and Postdoctoral Researcher",
     currentAffiliation: "Language Technology Group, University of Hamburg, Germany"
+  },
+  {
+    id: "anik-debnath",
+    name: "Anik Debnath",
+    role: "Former Masters Student",
+    title: "M.S.",
+    email: "anik.debnath@example.com",
+    image: "/Anik.JPG",
+    bio: "Anik Debnath completed his Master's degree at our lab, working on image processing, NLP, and machine learning projects.",
+    researchInterests: ["Image Processing", "NLP", "Machine Learning"],
+    education: [
+      {
+        degree: "M.S. in Computer Science",
+        institution: "Jeju National University",
+        year: 2024,
+        field: "Computer Science",
+      },
+    ],
+    publications: 0,
+    citations: 0,
+    hIndex: 0,
+    googleScholar: "https://scholar.google.com/citations?user=EGIkpOMAAAAJ&hl=en",
+    status: "alumni",
+    joinDate: "2023-09-01",
+    graduationDate: "2024-08-31",
   },
 ]
 
