@@ -31,6 +31,13 @@ export interface TeamMember {
   website?: string
   achievements?: string[]
   currentProjects?: string[]
+  // Where an alumnus/alumna works now (shown on the alumni card)
+  currentRole?: {
+    position: string
+    organization: string
+    positionKo?: string
+    organizationKo?: string
+  }
   socialLinks?: {
     twitter?: string
     github?: string
@@ -594,6 +601,12 @@ export const alumniMembers: TeamMember[] = [
     name: "Cyreneo Dofitas Jr.",
     role: "Former Ph.D. Student",
     title: "Ph.D.",
+    currentRole: {
+      position: "Associate Professor",
+      organization: "West Visayas State University (WVSU), Iloilo City, Philippines",
+      positionKo: "부교수",
+      organizationKo: "웨스트비사야스 주립대학교(WVSU), 필리핀 일로일로",
+    },
     email: "cyreneo@example.com",
     image: "/Cy1.jpg",
     bio: "Cyreneo Dofitas Jr. completed his Ph.D. at our lab, focusing on video processing, large language models, and advanced machine learning techniques. His research contributed to the development of intelligent video analysis systems and natural language understanding applications.",
@@ -662,6 +675,12 @@ export const alumniMembers: TeamMember[] = [
     name: "Dr. Subhajit Chatterjee",
     role: "Former Ph.D. Student & Post Doc",
     title: "Research Scientist",
+    currentRole: {
+      position: "Marie Curie Postdoctoral Research Fellow",
+      organization: "Tampere University, Finland",
+      positionKo: "마리 퀴리 박사후 연구원",
+      organizationKo: "탐페레 대학교, 핀란드",
+    },
     image: "/Subhajit.jpg",
     bio: "Dr. Subhajit Chatterjee completed his Ph.D. and Post-doctoral research at our lab, focusing on medical image analysis and machine learning. He is now working as a Research Scientist at Tampere University, Finland.",
     researchInterests: [
@@ -683,7 +702,7 @@ export const alumniMembers: TeamMember[] = [
     status: "alumni",
     joinDate: "2018-03-01",
     graduationDate: "2023-08-31",
-    currentPosition: "Research Scientist",
+    currentPosition: "Marie Curie Postdoctoral Research Fellow",
     currentAffiliation: "Tampere University, Finland"
   },
   {
@@ -691,6 +710,12 @@ export const alumniMembers: TeamMember[] = [
     name: "Dr. Sadiqa Jafari",
     role: "Former Ph.D. Student & Post Doc",
     title: "Research Fellow",
+    currentRole: {
+      position: "Assistant Professor",
+      organization: "School of Computing, Gachon University, South Korea",
+      positionKo: "조교수",
+      organizationKo: "가천대학교 컴퓨팅학부",
+    },
     image: "/sadiqa24.jpg",
     bio: "Dr. Sadiqa Jafari completed her Ph.D. and Post-doctoral research focusing on battery degradation prediction and energy systems. She is currently a Research Fellow at Vrije Universiteit Brussel, Belgium.",
     researchInterests: [
@@ -710,14 +735,20 @@ export const alumniMembers: TeamMember[] = [
     citations: 445,
     googleScholar: "https://scholar.google.com/citations?user=x0vGNFwXNfgC&hl=en",
     status: "alumni",
-    currentPosition: "Research Fellow",
-    currentAffiliation: "Vrije Universiteit Brussel, Belgium"
+    currentPosition: "Assistant Professor",
+    currentAffiliation: "School of Computing, Gachon University, South Korea"
   },
   {
     id: "yongjun-kim",
     name: "Dr. Yongjun Kim",
     role: "Former Ph.D. Student",
     title: "Ph.D.",
+    currentRole: {
+      position: "Lecturer Professor",
+      organization: "Suwon, Gyeonggi-do, South Korea",
+      positionKo: "강의교수",
+      organizationKo: "경기도 수원",
+    },
     image: "/Jun.jpg",
     bio: "Dr. Yongjun Kim completed his Ph.D. at our lab, focusing on machine learning and artificial intelligence. He is currently working as a researcher at KIST AI/R Lab in South Korea.",
     researchInterests: [
@@ -739,14 +770,20 @@ export const alumniMembers: TeamMember[] = [
     status: "alumni",
     joinDate: "2018-03-01",
     graduationDate: "2023-08-31",
-    currentPosition: "Researcher",
-    currentAffiliation: "KIST AI/R Lab, South Korea"
+    currentPosition: "Lecturer Professor",
+    currentAffiliation: "Suwon, Gyeonggi-do, South Korea"
   },
   {
     id: "debapryia-hazra",
     name: "Dr. Debapryia Hazra",
     role: "Former Ph.D. Student",
     title: "Ph.D.",
+    currentRole: {
+      position: "Assistant Professor of Artificial Intelligence and Human Interactions",
+      organization: "School of Computing, Montclair State University, USA",
+      positionKo: "인공지능 및 인간 상호작용 조교수",
+      organizationKo: "몽클레어 주립대학교 컴퓨팅학부, 미국",
+    },
     image: "/deba.jpg",
     bio: "Dr. Debapryia Hazra completed her Ph.D. at our lab, specializing in machine learning and data science. She is currently working at Stanford University in the United States of America.",
     researchInterests: [
@@ -768,14 +805,20 @@ export const alumniMembers: TeamMember[] = [
     status: "alumni",
     joinDate: "2018-03-01",
     graduationDate: "2023-08-31",
-    currentPosition: "Researcher",
-    currentAffiliation: "Stanford University, United States of America"
+    currentPosition: "Assistant Professor of Artificial Intelligence and Human Interactions",
+    currentAffiliation: "School of Computing, Montclair State University, USA"
   },
   {
     id: "zeinab-shahbazi",
     name: "Dr. Zeinab Shahbazi",
     role: "Former Ph.D. Student",
     title: "Ph.D.",
+    currentRole: {
+      position: "Senior Lecturer in Computer Science and AI",
+      organization: "Kristianstad University, Sweden",
+      positionKo: "컴퓨터과학 및 AI 선임 강사",
+      organizationKo: "크리스티안스타드 대학교, 스웨덴",
+    },
     image: "/image.png",
     bio: "Dr. Zeinab Shahbazi completed her Ph.D. at our lab, focusing on machine learning and artificial intelligence. She is currently working at Barcelona University in Spain.",
     researchInterests: [
@@ -797,14 +840,20 @@ export const alumniMembers: TeamMember[] = [
     status: "alumni",
     joinDate: "2018-03-01",
     graduationDate: "2023-08-31",
-    currentPosition: "Researcher",
-    currentAffiliation: "Barcelona University, Spain"
+    currentPosition: "Senior Lecturer in Computer Science and AI",
+    currentAffiliation: "Kristianstad University, Sweden"
   },
   {
     id: "pyae-phyo",
     name: "Dr. Pyae Pyae Phyo",
     role: "Former Post-Doctoral Fellow",
     title: "Post Doc",
+    currentRole: {
+      position: "Postdoctoral Researcher",
+      organization: "RWTH Aachen University, Germany",
+      positionKo: "박사후 연구원",
+      organizationKo: "아헨 공과대학교(RWTH), 독일",
+    },
     image: "/phyo.jpeg",
     bio: "Dr. Pyae Pyae Phyo completed her Post-Doctoral research at our lab, specializing in machine learning and artificial intelligence. She is currently working at Eindhoven University of Technology in the Netherlands.",
     researchInterests: [
@@ -826,14 +875,20 @@ export const alumniMembers: TeamMember[] = [
     status: "alumni",
     joinDate: "2017-03-01",
     graduationDate: "2022-08-31",
-    currentPosition: "Post-Doctoral Researcher",
-    currentAffiliation: "Eindhoven University of Technology, Netherlands"
+    currentPosition: "Postdoctoral Researcher",
+    currentAffiliation: "RWTH Aachen University, Germany"
   },
   {
     id: "prince-khan",
     name: "Dr. Prince Waqas Khan",
     role: "Former Ph.D. Student",
     title: "Ph.D.",
+    currentRole: {
+      position: "Assistant Teaching Professor",
+      organization: "School of Computing, College of Science and Mathematics, Montclair State University, New Jersey, USA",
+      positionKo: "강의 조교수",
+      organizationKo: "몽클레어 주립대학교 과학수학대학 컴퓨팅학부, 미국 뉴저지",
+    },
     image: "/Prince.jpeg",
     bio: "Dr. Prince Waqas Khan completed his Ph.D. at our lab, focusing on machine learning and data science. He is currently working at West Virginia University in Morgantown, WV, USA.",
     researchInterests: [
@@ -855,14 +910,20 @@ export const alumniMembers: TeamMember[] = [
     status: "alumni",
     joinDate: "2018-03-01",
     graduationDate: "2023-08-31",
-    currentPosition: "Researcher",
-    currentAffiliation: "West Virginia University, Morgantown, WV, USA"
+    currentPosition: "Assistant Teaching Professor",
+    currentAffiliation: "School of Computing, College of Science and Mathematics, Montclair State University, New Jersey, USA"
   },
   {
     id: "mudassar-liaq",
     name: "Mr. Mudassar Liaq",
     role: "Former Master's Student",
     title: "Masters",
+    currentRole: {
+      position: "Postdoctoral Researcher",
+      organization: "University of Manitoba, Canada",
+      positionKo: "박사후 연구원",
+      organizationKo: "매니토바 대학교, 캐나다",
+    },
     image: "/liaq.jpg",
     bio: "Mr. Mudassar Liaq completed his Master's degree at our lab, specializing in machine learning and computer science. He is currently studying at Lakehead University in Canada.",
     researchInterests: [
@@ -884,8 +945,8 @@ export const alumniMembers: TeamMember[] = [
     status: "alumni",
     joinDate: "2021-03-01",
     graduationDate: "2023-08-31",
-    currentPosition: "Student",
-    currentAffiliation: "Lakehead University, Canada"
+    currentPosition: "Postdoctoral Researcher",
+    currentAffiliation: "University of Manitoba, Canada"
   },
 ]
 

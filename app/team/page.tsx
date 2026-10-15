@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import DecryptText from '@/app/components/ui/DecryptText'
 import Aurora from '@/app/components/ui/Aurora'
-import { Mail, MapPin, GraduationCap, BookOpen, ExternalLink, Award, Users, Sparkles } from 'lucide-react'
+import { Mail, MapPin, GraduationCap, BookOpen, ExternalLink, Award, Users, Sparkles, Briefcase } from 'lucide-react'
 import { alumniMembers, facultyMembers, postDocFellows, currentStudents } from '../data/team'
 import { useLanguage } from '../i18n/LanguageContext'
 import { translations } from '../i18n/translations'
@@ -502,7 +502,7 @@ export default function Team() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.1 }}
-                  className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 h-full"
                 >
                   <div className="text-center">
                     <div className="w-20 h-20 rounded-full mx-auto mb-4 overflow-hidden bg-gray-200 dark:bg-gray-700">
@@ -524,13 +524,30 @@ export default function Team() {
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
                       {k(member.role)}
                     </p>
-                    <p className="text-sm text-blue-600 dark:text-blue-400">
-                      {k(member.title)}
-                    </p>
-                    {member.experience && member.experience.length > 0 && (
-                      <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
-                        {k(member.experience[0].position)}
-                      </p>
+                    {member.currentRole ? (
+                      <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
+                        <p className="flex items-center justify-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">
+                          <Briefcase className="h-3.5 w-3.5" />
+                          {lang === 'ko' ? '현재' : 'Currently'}
+                        </p>
+                        <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 leading-snug">
+                          {lang === 'ko' ? (member.currentRole.positionKo ?? member.currentRole.position) : member.currentRole.position}
+                        </p>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 leading-snug">
+                          {lang === 'ko' ? (member.currentRole.organizationKo ?? member.currentRole.organization) : member.currentRole.organization}
+                        </p>
+                      </div>
+                    ) : (
+                      <>
+                        <p className="text-sm text-blue-600 dark:text-blue-400">
+                          {k(member.title)}
+                        </p>
+                        {member.experience && member.experience.length > 0 && (
+                          <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
+                            {k(member.experience[0].position)}
+                          </p>
+                        )}
+                      </>
                     )}
                   </div>
                 </motion.div>
