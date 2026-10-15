@@ -451,7 +451,9 @@ export default function Team() {
                         ))}
                       </div>
                     )}
-                    <span className="mt-3 text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500">{lang === 'ko' ? '마우스를 올려 더 보기' : 'Hover for more'}</span>
+                    {member.researchInterests?.length > 3 && (
+                      <span className="mt-3 text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500">{lang === 'ko' ? '마우스를 올려 더 보기' : 'Hover for more'}</span>
+                    )}
                   </div>
 
                   {/* BACK */}
@@ -493,17 +495,29 @@ export default function Team() {
 
       {/* Alumni Section */}
       {alumniMembers.length > 0 && (
-        <section className="pb-20">
+        <section className="py-20 border-t border-blue-100/70 dark:border-gray-800">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.h2
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-4xl font-bold text-center mb-16 text-gray-900 dark:text-white"
+              className="text-center mb-14"
             >
-              {tt.alumni}
-            </motion.h2>
-            
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-100 dark:bg-cyan-900/30 rounded-full mb-4">
+                <GraduationCap className="h-5 w-5 text-cyan-700 dark:text-cyan-400" />
+                <span className="text-sm font-semibold text-cyan-800 dark:text-cyan-300">{lang === 'ko' ? '졸업생 네트워크' : 'Alumni Network'}</span>
+              </div>
+              <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent">
+                {tt.alumni}
+              </h2>
+              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                {lang === 'ko'
+                  ? '전 세계 대학과 연구 기관에서 활약하고 있는 연구실 졸업생들입니다'
+                  : 'Former lab members now advancing research at universities and institutes worldwide'}
+              </p>
+            </motion.div>
+
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {alumniMembers.map((member, index) => (
                 <motion.div
