@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import DecryptText from '@/app/components/ui/DecryptText'
 import Aurora from '@/app/components/ui/Aurora'
-import { Mail, MapPin, GraduationCap, BookOpen, ExternalLink, Award, Users, Sparkles, Briefcase } from 'lucide-react'
+import { Mail, MapPin, GraduationCap, BookOpen, ExternalLink, Award, Users, Sparkles } from 'lucide-react'
 import { alumniMembers, facultyMembers, postDocFellows, currentStudents } from '../data/team'
 import { useLanguage } from '../i18n/LanguageContext'
 import { translations } from '../i18n/translations'
@@ -526,10 +526,9 @@ export default function Team() {
                     </p>
                     {member.currentRole ? (
                       <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
-                        <p className="flex items-center justify-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">
-                          <Briefcase className="h-3.5 w-3.5" />
+                        <span className="inline-block mb-2 px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-900/30 text-[11px] font-semibold tracking-wide text-blue-700 dark:text-blue-300">
                           {lang === 'ko' ? '현재 소속' : 'Current Affiliation'}
-                        </p>
+                        </span>
                         <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 leading-snug">
                           {lang === 'ko' ? (member.currentRole.positionKo ?? member.currentRole.position) : member.currentRole.position}
                         </p>

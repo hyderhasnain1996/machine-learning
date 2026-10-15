@@ -720,9 +720,9 @@ export const alumniMembers: TeamMember[] = [
     title: "Ph.D.",
     currentRole: {
       position: "Lecturer Professor",
-      organization: "Suwon, Gyeonggi-do, South Korea",
+      organization: "Ajou University, Suwon, South Korea",
       positionKo: "강의교수",
-      organizationKo: "경기도 수원",
+      organizationKo: "아주대학교, 경기도 수원",
     },
     image: "/Jun.jpg",
     bio: "Dr. Yongjun Kim completed his Ph.D. at our lab, focusing on machine learning and artificial intelligence. He is currently working as a researcher at KIST AI/R Lab in South Korea.",
@@ -746,7 +746,7 @@ export const alumniMembers: TeamMember[] = [
     joinDate: "2018-03-01",
     graduationDate: "2023-08-31",
     currentPosition: "Lecturer Professor",
-    currentAffiliation: "Suwon, Gyeonggi-do, South Korea"
+    currentAffiliation: "Ajou University, Suwon, South Korea"
   },
   {
     id: "debapryia-hazra",
