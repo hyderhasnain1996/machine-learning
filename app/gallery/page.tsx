@@ -3,8 +3,6 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
 import { X } from 'lucide-react'
-import { useLanguage } from '../i18n/LanguageContext'
-import { translations } from '../i18n/translations'
 
 const galleryImages = [
   {
@@ -57,19 +55,17 @@ const galleryImages = [
   }
 ]
 
+const categories = [
+  { id: 'all', name: 'All Photos' },
+  { id: 'team', name: 'Team Photos' },
+  { id: 'events', name: 'Events' },
+  { id: 'activities', name: 'Activities' },
+  { id: 'facilities', name: 'Facilities' }
+]
+
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null)
-  const { lang } = useLanguage()
-  const tg = translations[lang].gallery
-
-  const categories = [
-    { id: 'all', name: tg.allPhotos },
-    { id: 'team', name: tg.teamPhotos },
-    { id: 'events', name: tg.events },
-    { id: 'activities', name: tg.activities },
-    { id: 'facilities', name: tg.facilities },
-  ]
 
   const filteredImages = selectedCategory === 'all' 
     ? galleryImages 
@@ -136,10 +132,11 @@ export default function Gallery() {
             </div>
 
             <h1 className="text-6xl font-bold mb-6 text-white drop-shadow-2xl">
-              {tg.heroTitle}
+              Gallery
             </h1>
             <p className="text-xl text-emerald-50 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
-              {tg.heroDesc}
+              Explore moments from our lab activities, team events, research presentations,
+              and memorable experiences at Machine Learning Lab.
             </p>
           </motion.div>
         </div>
