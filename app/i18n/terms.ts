@@ -110,6 +110,23 @@ export const koTerms: Record<string, string> = {
   'BEMS Integration': 'BEMS 통합',
   'Energy Analytics': '에너지 분석',
 
+  'Solar PV Mapping': '태양광 패널 매핑',
+  'Multi-Agent AI': '다중 에이전트 AI',
+  'Multi-Resolution Imagery': '다중 해상도 영상',
+  'Video Instance Segmentation': '비디오 인스턴스 분할',
+  'Land-Cover Segmentation': '토지피복 분할',
+  'Graph Learning': '그래프 학습',
+  'EV Charging Forecasting': '전기차 충전 예측',
+  'Solar Power Forecasting': '태양광 발전량 예측',
+  'Solar Optimizers': '태양광 최적화기',
+  'Healthcare Informatics': '헬스케어 정보학',
+  'Pattern Recognition': '패턴 인식',
+  'IoT Applications': 'IoT 응용',
+  'Smart Grid Technology': '스마트 그리드 기술',
+  'Cross-modal Understanding': '교차 모달 이해',
+  'Transformer Architectures': '트랜스포머 아키텍처',
+  'AI Ethics in Medicine': '의료 AI 윤리',
+
   // ---- Project categories / partners ----
   'Smart City': '스마트 시티',
   'LLM & Tourism': 'LLM 및 관광',

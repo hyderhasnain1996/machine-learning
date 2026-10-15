@@ -213,13 +213,17 @@ export const teamMembers: TeamMember[] = [
     image: "/Batool.JPG",
     bio: "Dr. Amreen Batool is a Post-Doctoral Fellow specializing in medical AI and blockchain applications. Her research focuses on developing innovative AI solutions for healthcare challenges, particularly in medical image analysis and secure health data management. She has published several high-impact papers in top-tier journals and conferences.",
     researchInterests: [
+      "Solar PV Segmentation",
+      "Multi-Agent AI",
+      "Multi-Resolution Imagery",
+      "Uncertainty Estimation",
       "Medical Image Analysis",
       "Deep Learning for Healthcare",
       "Blockchain in Healthcare",
       "Computer Vision",
       "Smart Agriculture Applications",
       "Renewable Energy Systems",
-      "AI Ethics in Medicine",
+      "AI Ethics in Medicine"
     ],
     education: [
       {
@@ -264,13 +268,17 @@ export const teamMembers: TeamMember[] = [
     image: "/Kinza.jpeg",
     bio: "Kinza Nazir is a Ph.D. student specializing in medical image analysis and computer vision. Her research focuses on developing AI systems for medical diagnosis, particularly in ophthalmology and radiology applications.",
     researchInterests: [
+      "Solar PV Mapping",
+      "Satellite Imagery",
+      "Domain Adaptation",
+      "Human-in-the-Loop",
       "Medical Image Analysis",
       "Computer Vision",
       "Deep Learning",
       "Ophthalmology AI",
       "Radiology Applications",
       "Healthcare Informatics",
-      "Pattern Recognition",
+      "Pattern Recognition"
     ],
     education: [
       {
@@ -305,13 +313,17 @@ export const teamMembers: TeamMember[] = [
     image: "/hasnain.jpg",
     bio: "Hasnain Hyder is a Ph.D. student working on computer vision, robotics, and renewable energy applications. His research contributes to the development of intelligent systems for autonomous vehicles and sustainable energy solutions.",
     researchInterests: [
+      "Video Instance Segmentation",
+      "Vision-Language Models",
+      "Edge AI",
+      "Knowledge Distillation",
       "Computer Vision",
       "Robotics and Automation",
       "Renewable Energy Systems",
       "Autonomous Vehicles",
       "Deep Learning",
       "IoT Applications",
-      "Smart Grid Technology",
+      "Smart Grid Technology"
     ],
     education: [
       {
@@ -348,11 +360,15 @@ export const teamMembers: TeamMember[] = [
     image: "/Jiyoung.jpg",
     bio: "Jiyoung Ko is a Ph.D. student specializing in machine learning, predictive modelling, and recommendation systems. Her research focuses on developing intelligent algorithms for data-driven predictions and personalized recommendation systems.",
     researchInterests: [
+      "Satellite Imagery",
+      "Knowledge Distillation",
+      "Land-Cover Segmentation",
+      "Model Compression",
       "Machine Learning",
       "Predictive Modelling",
       "Recommendation Systems",
       "Data Mining",
-      "Deep Learning",
+      "Deep Learning"
     ],
     education: [
       {
@@ -383,13 +399,18 @@ export const teamMembers: TeamMember[] = [
     image: "/waqarp-png.jpeg",
     bio: "Muhammad Waqar is a Ph.D. student specializing in machine learning, multimodal learning, and natural language processing. His research focuses on developing advanced AI systems that can understand and process multiple types of data simultaneously.",
     researchInterests: [
+      "Grid-State Forecasting",
+      "Meta-Learning",
+      "Graph Learning",
+      "Uncertainty Quantification",
+      "EV Charging Forecasting",
       "Multimodal Machine Learning",
       "Natural Language Processing",
       "Deep Learning",
       "Artificial Intelligence",
       "Computer Vision",
       "Cross-modal Understanding",
-      "Transformer Architectures",
+      "Transformer Architectures"
     ],
     education: [
       {
@@ -431,12 +452,16 @@ export const teamMembers: TeamMember[] = [
     image: "/Raj.jpg",
     bio: "Raj Kumar is a master's student focusing on machine learning, deep learning, computer vision, and smart agriculture.",
     researchInterests: [
+      "Solar Power Forecasting",
+      "Physics-Informed AI",
+      "Conformal Prediction",
+      "Uncertainty Quantification",
       "Machine Learning",
       "Deep Learning",
       "Computer Vision",
       "Smart Agriculture",
       "Renewable Energy",
-      "Robotics",
+      "Robotics"
     ],
     education: [
       {
@@ -463,7 +488,10 @@ export const teamMembers: TeamMember[] = [
     image: "/Julliane Pearl M- Camarista.jpg",
     bio: "Julliane Pearl M. Camarista is a GKS student focusing on machine learning research and applications.",
     researchInterests: [
-      "Machine Learning",
+      "Global MPPT",
+      "Solar Optimizers",
+      "Partial Shading",
+      "Machine Learning"
     ],
     education: [
       {
@@ -490,10 +518,14 @@ export const teamMembers: TeamMember[] = [
     image: "/yuseok.jpg",
     bio: "Yu-Seok Kim is a master's student specializing in machine learning, large language models, and model optimization techniques.",
     researchInterests: [
+      "Adaptive RAG",
+      "Multimodal LLMs",
+      "Reliable AI",
+      "Smart Farming AI",
       "Machine Learning",
       "LLM",
       "Model Quantization & Efficiency",
-      "Image Processing",
+      "Image Processing"
     ],
     education: [
       {
@@ -520,11 +552,15 @@ export const teamMembers: TeamMember[] = [
     image: "/1760808139295 (1).jpg",
     bio: "Nazrul Amin is a master's student working on machine learning, deep learning, medical imaging, smart agriculture, and IoT.",
     researchInterests: [
+      "Energy Demand Forecasting",
+      "Time-Series Forecasting",
+      "Probabilistic Forecasting",
+      "Explainable AI",
       "Machine Learning",
       "Deep Learning",
       "Medical Imaging",
       "Smart Agriculture",
-      "IoT",
+      "IoT"
     ],
     education: [
       {
