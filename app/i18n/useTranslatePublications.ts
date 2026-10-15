@@ -1,8 +1,13 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
+// Pre-translated Korean titles/abstracts (English text -> Korean), bundled with the site
+// so Korean titles show instantly without depending on an online translation service.
+import bundledKo from './publicationsKo.json'
 
-const CACHE_KEY = 'pub_translations_ko'
+const BUNDLED: Record<string, string> = bundledKo as Record<string, string>
+
+const CACHE_KEY = 'pub_translations_ko_v2'
 
 function loadCache(): Record<string, string> {
   try {
@@ -39,11 +44,15 @@ export function useTranslatePublications(
     // Collect texts that need translation
     const toTranslate: { key: string; text: string }[] = []
     for (const pub of publications) {
-      for (const field of ['title', 'journal', 'abstract'] as const) {
-        const text: string = pub[field] || ''
+      // Journal names are proper names, so they stay in English
+      for (const field of ['title', 'abstract'] as const) {
+        const text: string = (pub[field] || '').trim()
         if (!text) continue
         const key = `${pub.id}__${field}`
-        if (!cache[key]) {
+        if (cache[key]) continue
+        if (BUNDLED[text]) {
+          cache[key] = BUNDLED[text]
+        } else {
           toTranslate.push({ key, text })
         }
       }

@@ -103,12 +103,12 @@ export default function Navigation() {
                       ? 'bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-transparent'
                       : 'text-white'
                   }`}>
-                    ML Lab JNU
+                    {lang === 'ko' ? '머신러닝 연구실' : 'ML Lab JNU'}
                   </div>
                   <div className={`text-xs font-medium transition-colors duration-300 ${
                     isScrolled ? 'text-gray-500 dark:text-gray-400' : 'text-blue-100'
                   }`}>
-                    Jeju National University
+                    {lang === 'ko' ? '제주대학교' : 'Jeju National University'}
                   </div>
                 </div>
               </Link>

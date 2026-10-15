@@ -8,6 +8,7 @@ import { researchAreas } from "./data/labData";
 import { featuredPublications } from "./data/publications";
 import { useLanguage } from "./i18n/LanguageContext";
 import { translations } from "./i18n/translations";
+import { useTerm } from "./i18n/terms";
 import TiltCard from "./components/ui/TiltCard";
 import SpotlightCard from "./components/ui/SpotlightCard";
 import Marquee from "./components/ui/Marquee";
@@ -19,6 +20,8 @@ import { motion as m } from "framer-motion";
 export default function Home() {
   const { lang } = useLanguage()
   const th = translations[lang].home
+  const k = useTerm()
+  const ko = lang === 'ko'
   const tp = translations[lang].publications
   const tt = translations[lang].team
   const localizedAreas = translations[lang].researchAreas
@@ -174,7 +177,7 @@ export default function Home() {
       {/* Tech Marquee Band */}
       <section className="py-10 bg-white dark:bg-[#0a0f1f] border-y border-blue-100 dark:border-blue-500/20">
         <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-blue-500/70 dark:text-cyan-400/70 mb-6">
-          Technologies & Research Domains
+          {ko ? '기술 및 연구 분야' : 'Technologies & Research Domains'}
         </p>
         <Marquee
           items={[
@@ -183,7 +186,7 @@ export default function Home() {
             "Grid-State Forecasting", "Energy Demand Forecasting", "Vision-Language Models",
             "Real-Time Video Segmentation", "Knowledge Distillation", "Super-Resolution", "Edge AI",
             "Adaptive RAG", "Reinforcement Learning", "Explainable AI", "Smart Farming AI",
-          ]}
+          ].map(k)}
         />
       </section>
 
@@ -202,18 +205,18 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center text-4xl md:text-5xl font-black text-white mb-4"
           >
-            Driving Real-World Impact
+            {ko ? '실제 세계에 영향을 주는 연구' : 'Driving Real-World Impact'}
           </m.h2>
           <p className="text-center text-blue-100 text-lg mb-14 max-w-2xl mx-auto">
-            Two decades of AI research, translated into publications, projects, and global collaboration.
+            {ko ? '20여 년의 AI 연구를 논문, 프로젝트, 글로벌 협력으로 이어가고 있습니다.' : 'Two decades of AI research, translated into publications, projects, and global collaboration.'}
           </p>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { value: "396+", label: "Publications", percent: 88 },
-              { value: "50+", label: "Research Projects", percent: 72 },
-              { value: "20+", label: "Years of Excellence", percent: 95 },
-              { value: "7777+", label: "Citations", percent: 80 },
+              { value: "396+", label: ko ? "논문" : "Publications", percent: 88 },
+              { value: "50+", label: ko ? "연구 프로젝트" : "Research Projects", percent: 72 },
+              { value: "20+", label: ko ? "연구 경력(년)" : "Years of Excellence", percent: 95 },
+              { value: "7777+", label: ko ? "인용" : "Citations", percent: 80 },
             ].map((stat, i) => (
               <m.div
                 key={stat.label}
@@ -336,7 +339,7 @@ export default function Home() {
                         <div className="flex flex-wrap gap-2">
                           {area.keywords.slice(0, 3).map((keyword, idx) => (
                             <span key={idx} className="text-xs px-3 py-1.5 bg-gradient-to-r from-blue-50 to-sky-50 dark:from-blue-900/30 dark:to-sky-900/30 text-blue-700 dark:text-blue-300 rounded-full font-medium group-hover:scale-105 transition-transform">
-                              {keyword}
+                              {k(keyword)}
                             </span>
                           ))}
                         </div>

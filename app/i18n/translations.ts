@@ -25,10 +25,10 @@ export const translations = {
       tagline: 'Building the future through AI research',
       allRightsReserved: 'All rights reserved.',
       researchItems: {
-        mlAI: 'Machine Learning & AI',
-        computerVision: 'Computer Vision',
-        llmGenAI: 'LLM & Generative AI',
-        iotEdge: 'IoT & Edge Computing',
+        mlAI: 'Solar Energy & Photovoltaic AI',
+        computerVision: 'Energy & Grid Forecasting',
+        llmGenAI: 'Efficient Vision & Edge AI',
+        iotEdge: 'Trustworthy LLMs & Adaptive RAG',
       },
     },
     home: {
@@ -747,10 +747,10 @@ export const translations = {
       tagline: 'AI 연구를 통해 미래를 만들어갑니다',
       allRightsReserved: '모든 권리 보유.',
       researchItems: {
-        mlAI: '머신러닝 및 인공지능',
-        computerVision: '컴퓨터 비전',
-        llmGenAI: 'LLM 및 생성형 AI',
-        iotEdge: 'IoT 및 엣지 컴퓨팅',
+        mlAI: '태양광 에너지 및 PV AI',
+        computerVision: '에너지 및 전력망 예측',
+        llmGenAI: '효율적 비전 및 엣지 AI',
+        iotEdge: '신뢰할 수 있는 LLM 및 적응형 RAG',
       },
     },
     home: {

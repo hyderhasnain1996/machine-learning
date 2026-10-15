@@ -10,6 +10,7 @@ import Link from 'next/link'
 import { currentProjects, projectDashboards } from '../data/labData'
 import { useLanguage } from '../i18n/LanguageContext'
 import { translations } from '../i18n/translations'
+import { useTerm } from '../i18n/terms'
 
 const iconMap = {
   MapPin,
@@ -37,6 +38,7 @@ export default function Projects() {
   const { lang } = useLanguage()
   const tp = translations[lang].projects
   const localizedProjects = translations[lang].currentProjects
+  const k = useTerm()
   const localizedDashboards = translations[lang].projectDashboards
   const [previewIndex, setPreviewIndex] = useState<number | null>(null)
   const [mounted, setMounted] = useState(false)
@@ -328,7 +330,7 @@ export default function Projects() {
                               key={idx}
                               className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 text-blue-700 dark:text-blue-300 text-xs px-3 py-1.5 rounded-full font-medium border border-blue-200 dark:border-blue-700"
                             >
-                              {tech}
+                              {k(tech)}
                             </span>
                           ))}
                         </div>
@@ -427,7 +429,7 @@ export default function Projects() {
                       {/* Category Badge */}
                       <div className="absolute bottom-6 left-6">
                         <span className="bg-white/20 backdrop-blur-md text-white px-4 py-2 rounded-full text-sm font-semibold border border-white/30">
-                          {project.category}
+                          {k(project.category)}
                         </span>
                       </div>
                     </div>
@@ -458,12 +460,12 @@ export default function Projects() {
                               key={idx}
                               className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 text-blue-700 dark:text-blue-300 text-xs px-3 py-1.5 rounded-full font-medium border border-blue-200 dark:border-blue-700"
                             >
-                              {tech}
+                              {k(tech)}
                             </span>
                           ))}
                           {project.technologies.length > 4 && (
                             <span className="text-xs text-gray-500 dark:text-gray-400 px-2 py-1.5">
-                              +{project.technologies.length - 4} more
+                              +{project.technologies.length - 4}{lang === 'ko' ? '개 더' : ' more'}
                             </span>
                           )}
                         </div>
@@ -501,7 +503,7 @@ export default function Projects() {
                             <Users className="h-4 w-4 text-gray-500 dark:text-gray-400" />
                             <span className="text-sm text-gray-600 dark:text-gray-400">{tp.partner}:</span>
                             <span className="text-sm font-semibold text-gray-900 dark:text-white">
-                              {project.partner}
+                              {k(project.partner)}
                             </span>
                           </div>
                         </div>

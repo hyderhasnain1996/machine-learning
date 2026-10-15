@@ -12,6 +12,21 @@ import AnimatedCounter from '@/app/components/ui/AnimatedCounter'
 import DecryptText from '@/app/components/ui/DecryptText'
 import WordRotator from '@/app/components/ui/WordRotator'
 
+// Korean labels/values for the slide stats (keys and non-numeric values come from labData)
+const koStatLabels: Record<string, string> = {
+  projects: '프로젝트', publications: '논문', collaborations: '협력',
+  impact: '영향력', citations: '인용', journals: '저널',
+  members: '구성원', experience: '경력', awards: '수상',
+  devices: '디바이스', networks: '네트워크', efficiency: '효율',
+}
+const koStatValues: Record<string, string> = {
+  Global: '글로벌', High: '높음', 'Top-tier': '최상위', '20+ Years': '20년+', Multiple: '다수',
+}
+const rotatingWords = {
+  en: ['Solar Energy AI', 'Energy Forecasting', 'Computer Vision', 'Edge AI', 'Trustworthy LLMs'],
+  ko: ['태양광 에너지 AI', '에너지 예측', '컴퓨터 비전', '엣지 AI', '신뢰할 수 있는 LLM'],
+}
+
 interface HeroSliderProps {
   autoplay?: boolean
   interval?: number
@@ -286,8 +301,9 @@ export default function HeroSlider({
                   <DecryptText key={currentSlide} text={localSlides[currentSlide]?.title ?? heroSlides[currentSlide].title} />
                 </h1>
                 <div className="text-2xl sm:text-3xl lg:text-4xl font-black mb-6 h-[1.4em] flex items-center justify-center gap-3">
-                  <span className="text-white/70 font-light text-xl sm:text-2xl">Advancing</span>
-                  <WordRotator words={["Deep Learning", "Computer Vision", "LLMs", "Generative AI", "Edge AI"]} />
+                  {lang !== 'ko' && <span className="text-white/70 font-light text-xl sm:text-2xl">Advancing</span>}
+                  <WordRotator key={lang} words={rotatingWords[lang]} />
+                  {lang === 'ko' && <span className="text-white/70 font-light text-xl sm:text-2xl">연구를 선도합니다</span>}
                 </div>
                 <p className="text-xl sm:text-2xl lg:text-3xl mb-8 text-white/90 max-w-4xl mx-auto leading-relaxed">
                   {localSlides[currentSlide]?.description ?? heroSlides[currentSlide].description}
@@ -308,10 +324,10 @@ export default function HeroSlider({
                           className="text-center px-5 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 hover:border-cyan-300/60 hover:bg-white/15 transition-all duration-300"
                         >
                           <div className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
-                            <AnimatedCounter value={value} />
+                            <AnimatedCounter value={lang === 'ko' ? (koStatValues[value] ?? value) : value} />
                           </div>
                           <div className="text-sm text-white/80 capitalize tracking-wide">
-                            {key}
+                            {lang === 'ko' ? (koStatLabels[key] ?? key) : key}
                           </div>
                         </div>
                       )

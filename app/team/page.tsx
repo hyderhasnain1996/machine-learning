@@ -7,11 +7,12 @@ import { Mail, MapPin, GraduationCap, BookOpen, ExternalLink, Award, Users, Spar
 import { alumniMembers, facultyMembers, postDocFellows, currentStudents } from '../data/team'
 import { useLanguage } from '../i18n/LanguageContext'
 import { translations } from '../i18n/translations'
+import { useTerm } from '../i18n/terms'
 
 export default function Team() {
   const { lang } = useLanguage()
   const tt = translations[lang].team
-  // lang kept for potential future use
+  const k = useTerm()
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
@@ -147,7 +148,7 @@ export default function Team() {
                           <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${isFirstProfessor ? 'from-blue-600 to-sky-600' : 'from-blue-600 to-indigo-600'} text-white px-5 py-2 rounded-full shadow-xl border-3 border-white dark:border-gray-800 group-hover:scale-105 transition-transform duration-300`}>
                             <div className="flex items-center gap-2">
                               <Award className="h-4 w-4" />
-                              <span className="font-bold text-xs">{isFirstProfessor ? tt.labDirectorBadge : member.role}</span>
+                              <span className="font-bold text-xs">{isFirstProfessor ? tt.labDirectorBadge : k(member.role)}</span>
                               <span className="relative flex h-1.5 w-1.5 ml-1">
                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white"></span>
@@ -163,7 +164,7 @@ export default function Team() {
                           {member.name}
                         </h3>
                         <p className={`text-lg text-${accentColor}-600 dark:text-${accentColor}-400 font-semibold`}>
-                          {lf?.title ?? member.title}
+                          {lf?.title ?? k(member.title)}
                         </p>
                       </div>
 
@@ -181,7 +182,7 @@ export default function Team() {
                                 <div className={`w-1.5 h-1.5 bg-${accentColor}-600 rounded-full mt-1.5 flex-shrink-0`}></div>
                                 <div>
                                   <p className="font-semibold text-gray-900 dark:text-white text-xs">
-                                    {edu.degree} - {edu.institution} ({edu.year})
+                                    {k(edu.degree)} - {k(edu.institution)} ({edu.year})
                                   </p>
                                 </div>
                               </div>
@@ -200,7 +201,7 @@ export default function Team() {
                               {(lf?.researchInterests ?? member.researchInterests).slice(0, 6).map((interest, idx) => (
                                 <div key={idx} className={`flex items-center gap-1.5 bg-gradient-to-r ${isFirstProfessor ? 'from-blue-50 to-sky-50' : 'from-blue-50 to-indigo-50'} dark:from-gray-700 dark:to-gray-700/50 rounded-lg px-2.5 py-2 border ${isFirstProfessor ? 'border-blue-100 dark:border-blue-800' : 'border-blue-100 dark:border-blue-800'} ${isFirstProfessor ? 'hover:from-blue-100 hover:to-sky-100' : 'hover:from-blue-100 hover:to-indigo-100'} dark:hover:bg-gray-600 transition-all group/item`}>
                                   <div className={`w-1.5 h-1.5 bg-gradient-to-r ${isFirstProfessor ? 'from-blue-600 to-sky-600' : 'from-blue-600 to-indigo-600'} rounded-full flex-shrink-0`}></div>
-                                  <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">{interest}</span>
+                                  <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">{k(interest)}</span>
                                 </div>
                               ))}
                             </div>
@@ -310,7 +311,7 @@ export default function Team() {
                             {member.name}
                           </h3>
                           <p className="text-base text-purple-600 dark:text-purple-400 font-semibold">
-                            • {member.title}
+                            • {k(member.title)}
                           </p>
                         </div>
                       </div>
@@ -335,10 +336,10 @@ export default function Team() {
                                   <div className="w-2 h-2 bg-purple-600 rounded-full mt-2 flex-shrink-0"></div>
                                   <div>
                                     <p className="font-bold text-gray-900 dark:text-white text-base">
-                                      {edu.degree}
+                                      {k(edu.degree)}
                                     </p>
                                     <p className="text-sm text-gray-600 dark:text-gray-400">
-                                      {edu.institution} <span className="text-purple-600 dark:text-purple-400">• {edu.year}</span>
+                                      {k(edu.institution)} <span className="text-purple-600 dark:text-purple-400">• {edu.year}</span>
                                     </p>
                                   </div>
                                 </div>
@@ -364,7 +365,7 @@ export default function Team() {
                                   key={idx}
                                   className="bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 px-4 py-2 rounded-full text-sm font-semibold border border-purple-200 dark:border-purple-700 text-center"
                                 >
-                                  {interest}
+                                  {k(interest)}
                                 </span>
                               ))}
                             </div>
@@ -440,14 +441,14 @@ export default function Team() {
                       )}
                     </div>
                     <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{member.name}</h3>
-                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">{member.role}</p>
-                    <span className="mt-4 text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500">Hover to view profile</span>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">{k(member.role)}</p>
+                    <span className="mt-4 text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500">{lang === 'ko' ? '마우스를 올려 프로필 보기' : 'Hover to view profile'}</span>
                   </div>
 
                   {/* BACK */}
                   <div className="flip-face flip-back rounded-2xl p-6 shadow-xl border border-cyan-400/30 bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-600 text-white flex flex-col">
                     <h3 className="text-base font-bold mb-1">{member.name}</h3>
-                    <p className="text-xs text-cyan-100 mb-3">{member.role}</p>
+                    <p className="text-xs text-cyan-100 mb-3">{k(member.role)}</p>
                     {member.researchInterests && (
                       <>
                         <p className="text-[11px] font-semibold uppercase tracking-wider text-cyan-200 mb-2">
@@ -456,7 +457,7 @@ export default function Team() {
                         <div className="flex flex-wrap gap-1.5 mb-auto">
                           {member.researchInterests.slice(0, 5).map((interest, idx) => (
                             <span key={idx} className="bg-white/15 backdrop-blur-sm text-white text-[11px] px-2 py-1 rounded-md border border-white/20">
-                              {interest}
+                              {k(interest)}
                             </span>
                           ))}
                         </div>
@@ -521,14 +522,14 @@ export default function Team() {
                       {member.name}
                     </h3>
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-2">
-                      {member.role}
+                      {k(member.role)}
                     </p>
                     <p className="text-sm text-blue-600 dark:text-blue-400">
-                      {member.title}
+                      {k(member.title)}
                     </p>
                     {member.experience && member.experience.length > 0 && (
                       <p className="text-xs text-gray-500 dark:text-gray-500 mt-2">
-                        {member.experience[0].position}
+                        {k(member.experience[0].position)}
                       </p>
                     )}
                   </div>

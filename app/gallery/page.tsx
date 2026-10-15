@@ -8,6 +8,7 @@ import { createPortal } from 'react-dom'
 import { X } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
 import { translations } from '../i18n/translations'
+import { useTerm } from '../i18n/terms'
 
 const galleryImages = [
   {
@@ -66,6 +67,7 @@ export default function Gallery() {
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
   const { lang } = useLanguage()
+  const k = useTerm()
   const tg = translations[lang].gallery
 
   const categories = [
@@ -134,7 +136,7 @@ export default function Gallery() {
               <svg className="h-5 w-5 text-blue-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              <span className="text-sm font-semibold text-blue-100">Photo Gallery</span>
+              <span className="text-sm font-semibold text-blue-100">{lang === 'ko' ? '포토 갤러리' : 'Photo Gallery'}</span>
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-white"></span>
@@ -188,7 +190,7 @@ export default function Gallery() {
                 <div className="relative overflow-hidden rounded-2xl bg-gray-200 dark:bg-gray-700 aspect-square">
                   <img
                     src={image.src}
-                    alt={image.alt}
+                    alt={k(image.alt)}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     loading="lazy"
                   />
@@ -203,10 +205,10 @@ export default function Gallery() {
                 </div>
                 <div className="mt-3 text-center">
                   <p className="text-sm font-medium text-gray-900 dark:text-white">
-                    {image.alt}
+                    {k(image.alt)}
                   </p>
                   <p className="text-xs text-gray-600 dark:text-gray-400 capitalize">
-                    {image.category}
+                    {k(image.category)}
                   </p>
                 </div>
               </motion.div>
@@ -245,15 +247,15 @@ export default function Gallery() {
             </button>
             <img
               src={selectedImage.src}
-              alt={selectedImage.alt}
+              alt={k(selectedImage.alt)}
               className="max-w-full max-h-[90vh] object-contain rounded-lg"
             />
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 rounded-b-lg">
               <h3 className="text-white text-xl font-semibold mb-2">
-                {selectedImage.alt}
+                {k(selectedImage.alt)}
               </h3>
               <p className="text-gray-300 capitalize">
-                {selectedImage.category}
+                {k(selectedImage.category)}
               </p>
             </div>
           </div>

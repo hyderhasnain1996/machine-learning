@@ -12,6 +12,7 @@ import { translations } from '../i18n/translations'
 export default function Contact() {
   const { lang } = useLanguage()
   const tc = translations[lang].contact
+  const ko = lang === 'ko'
   const [activeMap, setActiveMap] = useState('google')
   const [formData, setFormData] = useState({
     name: '',
@@ -144,7 +145,7 @@ export default function Contact() {
                       {tc.address}
                     </h3>
                     <p className="text-gray-600 dark:text-gray-300">
-                      {labInfo.address}
+                      {ko ? '제주특별자치도 제주시 제주대학로 102, 제주대학교 컴퓨터공학과' : labInfo.address}
                     </p>
                   </div>
                 </div>
@@ -174,10 +175,10 @@ export default function Contact() {
             <div className="bg-gradient-to-br from-blue-600 via-sky-600 to-cyan-600 rounded-2xl p-6 text-white">
               <h3 className="text-xl font-bold mb-4">{tc.researchInterests}</h3>
               <div className="grid grid-cols-2 gap-2">
-                <div className="text-sm flex items-center"><span className="mr-2">🧠</span>Machine Learning</div>
-                <div className="text-sm flex items-center"><span className="mr-2">👁️</span>Computer Vision</div>
-                <div className="text-sm flex items-center"><span className="mr-2">🔒</span>Blockchain Technology</div>
-                <div className="text-sm flex items-center"><span className="mr-2">🌐</span>IoT & Edge Computing</div>
+                <div className="text-sm flex items-center"><span className="mr-2">☀️</span>{ko ? '태양광 에너지 AI' : 'Solar Energy AI'}</div>
+                <div className="text-sm flex items-center"><span className="mr-2">📈</span>{ko ? '에너지 예측' : 'Energy Forecasting'}</div>
+                <div className="text-sm flex items-center"><span className="mr-2">👁️</span>{ko ? '효율적 비전 및 엣지 AI' : 'Efficient Vision & Edge AI'}</div>
+                <div className="text-sm flex items-center"><span className="mr-2">🧠</span>{ko ? '신뢰할 수 있는 LLM' : 'Trustworthy LLMs'}</div>
               </div>
             </div>
           </motion.div>
@@ -198,7 +199,7 @@ export default function Contact() {
               <div>
                 <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                   <Building className="h-4 w-4 inline mr-2" />
-                  Inquiry Type
+                  {ko ? '문의 유형' : 'Inquiry Type'}
                 </label>
                 <select
                   name="type"
@@ -293,7 +294,7 @@ export default function Contact() {
 
             <div className="mt-6 pt-6 border-t border-blue-200 dark:border-blue-700">
               <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
-                ⚡ We typically respond to inquiries within 24-48 hours during business days.
+                ⚡ {ko ? '문의는 보통 영업일 기준 24~48시간 이내에 답변드립니다.' : 'We typically respond to inquiries within 24-48 hours during business days.'}
               </p>
             </div>
           </motion.div>
@@ -310,10 +311,10 @@ export default function Contact() {
             className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-700 to-sky-700 bg-clip-text text-transparent mb-4">
-              🏛️ Visit Our Lab
+              🏛️ {ko ? '연구실 방문 안내' : 'Visit Our Lab'}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              Located at the beautiful Jeju National University, South Korea
+              {ko ? '아름다운 제주대학교에 위치하고 있습니다' : 'Located at the beautiful Jeju National University, South Korea'}
             </p>
           </motion.div>
           
@@ -329,7 +330,7 @@ export default function Contact() {
                 }`}
               >
                 <Globe className="h-4 w-4" />
-                Google Maps
+                {ko ? '구글 지도' : 'Google Maps'}
               </button>
               <button
                 onClick={() => setActiveMap('naver')}
@@ -340,7 +341,7 @@ export default function Contact() {
                 }`}
               >
                 <Map className="h-4 w-4" />
-                Naver Map
+                {ko ? '네이버 지도' : 'Naver Map'}
               </button>
             </div>
           </div>
@@ -380,19 +381,19 @@ export default function Contact() {
                   <MapPin className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white">
-                      Jeju National University
+                      {ko ? '제주대학교' : 'Jeju National University'}
                     </p>
                     <p className="text-sm text-gray-600 dark:text-gray-300">
-                      102 Jejudaehak-ro, Jeju-si, Jeju-do, Korea 63243
+                      {ko ? '제주특별자치도 제주시 제주대학로 102 (63243)' : '102 Jejudaehak-ro, Jeju-si, Jeju-do, Korea 63243'}
                     </p>
                   </div>
                 </div>
                 <div className="text-right">
                   <p className="text-sm font-medium text-blue-600 dark:text-blue-400">
-                    Department of Computer Engineering
+                    {ko ? '제주대학교 컴퓨터공학과' : 'Department of Computer Engineering'}
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">
-                    Machine Learning Lab
+                    {ko ? '머신러닝 연구실' : 'Machine Learning Lab'}
                   </p>
                 </div>
               </div>

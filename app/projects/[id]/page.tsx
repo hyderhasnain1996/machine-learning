@@ -27,6 +27,7 @@ import {
 } from 'lucide-react'
 import { currentProjects } from '../../data/labData'
 import { useLanguage } from '../../i18n/LanguageContext'
+import { useTerm } from '@/app/i18n/terms'
 import { translations } from '../../i18n/translations'
 
 const moduleIconMap: Record<string, React.ElementType> = {
@@ -56,6 +57,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
   const { id } = use(params)
   const { lang } = useLanguage()
   const t = translations[lang].projectDetail
+  const k = useTerm()
   const project = currentProjects.find((p) => p.id === Number(id))
 
   if (!project) notFound()
@@ -78,8 +80,8 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
 
   const localTitle = lp?.title ?? project.title
   const localDescription = lp?.description ?? project.description
-  const localTechnologies = project.technologies
-  const localKeyFeatures = project.keyFeatures
+  const localTechnologies = project.technologies.map(k)
+  const localKeyFeatures = (lp as { keyFeatures?: string[] })?.keyFeatures ?? project.keyFeatures
 
   const localOverview = lp?.overview ?? details?.overview
   const localResearchProblem = lp?.researchProblem ?? details?.researchProblem
@@ -170,18 +172,18 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
             >
               <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/15 backdrop-blur-md rounded-full border border-white/25 text-white text-xs font-semibold uppercase tracking-widest">
                 <Cpu className="h-3 w-3 text-cyan-300" />
-                {project.category}
+                {k(project.category)}
               </span>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/20 backdrop-blur-md rounded-full border border-blue-400/30 text-blue-300 text-xs font-semibold uppercase tracking-widest">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-400" />
                 </span>
-                {project.status}
+                {k(project.status)}
               </span>
               <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white/70 text-xs font-semibold uppercase tracking-widest">
                 <Sparkles className="h-3 w-3 text-yellow-300" />
-                {project.shortTitle}
+                {(lp as { shortTitle?: string })?.shortTitle ?? project.shortTitle}
               </span>
             </motion.div>
 
@@ -216,7 +218,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
             >
               {project.technologies.map((tech, i) => (
                 <span key={i} className="px-3 py-1 bg-white/10 backdrop-blur-sm border border-white/15 rounded-full text-white/70 text-xs font-medium hover:bg-white/20 hover:text-white transition-all cursor-default">
-                  {tech}
+                  {k(tech)}
                 </span>
               ))}
             </motion.div>
@@ -343,7 +345,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                     {/* Caption */}
                     <div className="px-6 sm:px-10 py-5 bg-slate-50 dark:bg-slate-900/60 border-t border-slate-100 dark:border-slate-700">
                       <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed text-center italic">
-                        {details.architectureImage.caption}
+                        {k(details.architectureImage.caption)}
                       </p>
                     </div>
                   </div>
@@ -493,7 +495,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                 </div>
                 <h2 className="text-3xl font-bold text-gray-900 dark:text-white">{t.performanceResults}</h2>
                 {details.performance.improvement && (
-                  <p className="text-gray-500 dark:text-gray-400 mt-2 max-w-xl mx-auto">{details.performance.improvement}</p>
+                  <p className="text-gray-500 dark:text-gray-400 mt-2 max-w-xl mx-auto">{k(details.performance.improvement)}</p>
                 )}
               </div>
 
@@ -508,12 +510,12 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                           <div>
                             <h3 className="text-lg font-bold text-gray-900 dark:text-white">{ds.name}</h3>
                             {ds.setting && (
-                              <span className="text-xs text-cyan-600 dark:text-cyan-400 font-semibold uppercase tracking-wider">{ds.setting}</span>
+                              <span className="text-xs text-cyan-600 dark:text-cyan-400 font-semibold uppercase tracking-wider">{k(ds.setting)}</span>
                             )}
                           </div>
                           <div className="text-right">
                             <div className="text-3xl font-bold text-cyan-600 dark:text-cyan-400">{ds.fps}</div>
-                            <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">FPS</div>
+                            <div className="text-xs text-gray-500 dark:text-gray-400 font-medium">{lang === 'ko' ? '초당 프레임(FPS)' : 'FPS'}</div>
                           </div>
                         </div>
 
@@ -588,7 +590,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                     {/* Caption */}
                     <div className="px-6 sm:px-10 py-5 bg-slate-50 dark:bg-slate-900/60 border-t border-slate-100 dark:border-slate-700">
                       <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed text-center italic">
-                        {details.qualitativeResultsImage.caption}
+                        {k(details.qualitativeResultsImage.caption)}
                       </p>
                     </div>
                   </div>
@@ -638,11 +640,11 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                         <div className="grid grid-cols-2 gap-4">
                           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15 text-center">
                             <div className="text-4xl font-bold text-purple-300">~{details.edgeDeployment.fps}</div>
-                            <div className="text-sm text-slate-400 mt-1">FPS</div>
+                            <div className="text-sm text-slate-400 mt-1">{lang === 'ko' ? '초당 프레임(FPS)' : 'FPS'}</div>
                           </div>
                           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-5 border border-white/15 text-center">
                             <div className="text-4xl font-bold text-indigo-300">{details.edgeDeployment.latency}</div>
-                            <div className="text-sm text-slate-400 mt-1">Latency</div>
+                            <div className="text-sm text-slate-400 mt-1">{lang === 'ko' ? '지연 시간' : 'Latency'}</div>
                           </div>
                         </div>
                         <div className="grid grid-cols-3 gap-3">
@@ -691,7 +693,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                                 {/* Label bar */}
                                 <div className="flex items-center gap-2 px-4 py-2.5 bg-white/5 border-b border-white/10">
                                   <Play className="h-3.5 w-3.5 text-violet-400 fill-violet-400" />
-                                  <span className="text-xs font-semibold text-slate-300 truncate">{vid.label}</span>
+                                  <span className="text-xs font-semibold text-slate-300 truncate">{k(vid.label)}</span>
                                   <span className="ml-auto flex items-center gap-1.5 text-xs text-blue-400 font-medium flex-shrink-0">
                                     <span className="relative flex h-1.5 w-1.5">
                                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
@@ -740,7 +742,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                           key={i}
                           className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 text-blue-700 dark:text-blue-300 text-sm px-4 py-2 rounded-full font-medium border border-blue-200 dark:border-blue-700"
                         >
-                          {tech}
+                          {k(tech)}
                         </span>
                       ))}
                     </div>

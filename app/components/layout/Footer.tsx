@@ -10,6 +10,9 @@ import { translations } from '@/app/i18n/translations'
 export default function Footer() {
   const { lang } = useLanguage()
   const t = translations[lang]
+  const ko = lang === 'ko'
+  const labName = ko ? '머신러닝 연구실' : labInfo.name
+  const university = ko ? '제주대학교' : labInfo.university
   const tf = t.footer
   const tn = t.nav
 
@@ -120,9 +123,9 @@ export default function Footer() {
                 </div>
                 <div>
                   <h3 className="text-3xl font-bold bg-gradient-to-r from-blue-400 via-sky-400 to-cyan-400 bg-clip-text text-transparent">
-                    {labInfo.name}
+                    {labName}
                   </h3>
-                  <p className="text-blue-300 text-lg font-medium">{labInfo.university}</p>
+                  <p className="text-blue-300 text-lg font-medium">{university}</p>
                 </div>
               </div>
               <p className="text-gray-300 mb-8 leading-relaxed max-w-lg text-lg">
@@ -168,7 +171,7 @@ export default function Footer() {
                   </div>
                   <div>
                     <p className="font-semibold text-white mb-1">{tf.hours}</p>
-                    <p className="text-gray-300 text-sm">{labInfo.workingHours}</p>
+                    <p className="text-gray-300 text-sm">{ko ? '평일 ' + labInfo.workingHours : labInfo.workingHours}</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3 p-4 bg-gradient-to-br from-gray-800/50 to-gray-800/30 rounded-2xl border border-gray-700/50 hover:border-blue-500/50 transition-all duration-300 group/card backdrop-blur-sm">
@@ -178,7 +181,7 @@ export default function Footer() {
                   </div>
                   <div>
                     <p className="font-semibold text-white mb-1">{tf.location}</p>
-                    <p className="text-gray-300 text-sm">{labInfo.location}</p>
+                    <p className="text-gray-300 text-sm">{ko ? '대한민국 제주 63243' : labInfo.location}</p>
                   </div>
                 </div>
               </div>
@@ -336,7 +339,7 @@ export default function Footer() {
                   </span>
                 </h4>
                 <p className="text-gray-300 leading-relaxed text-base">
-                  {labInfo.address}
+                  {ko ? '제주특별자치도 제주시 제주대학로 102, 제주대학교 컴퓨터공학과' : labInfo.address}
                 </p>
               </div>
             </div>
@@ -357,12 +360,12 @@ export default function Footer() {
                 className="text-center sm:text-left"
               >
                 <p className="text-gray-400 font-medium">
-                  © {new Date().getFullYear()} {labInfo.name},{" "}
-                  {labInfo.university}. All rights reserved.
+                  © {new Date().getFullYear()} {labName},{" "}
+                  {university}. {t.footer.allRightsReserved}
                 </p>
                 <p className="text-sm text-gray-500 mt-2 flex items-center justify-center sm:justify-start gap-2">
                   <span className="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-semibold border border-blue-500/20">
-                    Established {labInfo.established}
+                    {ko ? `${labInfo.established}년 설립` : `Established ${labInfo.established}`}
                   </span>
                   <span>•</span>
                   <span>{tf.tagline}</span>
