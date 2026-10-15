@@ -191,7 +191,7 @@ export default function Team() {
                         </div>
 
                         {/* Research Interests */}
-                        {member.researchInterests && (
+                        {member.researchInterests?.length > 0 && (
                           <div>
                             <h4 className={`flex items-center gap-2 text-sm font-bold text-gray-900 dark:text-white mb-3 uppercase tracking-wide`}>
                               <BookOpen className={`h-4 w-4 text-${accentColor}-600`} />
@@ -349,7 +349,7 @@ export default function Team() {
                         )}
 
                         {/* Research Interests */}
-                        {member.researchInterests && (
+                        {member.researchInterests?.length > 0 && (
                           <div className="mb-8">
                             <div className="flex items-center gap-3 mb-5">
                               <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-md">
@@ -449,7 +449,7 @@ export default function Team() {
                   <div className="flip-face flip-back rounded-2xl p-6 shadow-xl border border-cyan-400/30 bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-600 text-white flex flex-col">
                     <h3 className="text-base font-bold mb-1">{member.name}</h3>
                     <p className="text-xs text-cyan-100 mb-3">{k(member.role)}</p>
-                    {member.researchInterests && (
+                    {member.researchInterests?.length > 0 && (
                       <>
                         <p className="text-[11px] font-semibold uppercase tracking-wider text-cyan-200 mb-2">
                           {tt.researchInterests}

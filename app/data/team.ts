@@ -562,6 +562,29 @@ export const teamMembers: TeamMember[] = [
     status: "active",
     joinDate: "2025-03-01",
   },
+  {
+    id: "shem-sandig",
+    name: "Shem Durst Elijah Sandig",
+    role: "Ph.D. Student",
+    title: "Doctoral Researcher",
+    email: "",
+    image: "/shem-sandig.jpg",
+    bio: "Shem Durst Elijah Sandig is a Ph.D. student at the Machine Learning Lab, Jeju National University.",
+    researchInterests: [],
+    education: [
+      {
+        degree: "Ph.D. in Computer Engineering (In Progress)",
+        institution: "Jeju National University",
+        year: 2026,
+      },
+    ],
+    publications: 0,
+    citations: 0,
+    hIndex: 0,
+    socialLinks: {},
+    status: "active",
+    joinDate: "2026-09-01",
+  },
 ];
 
 // Alumni data

@@ -146,6 +146,8 @@ export const koTerms: Record<string, string> = {
 
   // ---- Degrees / institutions ----
   'Ph.D. in Computer Engineering': '컴퓨터공학 박사',
+  'Ph.D. in Computer Engineering (In Progress)': '컴퓨터공학 박사과정 (재학 중)',
+  'Doctoral Researcher': '박사과정 연구원',
   'M.S. in Computer Science': '컴퓨터과학 석사',
   'B.S. in Computer Science': '컴퓨터과학 학사',
   'Jeju National University': '제주대학교',
