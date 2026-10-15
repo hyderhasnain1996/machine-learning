@@ -166,13 +166,13 @@ export const heroSlides = [
   },
   {
     id: 2,
-    title: "Healthcare AI Revolution",
-    subtitle: "🏥 Transforming Medical Science",
-    description: "Developing intelligent systems for medical diagnosis, treatment optimization, and patient care that save lives through cutting-edge technology.",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2070&q=80",
+    title: "LLMs & AI Agents",
+    subtitle: "🤖 Trustworthy Generative AI",
+    description: "Building reliable large language models and autonomous AI agents: adaptive retrieval-augmented generation, multi-agent model routing, and evidence-grounded reasoning over video and sensor data.",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=2070&q=80",
     gradient: "from-blue-500 via-sky-600 to-cyan-700",
-    cta: "View Publications",
-    link: "/publications",
+    cta: "Explore Our Research",
+    link: "/research",
     stats: { impact: "High", citations: "7777+", journals: "Top-tier" }
   },
   {
@@ -188,14 +188,14 @@ export const heroSlides = [
   },
   {
     id: 4,
-    title: "Smart IoT Ecosystem",
-    subtitle: "🌐 Connected Intelligence",
-    description: "Building the future with Internet of Things and edge computing solutions for smart cities, precision agriculture, and Industry 4.0.",
-    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2070&q=80",
+    title: "Solar Energy & Smart Grid AI",
+    subtitle: "☀️ AI for Clean Energy",
+    description: "Advancing renewable energy with AI: mapping solar panels from satellite imagery, forecasting energy demand and grid states, and making clean power more reliable and efficient.",
+    image: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?auto=format&fit=crop&w=2070&q=80",
     gradient: "from-blue-500 via-sky-600 to-cyan-700",
-    cta: "Latest Innovations",
+    cta: "Latest Projects",
     link: "/projects",
-    stats: { established: "2003", networks: "Global", efficiency: "95%" }
+    stats: { labProjects: "8", established: "2003", collaborations: "Global" }
   }
 ]
 

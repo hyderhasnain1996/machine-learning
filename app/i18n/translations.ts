@@ -13,7 +13,7 @@ export const translations = {
     },
     footer: {
       description:
-        'Pioneering research in artificial intelligence, machine learning, and emerging technologies. Our lab focuses on developing innovative solutions for healthcare, energy, and smart systems that make a positive impact on society.',
+        'Pioneering research in artificial intelligence, machine learning, and emerging technologies. Our lab focuses on LLMs and AI agents, solar energy and smart grid AI, and efficient computer vision that make a positive impact on society.',
       phone: 'Phone',
       email: 'Email',
       hours: 'Hours',
@@ -40,7 +40,7 @@ export const translations = {
       aiPoweredDesc: 'Cutting-edge artificial intelligence and machine learning innovations driving the future',
       researchDriven: 'Research Driven',
       researchDrivenDesc:
-        'Pushing boundaries with innovative solutions across healthcare, energy, and smart systems',
+        'Pushing boundaries with innovative solutions across LLMs & AI agents, clean energy, and computer vision',
       globalImpact: 'Global Impact',
       globalImpactDesc:
         'Transforming industries with breakthrough AI research and real-world applications worldwide',
@@ -452,11 +452,11 @@ export const translations = {
         cta: 'Discover Our Research',
       },
       {
-        title: 'Healthcare AI Revolution',
-        subtitle: '🏥 Transforming Medical Science',
+        title: 'LLMs & AI Agents',
+        subtitle: '🤖 Trustworthy Generative AI',
         description:
-          'Developing intelligent systems for medical diagnosis, treatment optimization, and patient care that save lives through cutting-edge technology.',
-        cta: 'View Publications',
+          'Building reliable large language models and autonomous AI agents: adaptive retrieval-augmented generation, multi-agent model routing, and evidence-grounded reasoning over video and sensor data.',
+        cta: 'Explore Our Research',
       },
       {
         title: 'Research Excellence',
@@ -466,11 +466,11 @@ export const translations = {
         cta: 'Meet Our Team',
       },
       {
-        title: 'Smart IoT Ecosystem',
-        subtitle: '🌐 Connected Intelligence',
+        title: 'Solar Energy & Smart Grid AI',
+        subtitle: '☀️ AI for Clean Energy',
         description:
-          'Building the future with Internet of Things and edge computing solutions for smart cities, precision agriculture, and Industry 4.0.',
-        cta: 'Latest Innovations',
+          'Advancing renewable energy with AI: mapping solar panels from satellite imagery, forecasting energy demand and grid states, and making clean power more reliable and efficient.',
+        cta: 'Latest Projects',
       },
     ],
     researchAreas: [
@@ -735,7 +735,7 @@ export const translations = {
     },
     footer: {
       description:
-        '인공지능, 머신러닝 및 신기술 분야에서 선도적인 연구를 수행하고 있습니다. 본 연구실은 의료, 에너지, 스마트 시스템 분야의 혁신적인 솔루션을 개발하여 사회에 긍정적인 영향을 미치고 있습니다.',
+        '인공지능, 머신러닝 및 신기술 분야에서 선도적인 연구를 수행하고 있습니다. 본 연구실은 LLM 및 AI 에이전트, 태양광 에너지 및 스마트 그리드 AI, 효율적인 컴퓨터 비전 분야의 혁신적인 솔루션을 개발하여 사회에 긍정적인 영향을 미치고 있습니다.',
       phone: '전화',
       email: '이메일',
       hours: '운영시간',
@@ -761,7 +761,7 @@ export const translations = {
       aiPowered: 'AI 기반',
       aiPoweredDesc: '미래를 이끌어가는 첨단 인공지능 및 머신러닝 혁신',
       researchDriven: '연구 중심',
-      researchDrivenDesc: '의료, 에너지 및 스마트 시스템 분야의 혁신적인 솔루션으로 경계를 넓혀가고 있습니다',
+      researchDrivenDesc: 'LLM 및 AI 에이전트, 청정 에너지, 컴퓨터 비전 분야의 혁신적인 솔루션으로 경계를 넓혀가고 있습니다',
       globalImpact: '글로벌 영향',
       globalImpactDesc: '획기적인 AI 연구와 전 세계 실제 응용 프로그램으로 산업을 혁신합니다',
       researchAreasTitle: '연구 분야',
@@ -1169,11 +1169,11 @@ export const translations = {
         cta: '연구 탐색하기',
       },
       {
-        title: '의료 AI 혁명',
-        subtitle: '🏥 의료 과학 변혁',
+        title: 'LLM 및 AI 에이전트',
+        subtitle: '🤖 신뢰할 수 있는 생성형 AI',
         description:
-          '최첨단 기술로 생명을 구하는 의료 진단, 치료 최적화, 환자 케어를 위한 지능형 시스템을 개발하고 있습니다.',
-        cta: '논문 보기',
+          '신뢰할 수 있는 대규모 언어 모델과 자율 AI 에이전트를 연구합니다: 적응형 검색 증강 생성, 다중 에이전트 모델 라우팅, 영상·센서 데이터 기반의 근거 있는 추론.',
+        cta: '연구 살펴보기',
       },
       {
         title: '연구 탁월성',
@@ -1183,11 +1183,11 @@ export const translations = {
         cta: '팀 소개',
       },
       {
-        title: '스마트 IoT 생태계',
-        subtitle: '🌐 연결된 지능',
+        title: '태양광 에너지 및 스마트 그리드 AI',
+        subtitle: '☀️ 청정 에너지를 위한 AI',
         description:
-          '스마트 도시, 정밀 농업, 인더스트리 4.0을 위한 사물인터넷 및 엣지 컴퓨팅 솔루션으로 미래를 구축하고 있습니다.',
-        cta: '최신 혁신',
+          'AI로 신재생 에너지를 발전시킵니다: 위성 영상 기반 태양광 패널 매핑, 에너지 수요 및 전력망 상태 예측, 더 안정적이고 효율적인 청정 전력.',
+        cta: '최신 프로젝트',
       },
     ],
     researchAreas: [

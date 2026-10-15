@@ -18,18 +18,18 @@ const koStatLabels: Record<string, string> = {
   impact: '영향력', citations: '인용', journals: '저널',
   members: '구성원', experience: '경력', awards: '수상',
   devices: '디바이스', networks: '네트워크', efficiency: '효율',
-  researchAreas: '연구 분야', established: '설립',
+  researchAreas: '연구 분야', established: '설립', labProjects: '연구실 프로젝트',
 }
 // English labels for keys that don't read well as-is
 const enStatLabels: Record<string, string> = {
-  researchAreas: 'Research Areas', established: 'Established',
+  researchAreas: 'Research Areas', established: 'Established', labProjects: 'Lab Projects',
 }
 const koStatValues: Record<string, string> = {
   Global: '글로벌', High: '높음', 'Top-tier': '최상위', '20+ Years': '20년+', Multiple: '다수',
 }
 const rotatingWords = {
-  en: ['Solar Energy AI', 'Energy Forecasting', 'Computer Vision', 'Edge AI', 'Trustworthy LLMs'],
-  ko: ['태양광 에너지 AI', '에너지 예측', '컴퓨터 비전', '엣지 AI', '신뢰할 수 있는 LLM'],
+  en: ['LLMs & AI Agents', 'Solar Energy AI', 'Energy Forecasting', 'Computer Vision', 'Edge AI'],
+  ko: ['LLM 및 AI 에이전트', '태양광 에너지 AI', '에너지 예측', '컴퓨터 비전', '엣지 AI'],
 }
 
 interface HeroSliderProps {
