@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion'
 import DecryptText from '@/app/components/ui/DecryptText'
 import Aurora from '@/app/components/ui/Aurora'
-import { Brain, Eye, Shield, Cpu } from 'lucide-react'
+import { Brain, Eye, Shield, Cpu, Sun, TrendingUp } from 'lucide-react'
 import { researchAreas } from '../data/labData'
 import { useLanguage } from '../i18n/LanguageContext'
 import { translations } from '../i18n/translations'
@@ -12,7 +12,9 @@ const iconMap = {
   Brain,
   Eye,
   Shield,
-  Cpu
+  Cpu,
+  Sun,
+  TrendingUp
 }
 
 export default function Research() {

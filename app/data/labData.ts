@@ -34,142 +34,118 @@ export const labInfo = {
 
 export const researchAreas = [
   {
-    id: "lightweight-edge",
-    title: "Lightweight Models for Edge Devices",
-    description: "Pioneering research in model compression, quantization, knowledge distillation, and optimization techniques to deploy efficient AI models on resource-constrained edge devices with minimal power consumption and maximum performance.",
-    icon: "Cpu",
+    id: "solar-pv",
+    title: "Solar Energy & Photovoltaic AI",
+    description: "AI for the full solar pipeline: segmenting PV panels across image resolutions with multi-agent, uncertainty-aware frameworks, mapping rooftop installations from satellite and aerial imagery with minimal labelled data, and tracking the true global power peak in module-level solar optimizers.",
+    icon: "Sun",
     gradient: "from-orange-500 via-amber-500 to-yellow-600",
     color: "orange",
-    keywords: ["Model Compression", "Quantization", "Knowledge Distillation", "Edge AI", "On-Device Learning", "Model Optimization"],
+    keywords: ["PV Segmentation", "Solar Mapping", "MPPT", "Domain Adaptation", "Human-in-the-Loop", "Uncertainty Estimation"],
     applications: [
-      "Mobile AI Applications",
-      "Drone-based AI Systems",
-      "Embedded Vision Systems",
-      "Low-Power Inference",
-      "Real-time Edge Processing",
-      "Teacher-Student Model Training"
+      "PV Panel Segmentation & Mapping",
+      "Rooftop Solar Detection from Satellite Imagery",
+      "Behind-the-Meter Installation Discovery",
+      "Generation Capacity Estimation",
+      "Global MPPT for Module-Level Optimizers"
     ],
     projects: [
       {
-        title: "Lightweight LLM for Tourism",
-        description: "Developing low-power LLM models optimized for mobile and edge devices in tourism applications",
+        title: "MAPVNet-Q: Multi-Agent PV Segmentation",
+        description: "A multi-agent framework that uses uncertainty-based quality features and a gain-prediction router to pick the best segmentation model, improving PV mapping reliability across imagery sources and acquisition conditions",
         status: "Active"
       },
       {
-        title: "On-Device AI for Drones",
-        description: "Building efficient AI models for real-time solar panel inspection using drones",
+        title: "SolarMap AI: Rooftop Solar Mapping",
+        description: "Segments PV panels address by address across Jeju Island, estimates generation capacity, and flags unregistered installations, with a human-in-the-loop loop that retrains the model on corrected masks",
+        status: "Active"
+      },
+      {
+        title: "ML-Seeded Global MPPT",
+        description: "A learned seed predicts the global peak region from about six voltage probes, then hands over to Perturb & Observe and re-seeds when shading changes, tracking the true peak at a fraction of the measurement cost",
         status: "Active"
       }
     ]
   },
   {
-    id: "machine-learning",
-    title: "Machine Learning & AI",
-    description: "Advanced research in artificial intelligence, deep learning, and machine learning applications for real-world problems including renewable energy, transportation, and smart systems.",
-    icon: "Brain",
+    id: "energy-forecasting",
+    title: "Probabilistic Energy & Grid Forecasting",
+    description: "Reliable, uncertainty-aware forecasting for power systems: physics-guided and physics-informed deep learning, meta-learning for unseen operating regimes, conformal calibration of prediction intervals, and explainable multivariate time-series models for generation, demand and grid state.",
+    icon: "TrendingUp",
     gradient: "from-blue-500 via-cyan-500 to-purple-600",
     color: "blue",
-    keywords: ["Deep Learning", "Neural Networks", "Predictive Modeling", "Time Series Analysis", "Pattern Recognition"],
+    keywords: ["Probabilistic Forecasting", "Physics-Informed ML", "Uncertainty Quantification", "Conformal Prediction", "Meta-Learning", "Explainable AI"],
     applications: [
-      "Renewable Energy Optimization",
-      "Smart Transportation Systems",
-      "Predictive Maintenance",
-      "Recommendation Systems",
-      "Natural Language Processing"
+      "Grid-State & Power-Flow Forecasting",
+      "Solar Power Forecasting",
+      "Electricity Demand & Consumption Prediction",
+      "Renewable Generation Forecasting",
+      "Uncertainty-Aware Grid Operations"
     ],
     projects: [
       {
-        title: "AI for Renewable Energy",
-        description: "Developing intelligent systems for optimal energy distribution and consumption prediction",
+        title: "Physics-Guided Meta-Learning for Grid-State Forecasting",
+        description: "Combines graph-based learning, uncertainty quantification and differentiable power-flow modeling to forecast nodal power, bus voltages and line loadings that stay physically consistent in unseen operating regimes",
         status: "Active"
       },
       {
-        title: "Smart City Analytics",
-        description: "Machine learning solutions for urban planning and traffic optimization",
+        title: "Regime-Aware Conformal Solar Forecasting",
+        description: "Calibrates prediction intervals of physics-informed deep learning models per solar regime, for reliable coverage under changing irradiance and weather conditions",
+        status: "Active"
+      },
+      {
+        title: "Multivariate Time-Series Forecasting for Energy",
+        description: "Neural architectures that model temporal dynamics and cross-variable dependencies for multi-horizon forecasting of renewable generation, electricity demand and consumption",
         status: "Active"
       }
     ]
   },
   {
-    id: "image-processing",
-    title: "Computer Vision & Image Processing",
-    description: "Cutting-edge research in computer vision, medical image analysis, and CNN applications for object detection, classification, and segmentation tasks.",
+    id: "efficient-vision",
+    title: "Efficient Vision & Edge AI",
+    description: "Real-time, edge-deployable computer vision: confidence-guided hybrid architectures for language-guided video segmentation, and lightweight, distilled models that judge the analytical value of satellite imagery onboard to cut unnecessary data transmission.",
     icon: "Eye",
     gradient: "from-sky-500 via-blue-500 to-cyan-600",
     color: "green",
-    keywords: ["Computer Vision", "CNN", "Medical Imaging", "Object Detection", "Image Segmentation"],
+    keywords: ["Video Segmentation", "Vision-Language Models", "Knowledge Distillation", "Model Compression", "Satellite Imagery", "Edge AI"],
     applications: [
-      "Medical Image Analysis",
-      "Autonomous Vehicle Vision",
-      "Quality Control Systems",
-      "Facial Recognition",
-      "Environmental Monitoring"
+      "Real-Time Language-Guided Video Segmentation",
+      "Onboard Satellite Image Selection",
+      "Cloud-Aware Land-Cover Analysis",
+      "Bandwidth-Efficient Satellite Downlink",
+      "Edge-Deployable Vision Systems"
     ],
     projects: [
       {
-        title: "Brain Tumor Detection",
-        description: "AI-powered system for early detection and classification of brain tumors using MRI scans",
+        title: "ConfTrackNet: Real-Time Video Instance Segmentation",
+        description: "A confidence-guided hybrid framework pairing a heavy vision-language detector on key frames with lightweight mask propagation, re-detecting only when a multi-signal confidence estimator sees quality drop",
         status: "Active"
       },
       {
-        title: "Skin Lesion Analysis",
-        description: "Deep learning models for automated skin cancer detection and classification",
-        status: "Completed"
+        title: "Task-Retention Utility for Satellite Downlink",
+        description: "Predicts how much land-cover segmentation performance survives cloud cover using clear-to-cloud knowledge distillation and a lightweight model, so satellites prioritize imagery by analytical value rather than cloud coverage alone",
+        status: "Active"
       }
     ]
   },
   {
-    id: "llm-generative",
-    title: "LLM & Generative AI Models",
-    description: "Advanced research in Large Language Models, generative AI, and transformer architectures for natural language processing, content generation, and conversational AI systems.",
+    id: "trustworthy-llm",
+    title: "Trustworthy LLMs & Adaptive RAG",
+    description: "Making generative AI reliable: adaptive retrieval-augmented generation that chooses retrieval channels per query, answers or abstains based on visual evidence and confidence, and selectively revises responses as video and sensor observations change.",
     icon: "Brain",
     gradient: "from-purple-500 via-pink-500 to-red-600",
     color: "purple",
-    keywords: ["Large Language Models", "Generative AI", "Transformers", "Natural Language Processing", "Conversational AI"],
+    keywords: ["Adaptive RAG", "Multimodal LLMs", "Reliable AI", "Evidence Grounding", "Confidence Estimation", "Decision Support"],
     applications: [
-      "Automated Content Generation",
-      "Intelligent Chatbots",
-      "Code Generation",
-      "Language Translation",
-      "Educational AI Assistants"
+      "Smart Farming Decision Support",
+      "Evidence-Grounded Question Answering",
+      "Video & Sensor-Based Reasoning",
+      "Answer-or-Abstain Response Control",
+      "Context-Aware Response Revision"
     ],
     projects: [
       {
-        title: "Korean Language Model",
-        description: "Developing specialized LLM for Korean language understanding and generation",
-        status: "Active"
-      },
-      {
-        title: "Medical AI Assistant",
-        description: "Generative AI system for medical diagnosis and treatment recommendations",
-        status: "Planning"
-      }
-    ]
-  },
-  {
-    id: "iot-edge",
-    title: "IoT & Edge Computing",
-    description: "Research in Internet of Things, edge computing, and distributed intelligence for smart environments and real-time processing applications.",
-    icon: "Cpu",
-    gradient: "from-purple-500 via-indigo-500 to-blue-600",
-    color: "purple",
-    keywords: ["IoT", "Edge Computing", "Sensor Networks", "Real-time Processing", "Embedded Systems"],
-    applications: [
-      "Smart Agriculture",
-      "Industrial IoT",
-      "Environmental Monitoring",
-      "Smart Home Systems",
-      "Wearable Devices"
-    ],
-    projects: [
-      {
-        title: "Smart Agriculture Platform",
-        description: "IoT-based system for precision farming and crop monitoring",
-        status: "Active"
-      },
-      {
-        title: "Edge AI for Manufacturing",
-        description: "Real-time quality control using edge computing and AI",
+        title: "Adaptive RAG for Smart Farming",
+        description: "Selects retrieval channels by query and candidates, learns to answer or abstain from visual evidence, and revises only the affected parts of a response when sensor states change, delivering evidence-grounded farm decision support",
         status: "Active"
       }
     ]

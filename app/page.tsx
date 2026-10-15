@@ -3,7 +3,7 @@
 import HeroSlider from "./components/sections/HeroSlider"
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Brain, BookOpen, Award, Eye, Cpu, Zap, User, ExternalLink, GraduationCap } from "lucide-react";
+import { ArrowRight, Brain, BookOpen, Award, Eye, Cpu, Zap, User, ExternalLink, GraduationCap, Sun, TrendingUp } from "lucide-react";
 import { researchAreas } from "./data/labData";
 import { featuredPublications } from "./data/publications";
 import { useLanguage } from "./i18n/LanguageContext";
@@ -279,14 +279,14 @@ export default function Home() {
               // Map icons for each research area
               const getIcon = (areaId: string) => {
                 switch(areaId) {
-                  case 'machine-learning':
-                    return <Brain className="h-10 w-10 text-white" />;
-                  case 'computer-vision':
+                  case 'solar-pv':
+                    return <Sun className="h-10 w-10 text-white" />;
+                  case 'energy-forecasting':
+                    return <TrendingUp className="h-10 w-10 text-white" />;
+                  case 'efficient-vision':
                     return <Eye className="h-10 w-10 text-white" />;
-                  case 'llm-generative':
+                  case 'trustworthy-llm':
                     return <Brain className="h-10 w-10 text-white" />;
-                  case 'iot-edge':
-                    return <Cpu className="h-10 w-10 text-white" />;
                   default:
                     return <Zap className="h-10 w-10 text-white" />;
                 }

@@ -378,113 +378,94 @@ export const translations = {
     ],
     researchAreas: [
       {
-        title: 'Lightweight Models for Edge Devices',
+        title: 'Solar Energy & Photovoltaic AI',
         description:
-          'Pioneering research in model compression, quantization, knowledge distillation, and optimization techniques to deploy efficient AI models on resource-constrained edge devices with minimal power consumption and maximum performance.',
+          'AI for the full solar pipeline: segmenting PV panels across image resolutions with multi-agent, uncertainty-aware frameworks, mapping rooftop installations from satellite and aerial imagery with minimal labelled data, and tracking the true global power peak in module-level solar optimizers.',
         applications: [
-          'Mobile AI Applications',
-          'Drone-based AI Systems',
-          'Embedded Vision Systems',
-          'Low-Power Inference',
-          'Real-time Edge Processing',
-          'Teacher-Student Model Training',
+          'PV Panel Segmentation & Mapping',
+          'Rooftop Solar Detection from Satellite Imagery',
+          'Behind-the-Meter Installation Discovery',
+          'Generation Capacity Estimation',
+          'Global MPPT for Module-Level Optimizers',
         ],
         projects: [
           {
-            title: 'Lightweight LLM for Tourism',
-            description: 'Developing low-power LLM models optimized for mobile and edge devices in tourism applications',
+            title: 'MAPVNet-Q: Multi-Agent PV Segmentation',
+            description: 'A multi-agent framework that uses uncertainty-based quality features and a gain-prediction router to pick the best segmentation model, improving PV mapping reliability across imagery sources and acquisition conditions',
           },
           {
-            title: 'On-Device AI for Drones',
-            description: 'Building efficient AI models for real-time solar panel inspection using drones',
+            title: 'SolarMap AI: Rooftop Solar Mapping',
+            description: 'Segments PV panels address by address across Jeju Island, estimates generation capacity, and flags unregistered installations, with a human-in-the-loop loop that retrains the model on corrected masks',
+          },
+          {
+            title: 'ML-Seeded Global MPPT',
+            description: 'A learned seed predicts the global peak region from about six voltage probes, then hands over to Perturb & Observe and re-seeds when shading changes, tracking the true peak at a fraction of the measurement cost',
           },
         ],
       },
       {
-        title: 'Machine Learning & AI',
+        title: 'Probabilistic Energy & Grid Forecasting',
         description:
-          'Advanced research in artificial intelligence, deep learning, and machine learning applications for real-world problems including renewable energy, transportation, and smart systems.',
+          'Reliable, uncertainty-aware forecasting for power systems: physics-guided and physics-informed deep learning, meta-learning for unseen operating regimes, conformal calibration of prediction intervals, and explainable multivariate time-series models for generation, demand and grid state.',
         applications: [
-          'Renewable Energy Optimization',
-          'Smart Transportation Systems',
-          'Predictive Maintenance',
-          'Recommendation Systems',
-          'Natural Language Processing',
+          'Grid-State & Power-Flow Forecasting',
+          'Solar Power Forecasting',
+          'Electricity Demand & Consumption Prediction',
+          'Renewable Generation Forecasting',
+          'Uncertainty-Aware Grid Operations',
         ],
         projects: [
           {
-            title: 'AI for Renewable Energy',
-            description: 'Developing intelligent systems for optimal energy distribution and consumption prediction',
+            title: 'Physics-Guided Meta-Learning for Grid-State Forecasting',
+            description: 'Combines graph-based learning, uncertainty quantification and differentiable power-flow modeling to forecast nodal power, bus voltages and line loadings that stay physically consistent in unseen operating regimes',
           },
           {
-            title: 'Smart City Analytics',
-            description: 'Machine learning solutions for urban planning and traffic optimization',
+            title: 'Regime-Aware Conformal Solar Forecasting',
+            description: 'Calibrates prediction intervals of physics-informed deep learning models per solar regime, for reliable coverage under changing irradiance and weather conditions',
+          },
+          {
+            title: 'Multivariate Time-Series Forecasting for Energy',
+            description: 'Neural architectures that model temporal dynamics and cross-variable dependencies for multi-horizon forecasting of renewable generation, electricity demand and consumption',
           },
         ],
       },
       {
-        title: 'Computer Vision & Image Processing',
+        title: 'Efficient Vision & Edge AI',
         description:
-          'Cutting-edge research in computer vision, medical image analysis, and CNN applications for object detection, classification, and segmentation tasks.',
+          'Real-time, edge-deployable computer vision: confidence-guided hybrid architectures for language-guided video segmentation, and lightweight, distilled models that judge the analytical value of satellite imagery onboard to cut unnecessary data transmission.',
         applications: [
-          'Medical Image Analysis',
-          'Autonomous Vehicle Vision',
-          'Quality Control Systems',
-          'Facial Recognition',
-          'Environmental Monitoring',
+          'Real-Time Language-Guided Video Segmentation',
+          'Onboard Satellite Image Selection',
+          'Cloud-Aware Land-Cover Analysis',
+          'Bandwidth-Efficient Satellite Downlink',
+          'Edge-Deployable Vision Systems',
         ],
         projects: [
           {
-            title: 'Brain Tumor Detection',
-            description: 'AI-powered system for early detection and classification of brain tumors using MRI scans',
+            title: 'ConfTrackNet: Real-Time Video Instance Segmentation',
+            description: 'A confidence-guided hybrid framework pairing a heavy vision-language detector on key frames with lightweight mask propagation, re-detecting only when a multi-signal confidence estimator sees quality drop',
           },
           {
-            title: 'Skin Lesion Analysis',
-            description: 'Deep learning models for automated skin cancer detection and classification',
+            title: 'Task-Retention Utility for Satellite Downlink',
+            description: 'Predicts how much land-cover segmentation performance survives cloud cover using clear-to-cloud knowledge distillation and a lightweight model, so satellites prioritize imagery by analytical value rather than cloud coverage alone',
           },
         ],
       },
       {
-        title: 'LLM & Generative AI Models',
+        title: 'Trustworthy LLMs & Adaptive RAG',
         description:
-          'Advanced research in Large Language Models, generative AI, and transformer architectures for natural language processing, content generation, and conversational AI systems.',
+          'Making generative AI reliable: adaptive retrieval-augmented generation that chooses retrieval channels per query, answers or abstains based on visual evidence and confidence, and selectively revises responses as video and sensor observations change.',
         applications: [
-          'Automated Content Generation',
-          'Intelligent Chatbots',
-          'Code Generation',
-          'Language Translation',
-          'Educational AI Assistants',
+          'Smart Farming Decision Support',
+          'Evidence-Grounded Question Answering',
+          'Video & Sensor-Based Reasoning',
+          'Answer-or-Abstain Response Control',
+          'Context-Aware Response Revision',
         ],
         projects: [
           {
-            title: 'Korean Language Model',
-            description: 'Developing specialized LLM for Korean language understanding and generation',
-          },
-          {
-            title: 'Medical AI Assistant',
-            description: 'Generative AI system for medical diagnosis and treatment recommendations',
-          },
-        ],
-      },
-      {
-        title: 'IoT & Edge Computing',
-        description:
-          'Research in Internet of Things, edge computing, and distributed intelligence for smart environments and real-time processing applications.',
-        applications: [
-          'Smart Agriculture',
-          'Industrial IoT',
-          'Environmental Monitoring',
-          'Smart Home Systems',
-          'Wearable Devices',
-        ],
-        projects: [
-          {
-            title: 'Smart Agriculture Platform',
-            description: 'IoT-based system for precision farming and crop monitoring',
-          },
-          {
-            title: 'Edge AI for Manufacturing',
-            description: 'Real-time quality control using edge computing and AI',
+            title: 'Adaptive RAG for Smart Farming',
+            description: 'Selects retrieval channels by query and candidates, learns to answer or abstain from visual evidence, and revises only the affected parts of a response when sensor states change, delivering evidence-grounded farm decision support',
           },
         ],
       },
@@ -1017,113 +998,94 @@ export const translations = {
     ],
     researchAreas: [
       {
-        title: '엣지 디바이스를 위한 경량 모델',
+        title: '태양광 에너지 및 PV AI',
         description:
-          '자원이 제한된 엣지 디바이스에서 최소한의 전력 소비와 최대 성능으로 효율적인 AI 모델을 배포하기 위한 모델 압축, 양자화, 지식 증류 및 최적화 기술에 대한 선도적인 연구.',
+          '태양광 전 과정을 위한 AI: 다중 에이전트 기반의 불확실성 인식 프레임워크로 다양한 해상도의 영상에서 PV 패널을 분할하고, 적은 라벨 데이터로 위성·항공 영상에서 옥상 태양광 설비를 매핑하며, 모듈 단위 태양광 최적화기에서 실제 전역 최대 전력점을 추적합니다.',
         applications: [
-          '모바일 AI 응용 프로그램',
-          '드론 기반 AI 시스템',
-          '임베디드 비전 시스템',
-          '저전력 추론',
-          '실시간 엣지 처리',
-          '교사-학생 모델 학습',
+          'PV 패널 분할 및 매핑',
+          '위성 영상 기반 옥상 태양광 탐지',
+          '미등록(BTM) 태양광 설비 발굴',
+          '발전 용량 추정',
+          '모듈 단위 최적화기를 위한 전역 MPPT',
         ],
         projects: [
           {
-            title: '관광을 위한 경량 LLM',
-            description: '관광 응용 프로그램에서 모바일 및 엣지 디바이스에 최적화된 저전력 LLM 모델 개발',
+            title: 'MAPVNet-Q: 다중 에이전트 PV 분할',
+            description: '불확실성 기반 품질 특징과 성능 향상 예측 라우터로 가장 적합한 분할 모델을 선택하여, 다양한 영상 소스와 촬영 조건에서 PV 매핑의 신뢰성을 높이는 다중 에이전트 프레임워크',
           },
           {
-            title: '드론을 위한 온디바이스 AI',
-            description: '드론을 사용한 실시간 태양광 패널 점검을 위한 효율적인 AI 모델 구축',
+            title: 'SolarMap AI: 옥상 태양광 매핑',
+            description: '제주도 전역에서 주소 단위로 PV 패널을 분할하고 발전 용량을 추정하며 미등록 설비를 찾아내고, 수정된 마스크로 모델을 재학습하는 휴먼 인 더 루프 구조를 갖춘 시스템',
+          },
+          {
+            title: 'ML 시드 기반 전역 MPPT',
+            description: '약 6개의 전압 측정으로 전역 최대점 영역을 예측한 뒤 P&O 방식으로 정밀 추적하고, 음영 변화 시 다시 시드를 생성하여 탐색 기반 방법보다 훨씬 적은 측정 비용으로 실제 최대점을 추적',
           },
         ],
       },
       {
-        title: '머신러닝 및 인공지능',
+        title: '확률적 에너지 및 전력망 예측',
         description:
-          '신재생 에너지, 교통, 스마트 시스템을 포함한 실제 문제에 대한 인공지능, 딥러닝, 머신러닝 응용 분야의 고급 연구.',
+          '전력 시스템을 위한 신뢰성 높은 불확실성 인식 예측: 물리 기반·물리 정보 딥러닝, 새로운 운영 조건을 위한 메타러닝, 예측 구간의 컨포멀 보정, 발전·수요·전력망 상태를 위한 설명 가능한 다변량 시계열 모델을 연구합니다.',
         applications: [
-          '신재생 에너지 최적화',
-          '스마트 교통 시스템',
-          '예측 유지보수',
-          '추천 시스템',
-          '자연어 처리',
+          '전력망 상태 및 조류 예측',
+          '태양광 발전량 예측',
+          '전력 수요 및 소비 예측',
+          '신재생 에너지 발전 예측',
+          '불확실성 인식 전력망 운영',
         ],
         projects: [
           {
-            title: '신재생 에너지를 위한 AI',
-            description: '최적의 에너지 분배 및 소비 예측을 위한 지능형 시스템 개발',
+            title: '전력망 상태 예측을 위한 물리 기반 메타러닝',
+            description: '그래프 기반 학습, 불확실성 정량화, 미분 가능한 조류 계산 모델을 결합하여 새로운 운영 조건에서도 물리적으로 일관된 노드 전력, 모선 전압, 선로 부하를 예측',
           },
           {
-            title: '스마트 도시 분석',
-            description: '도시 계획 및 교통 최적화를 위한 머신러닝 솔루션',
+            title: '운영 조건 인식 컨포멀 태양광 예측',
+            description: '물리 정보 딥러닝 모델의 예측 구간을 태양광 운영 조건별로 보정하여, 변화하는 일사량과 기상 조건에서도 신뢰할 수 있는 예측 구간을 제공',
+          },
+          {
+            title: '에너지를 위한 다변량 시계열 예측',
+            description: '시간적 동역학과 변수 간 의존성을 모델링하는 신경망 구조로 신재생 발전, 전력 수요 및 소비를 다중 시점으로 예측',
           },
         ],
       },
       {
-        title: '컴퓨터 비전 및 이미지 처리',
+        title: '효율적 비전 및 엣지 AI',
         description:
-          '객체 탐지, 분류, 분할 작업을 위한 컴퓨터 비전, 의료 이미지 분석, CNN 응용 분야의 최첨단 연구.',
+          '실시간 엣지 배포가 가능한 컴퓨터 비전: 언어 기반 비디오 분할을 위한 신뢰도 기반 하이브리드 구조와, 위성에서 영상의 분석 가치를 판단하여 불필요한 데이터 전송을 줄이는 경량 증류 모델을 연구합니다.',
         applications: [
-          '의료 이미지 분석',
-          '자율주행 차량 비전',
-          '품질 관리 시스템',
-          '얼굴 인식',
-          '환경 모니터링',
+          '실시간 언어 기반 비디오 분할',
+          '위성 탑재 영상 선별',
+          '구름 인식 토지피복 분석',
+          '대역폭 효율적 위성 다운링크',
+          '엣지 배포형 비전 시스템',
         ],
         projects: [
           {
-            title: '뇌종양 탐지',
-            description: 'MRI 스캔을 통한 뇌종양 조기 발견 및 분류를 위한 AI 기반 시스템',
+            title: 'ConfTrackNet: 실시간 비디오 인스턴스 분할',
+            description: '키 프레임에는 고성능 비전-언어 탐지를, 중간 프레임에는 경량 마스크 전파를 사용하고, 다중 신호 신뢰도 추정기가 품질 저하를 감지할 때만 재탐지하는 하이브리드 프레임워크',
           },
           {
-            title: '피부 병변 분석',
-            description: '자동화된 피부암 탐지 및 분류를 위한 딥러닝 모델',
+            title: '위성 다운링크를 위한 과업 유지 효용 추정',
+            description: '맑은 영상-구름 영상 지식 증류와 경량 모델로 구름이 낀 위성 영상에서 토지피복 분할 성능이 얼마나 유지되는지 예측하여, 구름 양이 아닌 분석 가치에 따라 영상 전송 우선순위를 결정',
           },
         ],
       },
       {
-        title: 'LLM 및 생성형 AI 모델',
+        title: '신뢰할 수 있는 LLM 및 적응형 RAG',
         description:
-          '자연어 처리, 콘텐츠 생성, 대화형 AI 시스템을 위한 대규모 언어 모델, 생성형 AI, 트랜스포머 아키텍처에 대한 고급 연구.',
+          '생성형 AI의 신뢰성 향상: 질의에 따라 검색 채널을 선택하고, 시각적 근거와 신뢰도에 따라 답변 또는 응답 보류를 결정하며, 영상·센서 관측이 바뀌면 응답을 선택적으로 수정하는 적응형 검색 증강 생성을 연구합니다.',
         applications: [
-          '자동화된 콘텐츠 생성',
-          '지능형 챗봇',
-          '코드 생성',
-          '언어 번역',
-          '교육용 AI 어시스턴트',
+          '스마트 농업 의사결정 지원',
+          '근거 기반 질의응답',
+          '영상 및 센서 기반 추론',
+          '답변/보류 응답 제어',
+          '상황 인식 응답 수정',
         ],
         projects: [
           {
-            title: '한국어 언어 모델',
-            description: '한국어 이해 및 생성을 위한 특화된 LLM 개발',
-          },
-          {
-            title: '의료 AI 어시스턴트',
-            description: '의료 진단 및 치료 권고를 위한 생성형 AI 시스템',
-          },
-        ],
-      },
-      {
-        title: 'IoT 및 엣지 컴퓨팅',
-        description:
-          '스마트 환경 및 실시간 처리 응용 프로그램을 위한 사물인터넷, 엣지 컴퓨팅, 분산 지능에 관한 연구.',
-        applications: [
-          '스마트 농업',
-          '산업용 IoT',
-          '환경 모니터링',
-          '스마트 홈 시스템',
-          '웨어러블 디바이스',
-        ],
-        projects: [
-          {
-            title: '스마트 농업 플랫폼',
-            description: '정밀 농업 및 작물 모니터링을 위한 IoT 기반 시스템',
-          },
-          {
-            title: '제조업을 위한 엣지 AI',
-            description: '엣지 컴퓨팅과 AI를 활용한 실시간 품질 관리',
+            title: '스마트 농업을 위한 적응형 RAG',
+            description: '질의와 검색 후보에 따라 검색 채널을 선택하고, 시각적 근거로 답변 여부를 학습하며, 센서 상태가 바뀌면 응답의 해당 부분만 수정하여 근거 기반 농업 의사결정을 지원',
           },
         ],
       },
