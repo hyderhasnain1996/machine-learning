@@ -186,7 +186,7 @@ export const heroSlides = [
     gradient: "from-blue-500 via-sky-600 to-cyan-700",
     cta: "Discover Our Research",
     link: "/research",
-    stats: { projects: "50+", publications: "200+", collaborations: "Global" }
+    stats: { projects: "50+", publications: "396+", collaborations: "Global" }
   },
   {
     id: 2,
@@ -197,7 +197,7 @@ export const heroSlides = [
     gradient: "from-blue-500 via-sky-600 to-cyan-700",
     cta: "View Publications",
     link: "/publications",
-    stats: { impact: "High", citations: "7000+", journals: "Top-tier" }
+    stats: { impact: "High", citations: "7777+", journals: "Top-tier" }
   },
   {
     id: 3,

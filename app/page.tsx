@@ -208,10 +208,10 @@ export default function Home() {
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { value: "200+", label: "Publications", percent: 88 },
+              { value: "396+", label: "Publications", percent: 88 },
               { value: "50+", label: "Research Projects", percent: 72 },
               { value: "20+", label: "Years of Excellence", percent: 95 },
-              { value: "7000+", label: "Citations", percent: 80 },
+              { value: "7777+", label: "Citations", percent: 80 },
             ].map((stat, i) => (
               <m.div
                 key={stat.label}
