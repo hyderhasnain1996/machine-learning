@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect } from 'react'
 import { motion } from 'framer-motion'
 import DecryptText from '@/app/components/ui/DecryptText'
 import Aurora from '@/app/components/ui/Aurora'
@@ -20,6 +21,20 @@ const iconMap = {
 export default function Research() {
   const { lang } = useLanguage()
   const t = translations[lang]
+
+  // When opened from a homepage card (/research#area-id), land on that area
+  // below the fixed menu, after the cards' entrance animation has settled.
+  useEffect(() => {
+    const id = decodeURIComponent(window.location.hash.slice(1))
+    if (!id) return
+    const timer = setTimeout(() => {
+      const el = document.getElementById(id)
+      if (!el) return
+      const top = el.getBoundingClientRect().top + window.scrollY - 110
+      window.scrollTo({ top, behavior: 'smooth' })
+    }, 900)
+    return () => clearTimeout(timer)
+  }, [])
   const tr = t.research
   const localizedAreas = t.researchAreas
 
@@ -77,10 +92,11 @@ export default function Research() {
               return (
                 <motion.div
                   key={area.id}
+                  id={area.id}
                   initial={{ opacity: 0, y: 50 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: index * 0.2 }}
-                  className="relative group flex"
+                  className="relative group flex scroll-mt-28"
                 >
                   {/* Gradient border effect */}
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>

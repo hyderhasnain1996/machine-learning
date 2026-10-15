@@ -310,7 +310,7 @@ export default function Home() {
                   {/* Gradient border effect */}
                   <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
 
-                  <div className="shimmer-card relative bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer h-full">
+                  <Link href={`/research#${area.id}`} className="shimmer-card relative block bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer h-full focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-400">
                     {/* Blinking status indicator */}
                     <div className="absolute -top-2 -right-2">
                       <span className="relative flex h-3 w-3">
@@ -345,7 +345,7 @@ export default function Home() {
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </Link>
                   </TiltCard>
                 </motion.div>
               );
