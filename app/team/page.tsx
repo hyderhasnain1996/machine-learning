@@ -544,10 +544,10 @@ export default function Team() {
                         {lang === 'ko' ? '현재 소속' : 'Current Affiliation'}
                       </p>
                       <p className="text-[15px] font-bold text-gray-900 dark:text-white leading-snug">
-                        {lang === 'ko' ? (member.currentRole.organizationKo ?? member.currentRole.organization) : member.currentRole.organization}
+                        {lang === 'ko' ? (member.currentRole.positionKo ?? member.currentRole.position) : member.currentRole.position}
                       </p>
                       <p className="text-sm font-medium text-blue-600 dark:text-blue-400 mt-0.5 leading-snug">
-                        {lang === 'ko' ? (member.currentRole.positionKo ?? member.currentRole.position) : member.currentRole.position}
+                        {lang === 'ko' ? (member.currentRole.organizationKo ?? member.currentRole.organization) : member.currentRole.organization}
                       </p>
                       {member.currentRole.location && (
                         <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
