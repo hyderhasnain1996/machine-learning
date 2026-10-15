@@ -948,6 +948,25 @@ export const alumniMembers: TeamMember[] = [
     currentPosition: "Postdoctoral Researcher",
     currentAffiliation: "University of Manitoba, Canada"
   },
+  {
+    id: "wafa-shafqat",
+    name: "Dr. Wafa Shafqat",
+    role: "Former Ph.D. Student",
+    title: "Ph.D.",
+    currentRole: {
+      position: "Lecturer and Postdoctoral Researcher",
+      organization: "Language Technology Group, University of Hamburg, Germany",
+      positionKo: "강사 및 박사후 연구원",
+      organizationKo: "함부르크 대학교 언어기술 연구그룹, 독일",
+    },
+    image: "/wafa-shafqat.jpg",
+    bio: "Dr. Wafa Shafqat completed her Ph.D. at our lab. She is now a Lecturer and Postdoctoral Researcher in the Language Technology research group at the University of Hamburg, Germany.",
+    researchInterests: [],
+    education: [],
+    status: "alumni",
+    currentPosition: "Lecturer and Postdoctoral Researcher",
+    currentAffiliation: "Language Technology Group, University of Hamburg, Germany"
+  },
 ]
 
 export const facultyMembers = teamMembers.filter(member => member.role.includes("Professor"))
