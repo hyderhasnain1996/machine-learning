@@ -504,10 +504,6 @@ export default function Team() {
               transition={{ duration: 0.6 }}
               className="text-center mb-14"
             >
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-100 dark:bg-cyan-900/30 rounded-full mb-4">
-                <GraduationCap className="h-5 w-5 text-cyan-700 dark:text-cyan-400" />
-                <span className="text-sm font-semibold text-cyan-800 dark:text-cyan-300">{lang === 'ko' ? '졸업생 네트워크' : 'Alumni Network'}</span>
-              </div>
               <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent">
                 {tt.alumni}
               </h2>
