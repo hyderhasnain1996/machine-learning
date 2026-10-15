@@ -81,7 +81,7 @@ function ChatBot() {
     // About the lab
     if (knowledgeBase.about.some(term => lowerMessage.includes(term))) {
       const director = facultyMembers[0]
-      return `The ${labInfo.fullName} at ${labInfo.university} was established in ${labInfo.established}. We're a leading research group focused on:\n\n• Machine Learning & AI\n• Computer Vision\n• Large Language Models\n• IoT & Edge Computing\n\nDirected by ${director.name}, our lab has published ${director.publications}+ papers and received ${director.citations}+ citations.`
+      return `The ${labInfo.fullName} at ${labInfo.university} was established in ${labInfo.established}. We're a leading research group focused on:\n\n${researchAreas.map(area => `• ${area.title}`).join('\n')}\n\nDirected by ${director.name}, our lab has published ${director.publications}+ papers and received ${director.citations}+ citations.`
     }
 
     // Publications

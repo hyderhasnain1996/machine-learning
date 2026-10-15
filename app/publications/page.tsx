@@ -45,13 +45,17 @@ function applyPins<T extends { id: string }>(list: T[]): T[] {
   return result
 }
 
+// Lab's official totals; the hero shows these unless the live data is higher
+const OFFICIAL_PUBLICATIONS = 396
+const OFFICIAL_CITATIONS = 7777
+
 export default function Publications() {
   const { lang } = useLanguage()
   const tpub = translations[lang].publications
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [searchTerm, setSearchTerm] = useState('')
   const [allPublications, setAllPublications] = useState(staticPublications)
-  const [totalCitations, setTotalCitations] = useState(7267)
+  const [totalCitations, setTotalCitations] = useState(7777)
   const [syncing, setSyncing] = useState(false)
 
   useEffect(() => {
@@ -155,12 +159,12 @@ export default function Publications() {
             </p>
             <div className="flex items-center justify-center gap-8 mt-8">
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-1">{allPublications.length}+</div>
+                <div className="text-3xl font-bold text-white mb-1">{Math.max(allPublications.length, OFFICIAL_PUBLICATIONS)}+</div>
                 <div className="text-sm text-blue-200">{tpub.statPublications}</div>
               </div>
               <div className="w-px h-12 bg-white/30"></div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-white mb-1">{totalCitations.toLocaleString()}+</div>
+                <div className="text-3xl font-bold text-white mb-1">{Math.max(totalCitations, OFFICIAL_CITATIONS)}+</div>
                 <div className="text-sm text-blue-200">{tpub.statCitations}</div>
               </div>
               <div className="w-px h-12 bg-white/30"></div>

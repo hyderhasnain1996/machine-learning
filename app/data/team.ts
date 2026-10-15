@@ -109,8 +109,8 @@ export const teamMembers: TeamMember[] = [
         period: "2000 - 2001",
       },
     ],
-    publications: 386,
-    citations: 7267,
+    publications: 396,
+    citations: 7777,
     hIndex: 48,
     googleScholar: "https://scholar.google.com/citations?user=jfGGqJIAAAAJ&hl=ko",
     achievements: [
