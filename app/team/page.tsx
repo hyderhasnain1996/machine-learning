@@ -541,7 +541,7 @@ export default function Team() {
                     <div className="relative px-5 py-4 text-center bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 dark:from-blue-950/40 dark:via-slate-800 dark:to-cyan-950/30 border-t border-blue-100 dark:border-blue-900/50">
                       <div className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-12 rounded-full bg-gradient-to-r from-blue-500 to-cyan-400" />
                       <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-cyan-600 dark:text-cyan-400 mb-1.5">
-                        {lang === 'ko' ? '현재 소속' : 'Now at'}
+                        {lang === 'ko' ? '현재 소속' : 'Current Affiliation'}
                       </p>
                       <p className="text-[15px] font-bold text-gray-900 dark:text-white leading-snug">
                         {lang === 'ko' ? (member.currentRole.organizationKo ?? member.currentRole.organization) : member.currentRole.organization}

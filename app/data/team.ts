@@ -908,7 +908,7 @@ export const alumniMembers: TeamMember[] = [
   },
   {
     id: "mudassar-liaq",
-    name: "Mr. Mudassar Liaq",
+    name: "Mudassar Liaq",
     role: "Former Master's Student",
     title: "Masters",
     currentRole: {
@@ -920,7 +920,7 @@ export const alumniMembers: TeamMember[] = [
       locationKo: "캐나다",
     },
     image: "/liaq.jpg",
-    bio: "Mr. Mudassar Liaq completed his Master's degree at our lab, specializing in machine learning and computer science. He is currently studying at Lakehead University in Canada.",
+    bio: "Mudassar Liaq completed his Master's degree at our lab, specializing in machine learning and computer science. He is currently studying at Lakehead University in Canada.",
     researchInterests: [
       "Machine Learning",
       "Computer Science",
