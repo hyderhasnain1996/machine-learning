@@ -26,7 +26,8 @@ export default function Navigation() {
     { name: t.publications, href: "/publications", icon: BookOpen },
     { name: t.team, href: "/team", icon: Users },
     { name: t.gallery, href: "/gallery", icon: Camera },
-    { name: t.news, href: "/news", icon: Newspaper },
+    // News is hidden for now; uncomment to show it again
+    // { name: t.news, href: "/news", icon: Newspaper },
     { name: t.contact, href: "/contact", icon: Mail },
   ]
 

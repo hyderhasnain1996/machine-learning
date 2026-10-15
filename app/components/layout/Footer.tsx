@@ -19,7 +19,8 @@ export default function Footer() {
     { name: tn.projects, href: "/projects" },
     { name: tn.publications, href: "/publications" },
     { name: tn.team, href: "/team" },
-    { name: tn.news, href: "/news" },
+    // News is hidden for now; uncomment to show it again
+    // { name: tn.news, href: "/news" },
     { name: tn.contact, href: "/contact" },
   ]
 

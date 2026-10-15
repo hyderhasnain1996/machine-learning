@@ -194,7 +194,7 @@ export const heroSlides = [
     image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2070&q=80",
     gradient: "from-blue-500 via-sky-600 to-cyan-700",
     cta: "Latest Innovations",
-    link: "/news",
+    link: "/projects",
     stats: { devices: "1000+", networks: "Global", efficiency: "95%" }
   }
 ]
@@ -655,6 +655,5 @@ export const navigationItems = [
   { name: "Projects", href: "/projects", icon: "Rocket" },
   { name: "Publications", href: "/publications", icon: "BookOpen" },
   { name: "Team", href: "/team", icon: "Users" },
-  { name: "News", href: "/news", icon: "Newspaper" },
   { name: "Contact", href: "/contact", icon: "Mail" }
 ]
