@@ -1,6 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import DecryptText from '@/app/components/ui/DecryptText'
+import Aurora from '@/app/components/ui/Aurora'
 import { Calendar, Clock, ArrowRight, Tag } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
 import { translations } from '../i18n/translations'
@@ -65,20 +67,21 @@ export default function News() {
   }))
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] min-h-[400px] overflow-hidden pt-32 pb-20">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(/bg-1.jpg)`,
+            backgroundImage: `url(https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=2070&q=80)`,
           }}
         />
-        
+
         {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-green-600 to-teal-700 opacity-85" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f1f]/85 via-blue-900/70 to-cyan-900/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1f] via-transparent to-transparent" />
+            <Aurora />
         
         <div className="relative z-10 h-full flex flex-col items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -87,10 +90,10 @@ export default function News() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-5xl font-bold mb-6 text-white">
-              {tn.heroTitle}
+            <h1 className="text-5xl font-bold mb-6 text-white neon-text drop-shadow-2xl">
+              <DecryptText text={tn.heroTitle} />
             </h1>
-            <p className="text-xl text-emerald-50 max-w-3xl mx-auto">
+            <p className="text-xl text-blue-50 max-w-3xl mx-auto">
               {tn.heroDesc}
             </p>
           </motion.div>
@@ -135,7 +138,7 @@ export default function News() {
             className="relative group"
           >
             {/* Gradient border effect */}
-            <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 via-blue-500 to-purple-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
+            <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-blue-500 to-purple-500 rounded-3xl blur opacity-30 group-hover:opacity-50 transition duration-500"></div>
 
             <div className="relative bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl">
               <div className="grid lg:grid-cols-2 gap-0">
@@ -177,7 +180,7 @@ export default function News() {
                   </div>
                   <div className="flex flex-wrap gap-2 mb-6">
                     {newsItems[0].tags.map((tag, idx) => (
-                      <span key={idx} className="bg-emerald-50 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300 text-xs px-3 py-1 rounded-full font-medium">
+                      <span key={idx} className="bg-blue-50 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300 text-xs px-3 py-1 rounded-full font-medium">
                         {tag}
                       </span>
                     ))}
@@ -221,11 +224,11 @@ export default function News() {
                     <div className="absolute top-4 left-4">
                       <span className={`text-xs px-3 py-1.5 rounded-full font-semibold backdrop-blur-sm ${
                         item.category === 'Research' ? 'bg-blue-500/90 text-white' :
-                        item.category === 'Achievement' ? 'bg-green-500/90 text-white' :
+                        item.category === 'Achievement' ? 'bg-sky-500/90 text-white' :
                         item.category === 'Team' ? 'bg-purple-500/90 text-white' :
                         item.category === 'Partnership' ? 'bg-orange-500/90 text-white' :
                         item.category === 'Event' ? 'bg-pink-500/90 text-white' :
-                        item.category === 'Innovation' ? 'bg-teal-500/90 text-white' :
+                        item.category === 'Innovation' ? 'bg-cyan-500/90 text-white' :
                         'bg-gray-500/90 text-white'
                       }`}>
                         {item.category}
@@ -255,7 +258,7 @@ export default function News() {
 
                     <div className="flex flex-wrap gap-2 mb-4">
                       {item.tags.slice(0, 2).map((tag, idx) => (
-                        <span key={idx} className="bg-gradient-to-r from-emerald-50 to-blue-50 text-emerald-700 dark:from-emerald-900/30 dark:to-blue-900/30 dark:text-emerald-300 text-xs px-3 py-1 rounded-full font-medium">
+                        <span key={idx} className="bg-gradient-to-r from-blue-50 to-blue-50 text-blue-700 dark:from-blue-900/30 dark:to-blue-900/30 dark:text-blue-300 text-xs px-3 py-1 rounded-full font-medium">
                           {tag}
                         </span>
                       ))}

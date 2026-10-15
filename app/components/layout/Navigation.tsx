@@ -72,15 +72,15 @@ export default function Navigation() {
         variants={navVariants}
         className={`fixed top-0 w-full z-50 transition-all duration-500 ${
           isScrolled
-            ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-2xl border-b border-emerald-200/30 dark:border-emerald-500/20'
+            ? 'bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl shadow-2xl border-b border-blue-200/30 dark:border-blue-500/20'
             : 'bg-gradient-to-b from-black/30 via-black/10 to-transparent backdrop-blur-sm'
         }`}
       >
         {/* Futuristic top accent line */}
-        <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-emerald-500 to-transparent transition-opacity duration-500 ${
+        <div className={`absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-blue-500 to-transparent transition-opacity duration-500 ${
           isScrolled ? 'opacity-100' : 'opacity-0'
         }`}>
-          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-emerald-400 to-teal-400 animate-pulse"></div>
+          <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-400 animate-pulse"></div>
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,8 +89,8 @@ export default function Navigation() {
             <motion.div variants={itemVariants} className="flex-shrink-0">
               <Link href="/" className="flex items-center gap-3 group">
                 {/* Logo Icon */}
-                <div className={`relative w-11 h-11 rounded-lg bg-gradient-to-br from-emerald-500 via-green-500 to-teal-500 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg ${
-                  isScrolled ? 'shadow-md shadow-emerald-500/30' : 'shadow-lg shadow-white/20'
+                <div className={`relative w-11 h-11 rounded-lg bg-gradient-to-br from-blue-500 via-sky-500 to-cyan-500 flex items-center justify-center transition-all duration-300 group-hover:shadow-lg ${
+                  isScrolled ? 'shadow-md shadow-blue-500/30' : 'shadow-lg shadow-white/20'
                 }`}>
                   <Brain className="h-6 w-6 text-white" />
                 </div>
@@ -99,13 +99,13 @@ export default function Navigation() {
                 <div className="hidden sm:block">
                   <div className={`text-lg font-bold tracking-tight transition-colors duration-300 ${
                     isScrolled
-                      ? 'bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text text-transparent'
+                      ? 'bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-transparent'
                       : 'text-white'
                   }`}>
                     ML Lab JNU
                   </div>
                   <div className={`text-xs font-medium transition-colors duration-300 ${
-                    isScrolled ? 'text-gray-500 dark:text-gray-400' : 'text-emerald-100'
+                    isScrolled ? 'text-gray-500 dark:text-gray-400' : 'text-blue-100'
                   }`}>
                     Jeju National University
                   </div>
@@ -128,9 +128,9 @@ export default function Navigation() {
                     href={item.href}
                     className={`group relative px-3 py-2 rounded-full transition-all duration-300 flex items-center gap-1.5 ${
                       isActive
-                        ? 'bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 text-white shadow-md shadow-emerald-500/40'
+                        ? 'bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 text-white shadow-md shadow-blue-500/40'
                         : isScrolled
-                          ? 'text-gray-700 dark:text-gray-300 hover:bg-emerald-50 dark:hover:bg-slate-700/50'
+                          ? 'text-gray-700 dark:text-gray-300 hover:bg-blue-50 dark:hover:bg-slate-700/50'
                           : 'text-white/90 hover:bg-white/20'
                     }`}
                   >
@@ -138,6 +138,13 @@ export default function Navigation() {
                     <span className="font-medium text-sm">
                       {item.name}
                     </span>
+                    {/* Sliding neon underline */}
+                    <span
+                      className={`pointer-events-none absolute -bottom-0.5 left-3 right-3 h-0.5 rounded-full bg-gradient-to-r from-cyan-400 to-blue-500 origin-left transition-transform duration-300 ${
+                        isActive ? 'scale-x-0' : 'scale-x-0 group-hover:scale-x-100'
+                      }`}
+                      style={{ boxShadow: '0 0 8px rgba(6,182,212,0.9)' }}
+                    />
                   </Link>
                 )
               })}
@@ -150,7 +157,7 @@ export default function Navigation() {
                 onClick={toggleSearch}
                 className={`p-2.5 rounded-lg transition-all duration-300 ${
                   isScrolled
-                    ? 'bg-emerald-50 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-slate-700'
+                    ? 'bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-slate-700'
                     : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm'
                 }`}
                 aria-label="Search"
@@ -162,30 +169,30 @@ export default function Navigation() {
               {mounted && (
                 <div className={`flex items-center rounded-lg overflow-hidden text-xs font-semibold border transition-all duration-300 ${
                   isScrolled
-                    ? 'border-emerald-200 dark:border-slate-600'
+                    ? 'border-blue-200 dark:border-slate-600'
                     : 'border-white/30'
                 }`}>
                   <button
                     onClick={() => setLang('en')}
                     className={`px-2.5 py-1.5 transition-all duration-200 ${
                       lang === 'en'
-                        ? 'bg-emerald-500 text-white'
+                        ? 'bg-blue-500 text-white'
                         : isScrolled
-                          ? 'text-gray-500 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400'
+                          ? 'text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400'
                           : 'text-white/60 hover:text-white'
                     }`}
                     aria-label="Switch to English"
                   >
                     EN
                   </button>
-                  <div className={`w-px h-4 ${isScrolled ? 'bg-emerald-200 dark:bg-slate-600' : 'bg-white/30'}`} />
+                  <div className={`w-px h-4 ${isScrolled ? 'bg-blue-200 dark:bg-slate-600' : 'bg-white/30'}`} />
                   <button
                     onClick={() => setLang('ko')}
                     className={`px-2.5 py-1.5 transition-all duration-200 ${
                       lang === 'ko'
-                        ? 'bg-emerald-500 text-white'
+                        ? 'bg-blue-500 text-white'
                         : isScrolled
-                          ? 'text-gray-500 dark:text-gray-400 hover:text-emerald-600 dark:hover:text-emerald-400'
+                          ? 'text-gray-500 dark:text-gray-400 hover:text-blue-600 dark:hover:text-blue-400'
                           : 'text-white/60 hover:text-white'
                     }`}
                     aria-label="Switch to Korean"
@@ -201,7 +208,7 @@ export default function Navigation() {
                   onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
                   className={`p-2.5 rounded-lg transition-all duration-300 ${
                     isScrolled
-                      ? 'bg-emerald-50 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-slate-700'
+                      ? 'bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-slate-700'
                       : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm'
                   }`}
                   aria-label="Toggle theme"
@@ -219,7 +226,7 @@ export default function Navigation() {
                 onClick={toggleMenu}
                 className={`lg:hidden p-2.5 rounded-lg transition-all duration-300 ${
                   isScrolled
-                    ? 'bg-emerald-50 dark:bg-slate-800 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-100 dark:hover:bg-slate-700'
+                    ? 'bg-blue-50 dark:bg-slate-800 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-slate-700'
                     : 'bg-white/10 text-white hover:bg-white/20 backdrop-blur-sm'
                 }`}
                 aria-label="Toggle menu"
@@ -242,7 +249,7 @@ export default function Navigation() {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-emerald-200/30 dark:border-emerald-500/20 shadow-xl"
+              className="lg:hidden bg-white/95 dark:bg-slate-900/95 backdrop-blur-xl border-t border-blue-200/30 dark:border-blue-500/20 shadow-xl"
             >
               <div className="max-w-7xl mx-auto px-4 py-4">
                 <div className="space-y-1">
@@ -262,8 +269,8 @@ export default function Navigation() {
                           onClick={closeMenu}
                           className={`flex items-center gap-3 px-4 py-3 rounded-lg transition-all duration-300 ${
                             isActive
-                              ? 'bg-gradient-to-r from-emerald-500 via-green-500 to-teal-500 text-white shadow-md shadow-emerald-500/30'
-                              : 'bg-gray-50 dark:bg-slate-800/50 text-gray-700 dark:text-gray-300 hover:bg-emerald-100 dark:hover:bg-slate-700'
+                              ? 'bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 text-white shadow-md shadow-blue-500/30'
+                              : 'bg-gray-50 dark:bg-slate-800/50 text-gray-700 dark:text-gray-300 hover:bg-blue-100 dark:hover:bg-slate-700'
                           }`}
                         >
                           <Icon className="h-5 w-5" />

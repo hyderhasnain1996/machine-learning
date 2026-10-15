@@ -172,10 +172,10 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                 <Cpu className="h-3 w-3 text-cyan-300" />
                 {project.category}
               </span>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-emerald-500/20 backdrop-blur-md rounded-full border border-emerald-400/30 text-emerald-300 text-xs font-semibold uppercase tracking-widest">
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 bg-blue-500/20 backdrop-blur-md rounded-full border border-blue-400/30 text-blue-300 text-xs font-semibold uppercase tracking-widest">
                 <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-400" />
                 </span>
                 {project.status}
               </span>
@@ -370,7 +370,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                   const gradients = [
                     'from-violet-500 to-purple-600',
                     'from-blue-500 to-cyan-600',
-                    'from-emerald-500 to-teal-600',
+                    'from-blue-500 to-cyan-600',
                     'from-orange-500 to-amber-600',
                     'from-rose-500 to-pink-600',
                   ]
@@ -417,10 +417,10 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
               {details.propagationDesign && (
                 <motion.div className="lg:col-span-2" variants={fadeUp} custom={1} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                   <div className="relative group h-full">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-3xl blur-lg opacity-25 group-hover:opacity-45 transition duration-500" />
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-3xl blur-lg opacity-25 group-hover:opacity-45 transition duration-500" />
                     <div className="relative bg-white dark:bg-slate-800 rounded-3xl p-8 shadow-xl h-full">
                       <div className="flex items-center gap-3 mb-5">
-                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center">
+                        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 flex items-center justify-center">
                           <Zap className="h-5 w-5 text-white" />
                         </div>
                         <h2 className="text-xl font-bold text-gray-900 dark:text-white">{t.propagationDesign}</h2>
@@ -434,7 +434,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                         ].map((stat) => (
                           <div key={stat.label} className="flex items-center justify-between py-2.5 border-b border-gray-100 dark:border-gray-700 last:border-0">
                             <span className="text-sm text-gray-500 dark:text-gray-400">{stat.label}</span>
-                            <span className="text-sm font-bold text-gray-900 dark:text-white bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-3 py-1 rounded-full">
+                            <span className="text-sm font-bold text-gray-900 dark:text-white bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full">
                               {stat.value}
                             </span>
                           </div>
@@ -543,7 +543,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
             {details.qualitativeResultsImage && (
               <motion.div variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                 <div className="text-center mb-8">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-emerald-600 to-teal-600 rounded-full mb-4">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-full mb-4">
                     <Eye className="h-4 w-4 text-white" />
                     <span className="text-sm font-semibold text-white">{t.visualResults}</span>
                   </div>
@@ -553,10 +553,10 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                   </p>
                 </div>
                 <div className="relative group">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-3xl blur-xl opacity-25 group-hover:opacity-45 transition duration-700" />
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-500 to-cyan-600 rounded-3xl blur-xl opacity-25 group-hover:opacity-45 transition duration-700" />
                   <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden">
                     {/* Top bar */}
-                    <div className="bg-gradient-to-r from-emerald-600 to-teal-600 px-6 py-3 flex items-center gap-3">
+                    <div className="bg-gradient-to-r from-blue-600 to-cyan-600 px-6 py-3 flex items-center gap-3">
                       <div className="flex gap-1.5">
                         <div className="w-3 h-3 rounded-full bg-white/30" />
                         <div className="w-3 h-3 rounded-full bg-white/30" />
@@ -692,10 +692,10 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                                 <div className="flex items-center gap-2 px-4 py-2.5 bg-white/5 border-b border-white/10">
                                   <Play className="h-3.5 w-3.5 text-violet-400 fill-violet-400" />
                                   <span className="text-xs font-semibold text-slate-300 truncate">{vid.label}</span>
-                                  <span className="ml-auto flex items-center gap-1.5 text-xs text-emerald-400 font-medium flex-shrink-0">
+                                  <span className="ml-auto flex items-center gap-1.5 text-xs text-blue-400 font-medium flex-shrink-0">
                                     <span className="relative flex h-1.5 w-1.5">
-                                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-400" />
+                                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75" />
+                                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-blue-400" />
                                     </span>
                                     {t.live}
                                   </span>
@@ -762,7 +762,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                     <div className="space-y-3">
                       {(lp?.keyFeatures ?? project.keyFeatures).map((feat, i) => (
                         <div key={i} className="flex items-start gap-3">
-                          <CheckCircle2 className="h-5 w-5 text-emerald-500 mt-0.5 flex-shrink-0" />
+                          <CheckCircle2 className="h-5 w-5 text-blue-500 mt-0.5 flex-shrink-0" />
                           <span className="text-gray-700 dark:text-gray-200 text-sm leading-relaxed">{feat}</span>
                         </div>
                       ))}

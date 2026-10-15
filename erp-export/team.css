@@ -1,0 +1,48 @@
+/* ─────────────────────────────────────────────────────────────────────────
+   CSS required by TeamPage.tsx (flip cards, neon title, floating blobs).
+   Import this ONCE in your ERP (e.g. in the page/layout that renders the team
+   page, or in your global stylesheet).
+   ───────────────────────────────────────────────────────────────────────── */
+
+/* 3D flip cards (student cards) */
+.flip-card { perspective: 1200px; }
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s cubic-bezier(0.21, 0.47, 0.32, 0.98);
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-inner { transform: rotateY(180deg); }
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  overflow: hidden;
+}
+.flip-back { transform: rotateY(180deg); }
+
+/* Neon glow on the hero title */
+.neon-text {
+  text-shadow:
+    0 0 8px rgba(6, 182, 212, 0.55),
+    0 0 22px rgba(37, 99, 235, 0.45);
+}
+
+/* Floating blobs behind the faculty section */
+@keyframes blob {
+  0%   { transform: translate(0px, 0px) scale(1); }
+  33%  { transform: translate(30px, -40px) scale(1.1); }
+  66%  { transform: translate(-20px, 20px) scale(0.95); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+.animate-blob { animation: blob 9s infinite ease-in-out; }
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .animate-blob,
+  .flip-inner { animation: none !important; transition: none !important; }
+}

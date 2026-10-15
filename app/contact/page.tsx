@@ -1,6 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import DecryptText from '@/app/components/ui/DecryptText'
+import Aurora from '@/app/components/ui/Aurora'
 import { useState } from 'react'
 import { Mail, Phone, MapPin, Clock, Send, User, MessageSquare, Building, Map, Globe } from 'lucide-react'
 import { labInfo } from '../data/labData'
@@ -41,20 +43,21 @@ export default function Contact() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] min-h-[400px] overflow-hidden pt-32 pb-20">
         {/* Background Image */}
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(/mllab.jpeg)`,
+            backgroundImage: `url(https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=2070&q=80)`,
           }}
         />
-        
+
         {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-green-600 to-teal-700 opacity-85" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f1f]/85 via-blue-900/70 to-cyan-900/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1f] via-transparent to-transparent" />
+            <Aurora />
         
         <div className="relative z-10 h-full flex flex-col items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -63,10 +66,10 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-5xl font-bold mb-6 text-white">
-              {tc.heroTitle}
+            <h1 className="text-5xl font-bold mb-6 text-white neon-text drop-shadow-2xl">
+              <DecryptText text={tc.heroTitle} />
             </h1>
-            <p className="text-xl text-emerald-50 max-w-3xl mx-auto">
+            <p className="text-xl text-blue-50 max-w-3xl mx-auto">
               {tc.heroDesc}
             </p>
           </motion.div>
@@ -83,7 +86,7 @@ export default function Contact() {
             className="space-y-8"
           >
             <div>
-              <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-700 to-green-700 bg-clip-text text-transparent mb-6">
+              <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-700 to-sky-700 bg-clip-text text-transparent mb-6">
                 {tc.getInTouch}
               </h2>
               <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
@@ -93,10 +96,10 @@ export default function Contact() {
 
             {/* Contact Cards */}
             <div className="space-y-6">
-              <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:shadow-emerald-500/20">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:shadow-blue-500/20">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-emerald-100 to-green-200 dark:from-emerald-900 dark:to-green-800 rounded-xl flex items-center justify-center">
-                    <Mail className="h-6 w-6 text-emerald-600 dark:text-emerald-400" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-100 to-sky-200 dark:from-blue-900 dark:to-sky-800 rounded-xl flex items-center justify-center">
+                    <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -104,7 +107,7 @@ export default function Contact() {
                     </h3>
                     <a
                       href={`mailto:${labInfo.email}`}
-                      className="text-emerald-600 dark:text-emerald-400 hover:underline font-medium"
+                      className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
                     >
                       {labInfo.email}
                     </a>
@@ -112,10 +115,10 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:shadow-green-500/20">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:shadow-sky-500/20">
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-green-100 to-teal-200 dark:from-green-900 dark:to-teal-800 rounded-xl flex items-center justify-center">
-                    <Phone className="h-6 w-6 text-green-600 dark:text-green-400" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-sky-100 to-cyan-200 dark:from-sky-900 dark:to-cyan-800 rounded-xl flex items-center justify-center">
+                    <Phone className="h-6 w-6 text-sky-600 dark:text-sky-400" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -123,7 +126,7 @@ export default function Contact() {
                     </h3>
                     <a
                       href={`tel:${labInfo.phone}`}
-                      className="text-green-600 dark:text-green-400 hover:underline font-medium"
+                      className="text-sky-600 dark:text-sky-400 hover:underline font-medium"
                     >
                       {labInfo.phone}
                     </a>
@@ -131,10 +134,10 @@ export default function Contact() {
                 </div>
               </div>
 
-              <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:shadow-teal-500/20">
+              <div className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all hover:shadow-cyan-500/20">
                 <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-teal-100 to-cyan-200 dark:from-teal-900 dark:to-cyan-800 rounded-xl flex items-center justify-center">
-                    <MapPin className="h-6 w-6 text-teal-600 dark:text-teal-400" />
+                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-100 to-cyan-200 dark:from-cyan-900 dark:to-cyan-800 rounded-xl flex items-center justify-center">
+                    <MapPin className="h-6 w-6 text-cyan-600 dark:text-cyan-400" />
                   </div>
                   <div>
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
@@ -168,7 +171,7 @@ export default function Contact() {
             </div>
 
             {/* Research Areas Quick Links */}
-            <div className="bg-gradient-to-br from-emerald-600 via-green-600 to-teal-600 rounded-2xl p-6 text-white">
+            <div className="bg-gradient-to-br from-blue-600 via-sky-600 to-cyan-600 rounded-2xl p-6 text-white">
               <h3 className="text-xl font-bold mb-4">{tc.researchInterests}</h3>
               <div className="grid grid-cols-2 gap-2">
                 <div className="text-sm flex items-center"><span className="mr-2">🧠</span>Machine Learning</div>
@@ -186,7 +189,7 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl hover:shadow-2xl transition-all"
           >
-            <h2 className="text-3xl font-bold bg-gradient-to-r from-emerald-700 to-green-700 bg-clip-text text-transparent mb-6">
+            <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-700 to-sky-700 bg-clip-text text-transparent mb-6">
               {tc.sendMessage}
             </h2>
             
@@ -281,14 +284,14 @@ export default function Contact() {
               {/* Submit Button */}
               <button
                 type="submit"
-                className="w-full bg-gradient-to-r from-emerald-600 to-green-600 text-white py-4 px-6 rounded-lg font-semibold hover:from-emerald-700 hover:to-green-700 transition-all duration-300 flex items-center justify-center gap-2 group transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="w-full bg-gradient-to-r from-blue-600 to-sky-600 text-white py-4 px-6 rounded-lg font-semibold hover:from-blue-700 hover:to-sky-700 transition-all duration-300 flex items-center justify-center gap-2 group transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 <Send className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 {tc.sendBtn}
               </button>
             </form>
 
-            <div className="mt-6 pt-6 border-t border-emerald-200 dark:border-emerald-700">
+            <div className="mt-6 pt-6 border-t border-blue-200 dark:border-blue-700">
               <p className="text-sm text-gray-600 dark:text-gray-400 text-center">
                 ⚡ We typically respond to inquiries within 24-48 hours during business days.
               </p>
@@ -298,7 +301,7 @@ export default function Contact() {
       </div>
 
       {/* Map Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-100 via-emerald-50 to-green-50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800">
+      <section className="py-20 bg-gradient-to-br from-gray-100 via-blue-50 to-sky-50 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -306,7 +309,7 @@ export default function Contact() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold bg-gradient-to-r from-emerald-700 to-green-700 bg-clip-text text-transparent mb-4">
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-blue-700 to-sky-700 bg-clip-text text-transparent mb-4">
               🏛️ Visit Our Lab
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300">
@@ -321,8 +324,8 @@ export default function Contact() {
                 onClick={() => setActiveMap('google')}
                 className={`px-6 py-3 rounded-full font-medium transition-all flex items-center gap-2 ${
                   activeMap === 'google'
-                    ? 'bg-emerald-600 text-white shadow-lg'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-emerald-600'
+                    ? 'bg-blue-600 text-white shadow-lg'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-blue-600'
                 }`}
               >
                 <Globe className="h-4 w-4" />
@@ -332,8 +335,8 @@ export default function Contact() {
                 onClick={() => setActiveMap('naver')}
                 className={`px-6 py-3 rounded-full font-medium transition-all flex items-center gap-2 ${
                   activeMap === 'naver'
-                    ? 'bg-emerald-600 text-white shadow-lg'
-                    : 'text-gray-600 dark:text-gray-300 hover:text-emerald-600'
+                    ? 'bg-blue-600 text-white shadow-lg'
+                    : 'text-gray-600 dark:text-gray-300 hover:text-blue-600'
                 }`}
               >
                 <Map className="h-4 w-4" />
@@ -371,10 +374,10 @@ export default function Contact() {
             </div>
             
             {/* Map Info */}
-            <div className="mt-4 p-4 bg-gradient-to-r from-emerald-50 to-green-50 dark:from-gray-600 dark:to-gray-700 rounded-lg">
+            <div className="mt-4 p-4 bg-gradient-to-r from-blue-50 to-sky-50 dark:from-gray-600 dark:to-gray-700 rounded-lg">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <MapPin className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
+                  <MapPin className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                   <div>
                     <p className="font-semibold text-gray-900 dark:text-white">
                       Jeju National University
@@ -385,7 +388,7 @@ export default function Contact() {
                   </div>
                 </div>
                 <div className="text-right">
-                  <p className="text-sm font-medium text-emerald-600 dark:text-emerald-400">
+                  <p className="text-sm font-medium text-blue-600 dark:text-blue-400">
                     Department of Computer Engineering
                   </p>
                   <p className="text-xs text-gray-500 dark:text-gray-400">

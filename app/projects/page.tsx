@@ -1,6 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import DecryptText from '@/app/components/ui/DecryptText'
+import Aurora from '@/app/components/ui/Aurora'
 import { Rocket, MapPin, Sprout, Sun, Home, Car, Building, Video, CheckCircle2, Sparkles, Target, Cpu, Zap, Users, ArrowRight, ExternalLink } from 'lucide-react'
 import Link from 'next/link'
 import { currentProjects } from '../data/labData'
@@ -31,13 +33,14 @@ export default function Projects() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(/mllab.jpeg)`,
+            backgroundImage: `url(https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?auto=format&fit=crop&w=2070&q=80)`,
           }}
         />
 
         {/* Dynamic Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-900 opacity-90" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f1f]/85 via-blue-900/70 to-cyan-900/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1f] via-transparent to-transparent" />
+            <Aurora />
 
         {/* Animated Grid Pattern */}
         <div className="absolute inset-0 opacity-10">
@@ -102,7 +105,7 @@ export default function Projects() {
 
             <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 leading-tight drop-shadow-2xl">
               <span className="bg-gradient-to-r from-cyan-300 via-blue-200 to-purple-300 bg-clip-text text-transparent">
-                {tp.heroMainTitle}
+                <DecryptText text={tp.heroMainTitle} />
               </span>
             </h1>
             <p className="text-xl sm:text-2xl lg:text-3xl mb-8 text-blue-100 max-w-4xl mx-auto leading-relaxed drop-shadow-lg">
@@ -208,8 +211,8 @@ export default function Projects() {
                       <div className="absolute top-6 right-6">
                         <div className="flex items-center gap-2 bg-white/20 backdrop-blur-md px-4 py-2 rounded-full border border-white/30">
                           <span className="relative flex h-2 w-2">
-                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-400"></span>
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-sky-400"></span>
                           </span>
                           <span className="text-white text-sm font-semibold">{project.status === 'Active' ? tp.active : project.status === 'Completed' ? tp.completed : tp.planning}</span>
                         </div>
@@ -271,7 +274,7 @@ export default function Projects() {
                         <div className="space-y-2">
                           {(localProject?.objectives ?? project.objectives).slice(0, 2).map((objective, idx) => (
                             <div key={idx} className="flex items-start gap-2">
-                              <CheckCircle2 className="h-4 w-4 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" />
+                              <CheckCircle2 className="h-4 w-4 text-sky-600 dark:text-sky-400 mt-0.5 flex-shrink-0" />
                               <span className="text-sm text-gray-600 dark:text-gray-300 line-clamp-1">
                                 {objective}
                               </span>

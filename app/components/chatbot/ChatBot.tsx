@@ -157,13 +157,13 @@ function ChatBot() {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
             onClick={() => setIsOpen(true)}
-            className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-emerald-600 to-green-600 text-white p-4 rounded-full shadow-2xl hover:shadow-emerald-500/50 hover:scale-110 transition-all duration-300 group"
+            className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-600 to-sky-600 text-white p-4 rounded-full shadow-2xl hover:shadow-blue-500/50 hover:scale-110 transition-all duration-300 group"
             aria-label="Open chat"
           >
             <MessageCircle className="h-6 w-6" />
             <span className="absolute -top-1 -right-1 flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-emerald-400"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-400"></span>
             </span>
           </motion.button>
         )}
@@ -179,14 +179,14 @@ function ChatBot() {
             className="fixed bottom-6 right-6 z-50 w-96 max-w-[calc(100vw-3rem)] h-[600px] max-h-[calc(100vh-6rem)] bg-white dark:bg-gray-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-emerald-600 to-green-600 p-4 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-blue-600 to-sky-600 p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
                   <Bot className="h-6 w-6 text-white" />
                 </div>
                 <div>
                   <h3 className="text-white font-bold">ML Lab Assistant</h3>
-                  <p className="text-emerald-100 text-xs">Always here to help</p>
+                  <p className="text-blue-100 text-xs">Always here to help</p>
                 </div>
               </div>
               <button
@@ -208,14 +208,14 @@ function ChatBot() {
                   className={`flex gap-2 ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
                 >
                   {message.sender === 'bot' && (
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-emerald-600 to-green-600 flex items-center justify-center flex-shrink-0">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-600 to-sky-600 flex items-center justify-center flex-shrink-0">
                       <Bot className="h-5 w-5 text-white" />
                     </div>
                   )}
                   <div
                     className={`max-w-[75%] rounded-2xl px-4 py-2 ${
                       message.sender === 'user'
-                        ? 'bg-gradient-to-r from-emerald-600 to-green-600 text-white'
+                        ? 'bg-gradient-to-r from-blue-600 to-sky-600 text-white'
                         : 'bg-white dark:bg-gray-800 text-gray-900 dark:text-white shadow-md'
                     }`}
                   >
@@ -243,12 +243,12 @@ function ChatBot() {
                   onChange={(e) => setInputValue(e.target.value)}
                   onKeyPress={handleKeyPress}
                   placeholder="Ask me anything..."
-                  className="flex-1 px-4 py-2 rounded-xl bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                  className="flex-1 px-4 py-2 rounded-xl bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
                 <button
                   onClick={handleSendMessage}
                   disabled={!inputValue.trim()}
-                  className="bg-gradient-to-r from-emerald-600 to-green-600 text-white p-2 rounded-xl hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-gradient-to-r from-blue-600 to-sky-600 text-white p-2 rounded-xl hover:shadow-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   aria-label="Send message"
                 >
                   <Send className="h-5 w-5" />

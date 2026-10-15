@@ -5,6 +5,18 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  // Dynamically-built color classes (e.g. `bg-${accentColor}-400`) can't be seen
+  // by the JIT scanner, so we safelist the accent utilities they produce.
+  safelist: [
+    {
+      pattern: /(bg|text|border|from|via|to|ring)-(blue|cyan|purple|sky|indigo)-(50|100|400|500|600)/,
+      variants: ['dark', 'hover', 'group-hover'],
+    },
+    {
+      pattern: /shadow-(blue|cyan|purple)-500\/50/,
+      variants: ['hover', 'group-hover'],
+    },
+  ],
   darkMode: 'class',
   theme: {
     extend: {

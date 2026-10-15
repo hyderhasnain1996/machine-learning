@@ -7,6 +7,10 @@ import Link from 'next/link'
 import { heroSlides } from '@/app/data/labData'
 import { useLanguage } from '@/app/i18n/LanguageContext'
 import { translations } from '@/app/i18n/translations'
+import ParticleNetwork from '@/app/components/ui/ParticleNetwork'
+import AnimatedCounter from '@/app/components/ui/AnimatedCounter'
+import DecryptText from '@/app/components/ui/DecryptText'
+import WordRotator from '@/app/components/ui/WordRotator'
 
 interface HeroSliderProps {
   autoplay?: boolean
@@ -26,8 +30,16 @@ export default function HeroSlider({
   const [currentSlide, setCurrentSlide] = useState(0)
   const [isPlaying, setIsPlaying] = useState(autoplay)
   const [progress, setProgress] = useState(0)
+  const [parallax, setParallax] = useState({ x: 0, y: 0 })
   const { lang } = useLanguage()
   const localSlides = translations[lang].heroSlides
+
+  const handleParallax = (e: React.MouseEvent) => {
+    setParallax({
+      x: e.clientX / window.innerWidth - 0.5,
+      y: e.clientY / window.innerHeight - 0.5,
+    })
+  }
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % heroSlides.length)
@@ -131,7 +143,8 @@ export default function HeroSlider({
 
   return (
     <div
-      className={`relative w-full h-screen overflow-hidden py-20 bg-gradient-to-br from-emerald-600 via-green-600 to-teal-700 ${className}`}
+      onMouseMove={handleParallax}
+      className={`relative w-full h-screen overflow-hidden py-20 bg-gradient-to-br from-blue-600 via-sky-600 to-cyan-700 ${className}`}
     >
       <AnimatePresence initial={false} custom={currentSlide}>
         <motion.div
@@ -171,15 +184,31 @@ export default function HeroSlider({
 
             {/* Multi-layer Gradient Overlays */}
             <div
-              className={`absolute inset-0 bg-gradient-to-br ${heroSlides[currentSlide].gradient} opacity-85`}
+              className={`absolute inset-0 bg-gradient-to-br ${heroSlides[currentSlide].gradient} opacity-55`}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1f]/90 via-[#0a0f1f]/30 to-transparent" />
             <div className="absolute inset-0 bg-gradient-to-r from-black/40 via-transparent to-black/40" />
 
             {/* Enhanced Background Pattern */}
             <div className="absolute inset-0 opacity-15">
               <div className="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.1)_50%,transparent_75%)] bg-[length:30px_30px]"></div>
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[length:50px_50px]"></div>
+            </div>
+
+            {/* Interactive neural-network particles (react to cursor) */}
+            <div
+              className="absolute inset-0"
+              style={{ transform: `translate(${parallax.x * 28}px, ${parallax.y * 28}px)` }}
+            >
+              <ParticleNetwork color="103, 232, 249" density={90} />
+            </div>
+
+            {/* Synthwave perspective grid floor */}
+            <div className="absolute bottom-0 left-0 right-0 h-1/3 overflow-hidden pointer-events-none">
+              <div
+                className="grid-floor absolute inset-0"
+                style={{ transform: `perspective(420px) rotateX(70deg) translateX(${parallax.x * -40}px)` }}
+              ></div>
             </div>
 
             {/* Animated Background Elements */}
@@ -236,19 +265,30 @@ export default function HeroSlider({
             </div>
 
             {/* Content */}
-            <div className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto">
+            <div
+              className="relative z-10 text-center text-white px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto"
+              style={{ transform: `translate(${parallax.x * -14}px, ${parallax.y * -14}px)` }}
+            >
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
                 className="mb-6"
               >
-                <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium mb-4 border border-white/30">
+                <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/15 backdrop-blur-md rounded-full text-sm font-medium mb-4 border border-cyan-300/40">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-300 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-400"></span>
+                  </span>
                   {localSlides[currentSlide]?.subtitle ?? heroSlides[currentSlide].subtitle}
                 </span>
-                <h1 className="text-4xl sm:text-6xl lg:text-8xl font-bold mb-6 leading-tight bg-gradient-to-r from-white via-white to-white/80 bg-clip-text">
-                  {localSlides[currentSlide]?.title ?? heroSlides[currentSlide].title}
+                <h1 className="text-4xl sm:text-6xl lg:text-8xl font-black mb-4 leading-tight text-white neon-text drop-shadow-2xl">
+                  <DecryptText key={currentSlide} text={localSlides[currentSlide]?.title ?? heroSlides[currentSlide].title} />
                 </h1>
+                <div className="text-2xl sm:text-3xl lg:text-4xl font-black mb-6 h-[1.4em] flex items-center justify-center gap-3">
+                  <span className="text-white/70 font-light text-xl sm:text-2xl">Advancing</span>
+                  <WordRotator words={["Deep Learning", "Computer Vision", "LLMs", "Generative AI", "Edge AI"]} />
+                </div>
                 <p className="text-xl sm:text-2xl lg:text-3xl mb-8 text-white/90 max-w-4xl mx-auto leading-relaxed">
                   {localSlides[currentSlide]?.description ?? heroSlides[currentSlide].description}
                 </p>
@@ -262,12 +302,15 @@ export default function HeroSlider({
                     className="flex flex-wrap justify-center gap-6 mb-8"
                   >
                     {Object.entries(heroSlides[currentSlide].stats).map(
-                      ([key, value], index) => (
-                        <div key={key} className="text-center">
-                          <div className="text-2xl sm:text-3xl font-bold text-white">
-                            {value}
+                      ([key, value]) => (
+                        <div
+                          key={key}
+                          className="text-center px-5 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 hover:border-cyan-300/60 hover:bg-white/15 transition-all duration-300"
+                        >
+                          <div className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
+                            <AnimatedCounter value={value} />
                           </div>
-                          <div className="text-sm text-white/80 capitalize">
+                          <div className="text-sm text-white/80 capitalize tracking-wide">
                             {key}
                           </div>
                         </div>

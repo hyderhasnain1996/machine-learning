@@ -95,7 +95,7 @@ export const researchAreas = [
     title: "Computer Vision & Image Processing",
     description: "Cutting-edge research in computer vision, medical image analysis, and CNN applications for object detection, classification, and segmentation tasks.",
     icon: "Eye",
-    gradient: "from-green-500 via-emerald-500 to-teal-600",
+    gradient: "from-sky-500 via-blue-500 to-cyan-600",
     color: "green",
     keywords: ["Computer Vision", "CNN", "Medical Imaging", "Object Detection", "Image Segmentation"],
     applications: [
@@ -182,8 +182,8 @@ export const heroSlides = [
     title: "Welcome to Machine Learning Lab",
     subtitle: "🚀 Leading Edge Research",
     description: "Pioneering breakthrough discoveries in artificial intelligence, machine learning, and deep learning that revolutionize industries worldwide.",
-    image: "/mllab.jpeg",
-    gradient: "from-emerald-500 via-green-600 to-teal-700",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=2070&q=80",
+    gradient: "from-blue-500 via-sky-600 to-cyan-700",
     cta: "Discover Our Research",
     link: "/research",
     stats: { projects: "50+", publications: "200+", collaborations: "Global" }
@@ -193,19 +193,19 @@ export const heroSlides = [
     title: "Healthcare AI Revolution",
     subtitle: "🏥 Transforming Medical Science",
     description: "Developing intelligent systems for medical diagnosis, treatment optimization, and patient care that save lives through cutting-edge technology.",
-    image: "/IMG_0731.jpg",
-    gradient: "from-emerald-500 via-green-600 to-teal-700",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=2070&q=80",
+    gradient: "from-blue-500 via-sky-600 to-cyan-700",
     cta: "View Publications",
     link: "/publications",
-    stats: { impact: "High", citations: "1000+", journals: "Top-tier" }
+    stats: { impact: "High", citations: "7000+", journals: "Top-tier" }
   },
   {
     id: 3,
     title: "Research Excellence",
     subtitle: "🎯 Award-Winning Innovation", 
     description: "Our dedicated team of researchers and students pushing the boundaries of what's possible in machine learning and AI applications.",
-    image: "/bg-1.jpg",
-    gradient: "from-emerald-500 via-green-600 to-teal-700",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2070&q=80",
+    gradient: "from-blue-500 via-sky-600 to-cyan-700",
     cta: "Meet Our Team",
     link: "/team",
     stats: { members: "25+", experience: "20+ Years", awards: "Multiple" }
@@ -215,8 +215,8 @@ export const heroSlides = [
     title: "Smart IoT Ecosystem",
     subtitle: "🌐 Connected Intelligence",
     description: "Building the future with Internet of Things and edge computing solutions for smart cities, precision agriculture, and Industry 4.0.",
-    image: "/IMG_0731.jpg",
-    gradient: "from-emerald-500 via-green-600 to-teal-700",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=2070&q=80",
+    gradient: "from-blue-500 via-sky-600 to-cyan-700",
     cta: "Latest Innovations",
     link: "/news",
     stats: { devices: "1000+", networks: "Global", efficiency: "95%" }
@@ -395,7 +395,7 @@ export const currentProjects: Project[] = [
     ],
     status: "Active",
     image: "https://images.unsplash.com/photo-1488646953014-85cb44e25828?w=800&q=80",
-    gradient: "from-blue-500 via-cyan-500 to-teal-600",
+    gradient: "from-blue-500 via-cyan-500 to-cyan-600",
     category: "LLM & Tourism",
     partner: "Local Tourism Company",
     icon: "MapPin"
@@ -420,7 +420,7 @@ export const currentProjects: Project[] = [
     ],
     status: "Active",
     image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=800&q=80",
-    gradient: "from-green-500 via-emerald-500 to-lime-600",
+    gradient: "from-sky-500 via-blue-500 to-lime-600",
     category: "Smart Agriculture",
     partner: "Agricultural Research Institute",
     icon: "Sprout"
@@ -494,7 +494,7 @@ export const currentProjects: Project[] = [
     ],
     status: "Active",
     image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
-    gradient: "from-teal-500 via-cyan-500 to-blue-600",
+    gradient: "from-cyan-500 via-cyan-500 to-blue-600",
     category: "Smart Building",
     partner: "Building Management Systems Inc.",
     icon: "Building"

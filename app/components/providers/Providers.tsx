@@ -2,6 +2,7 @@
 
 import { ThemeProvider } from 'next-themes'
 import { ReactNode } from 'react'
+import { LanguageProvider } from '@/app/i18n/LanguageContext'
 
 interface ProvidersProps {
   children: ReactNode
@@ -9,13 +10,15 @@ interface ProvidersProps {
 
 export default function Providers({ children }: ProvidersProps) {
   return (
-    <ThemeProvider
-      attribute="class"
-      defaultTheme="system"
-      enableSystem={true}
-      disableTransitionOnChange={false}
-    >
-      {children}
-    </ThemeProvider>
+    <LanguageProvider>
+      <ThemeProvider
+        attribute="class"
+        defaultTheme="system"
+        enableSystem={true}
+        disableTransitionOnChange={false}
+      >
+        {children}
+      </ThemeProvider>
+    </LanguageProvider>
   )
 }

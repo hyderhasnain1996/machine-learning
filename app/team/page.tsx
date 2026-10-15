@@ -1,6 +1,8 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import DecryptText from '@/app/components/ui/DecryptText'
+import Aurora from '@/app/components/ui/Aurora'
 import { Mail, MapPin, GraduationCap, BookOpen, ExternalLink, Award, Users, Sparkles } from 'lucide-react'
 import { alumniMembers, facultyMembers, postDocFellows, currentStudents } from '../data/team'
 import { useLanguage } from '../i18n/LanguageContext'
@@ -12,20 +14,21 @@ export default function Team() {
   // lang kept for potential future use
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-green-50 to-teal-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 via-sky-50 to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
       {/* Hero Section */}
       <section className="relative w-full h-[60vh] min-h-[400px] overflow-hidden pt-32 pb-20">
         {/* Background Image */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url(/IMG_4147.jpg)`,
+            backgroundImage: `url(https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2070&q=80)`,
           }}
         />
-        
+
         {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500 via-green-600 to-teal-700 opacity-85" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0a0f1f]/85 via-blue-900/70 to-cyan-900/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f1f] via-transparent to-transparent" />
+            <Aurora />
         
         <div className="relative z-10 h-full flex flex-col items-center justify-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -34,10 +37,10 @@ export default function Team() {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-5xl font-bold mb-6 text-white">
-              {tt.heroTitle}
+            <h1 className="text-5xl font-bold mb-6 text-white neon-text drop-shadow-2xl">
+              <DecryptText text={tt.heroTitle} />
             </h1>
-            <p className="text-xl text-emerald-50 max-w-3xl mx-auto">
+            <p className="text-xl text-blue-50 max-w-3xl mx-auto">
               {tt.heroDesc}
             </p>
           </motion.div>
@@ -47,8 +50,8 @@ export default function Team() {
       {/* Faculty/Professors Section - Premium Design */}
       <section className="py-20 relative overflow-hidden">
         {/* Decorative background elements */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-emerald-200 dark:bg-emerald-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-0 right-0 w-72 h-72 bg-teal-200 dark:bg-teal-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+        <div className="absolute top-0 left-0 w-72 h-72 bg-blue-200 dark:bg-blue-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-20 animate-blob"></div>
+        <div className="absolute top-0 right-0 w-72 h-72 bg-cyan-200 dark:bg-cyan-900 rounded-full mix-blend-multiply dark:mix-blend-soft-light filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div
@@ -57,11 +60,11 @@ export default function Team() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-100 dark:bg-emerald-900/30 rounded-full mb-4">
-              <Award className="h-5 w-5 text-emerald-600 dark:text-emerald-400" />
-              <span className="text-sm font-semibold text-emerald-700 dark:text-emerald-300">{tt.leadership}</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-100 dark:bg-blue-900/30 rounded-full mb-4">
+              <Award className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+              <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">{tt.leadership}</span>
             </div>
-            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-emerald-700 via-green-600 to-teal-600 bg-clip-text text-transparent">
+            <h2 className="text-5xl font-bold mb-4 bg-gradient-to-r from-blue-700 via-sky-600 to-cyan-600 bg-clip-text text-transparent">
               {tt.facultyMembers}
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -74,9 +77,9 @@ export default function Team() {
               // Determine gradient colors based on index
               const isFirstProfessor = index === 0;
               const gradientColors = isFirstProfessor
-                ? "from-emerald-500 via-green-500 to-teal-500"
+                ? "from-blue-500 via-sky-500 to-cyan-500"
                 : "from-blue-500 via-indigo-500 to-purple-500";
-              const accentColor = isFirstProfessor ? "emerald" : "blue";
+              const accentColor = isFirstProfessor ? "cyan" : "blue";
               const googleScholarLink = member.name.includes("Yung-Cheol")
                 ? "https://scholar.google.com/citations?user=jfGGqJIAAAAJ&hl=ko"
                 : "https://scholar.google.com/citations?user=ikuCcYQAAAAJ&hl=ko";
@@ -114,8 +117,8 @@ export default function Team() {
 
                           <div className={`absolute top-6 -right-4 w-2 h-2 bg-${isFirstProfessor ? 'green' : 'indigo'}-400 rounded-full animate-pulse`}></div>
 
-                          <div className={`absolute -bottom-3 left-8 w-4 h-4 bg-${isFirstProfessor ? 'teal' : 'purple'}-400 rounded-full animate-ping opacity-75`} style={{ animationDelay: '0.5s' }}></div>
-                          <div className={`absolute -bottom-3 left-8 w-4 h-4 bg-${isFirstProfessor ? 'teal' : 'purple'}-500 rounded-full`}></div>
+                          <div className={`absolute -bottom-3 left-8 w-4 h-4 bg-${isFirstProfessor ? 'cyan' : 'purple'}-400 rounded-full animate-ping opacity-75`} style={{ animationDelay: '0.5s' }}></div>
+                          <div className={`absolute -bottom-3 left-8 w-4 h-4 bg-${isFirstProfessor ? 'cyan' : 'purple'}-500 rounded-full`}></div>
 
                           <div className={`absolute bottom-12 -right-3 w-2 h-2 bg-${isFirstProfessor ? 'green' : 'indigo'}-300 rounded-full animate-ping opacity-75`} style={{ animationDelay: '1s' }}></div>
                           <div className={`absolute bottom-12 -right-3 w-2 h-2 bg-${isFirstProfessor ? 'green' : 'indigo'}-400 rounded-full`}></div>
@@ -141,7 +144,7 @@ export default function Team() {
                           </div>
 
                           {/* Badge with blinking indicator */}
-                          <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${isFirstProfessor ? 'from-emerald-600 to-green-600' : 'from-blue-600 to-indigo-600'} text-white px-5 py-2 rounded-full shadow-xl border-3 border-white dark:border-gray-800 group-hover:scale-105 transition-transform duration-300`}>
+                          <div className={`absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-gradient-to-r ${isFirstProfessor ? 'from-blue-600 to-sky-600' : 'from-blue-600 to-indigo-600'} text-white px-5 py-2 rounded-full shadow-xl border-3 border-white dark:border-gray-800 group-hover:scale-105 transition-transform duration-300`}>
                             <div className="flex items-center gap-2">
                               <Award className="h-4 w-4" />
                               <span className="font-bold text-xs">{isFirstProfessor ? tt.labDirectorBadge : member.role}</span>
@@ -195,8 +198,8 @@ export default function Team() {
                             </h4>
                             <div className="grid grid-cols-2 gap-2">
                               {(lf?.researchInterests ?? member.researchInterests).slice(0, 6).map((interest, idx) => (
-                                <div key={idx} className={`flex items-center gap-1.5 bg-gradient-to-r ${isFirstProfessor ? 'from-emerald-50 to-green-50' : 'from-blue-50 to-indigo-50'} dark:from-gray-700 dark:to-gray-700/50 rounded-lg px-2.5 py-2 border ${isFirstProfessor ? 'border-emerald-100 dark:border-emerald-800' : 'border-blue-100 dark:border-blue-800'} ${isFirstProfessor ? 'hover:from-emerald-100 hover:to-green-100' : 'hover:from-blue-100 hover:to-indigo-100'} dark:hover:bg-gray-600 transition-all group/item`}>
-                                  <div className={`w-1.5 h-1.5 bg-gradient-to-r ${isFirstProfessor ? 'from-emerald-600 to-green-600' : 'from-blue-600 to-indigo-600'} rounded-full flex-shrink-0`}></div>
+                                <div key={idx} className={`flex items-center gap-1.5 bg-gradient-to-r ${isFirstProfessor ? 'from-blue-50 to-sky-50' : 'from-blue-50 to-indigo-50'} dark:from-gray-700 dark:to-gray-700/50 rounded-lg px-2.5 py-2 border ${isFirstProfessor ? 'border-blue-100 dark:border-blue-800' : 'border-blue-100 dark:border-blue-800'} ${isFirstProfessor ? 'hover:from-blue-100 hover:to-sky-100' : 'hover:from-blue-100 hover:to-indigo-100'} dark:hover:bg-gray-600 transition-all group/item`}>
+                                  <div className={`w-1.5 h-1.5 bg-gradient-to-r ${isFirstProfessor ? 'from-blue-600 to-sky-600' : 'from-blue-600 to-indigo-600'} rounded-full flex-shrink-0`}></div>
                                   <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">{interest}</span>
                                 </div>
                               ))}
@@ -211,7 +214,7 @@ export default function Team() {
                           href={googleScholarLink}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className={`flex items-center justify-center gap-2 bg-gradient-to-r ${isFirstProfessor ? 'from-emerald-600 to-green-600 hover:from-emerald-700 hover:to-green-700' : 'from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700'} text-white px-6 py-3 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl group/btn`}
+                          className={`flex items-center justify-center gap-2 bg-gradient-to-r ${isFirstProfessor ? 'from-blue-600 to-sky-600 hover:from-blue-700 hover:to-sky-700' : 'from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700'} text-white px-6 py-3 rounded-full font-semibold transition-all transform hover:scale-105 shadow-lg hover:shadow-xl group/btn`}
                         >
                           <BookOpen className="h-4 w-4" />
                           <span className="text-sm">Google Scholar</span>
@@ -419,65 +422,59 @@ export default function Team() {
               <motion.div
                 key={member.id}
                 initial={{ opacity: 0, y: 50 }}
-                animate={{ opacity: 1, y: 0 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.6, delay: index * 0.05 }}
-                className="bg-white dark:bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 group hover:shadow-blue-500/10 border border-gray-100 dark:border-gray-700"
+                className="flip-card h-80"
               >
-                <div className="text-center mb-4">
-                  <div className="w-24 h-24 rounded-full mx-auto mb-4 overflow-hidden bg-gray-200 dark:bg-gray-700 ring-4 ring-blue-100 dark:ring-blue-900/30">
-                    {member.image ? (
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full object-cover"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white text-2xl font-bold">
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                      </div>
+                <div className="flip-inner">
+                  {/* FRONT */}
+                  <div className="flip-face rounded-2xl p-6 shadow-lg border border-gray-100 dark:border-gray-700 bg-white dark:bg-gray-800 flex flex-col items-center justify-center text-center">
+                    <div className="relative w-28 h-28 rounded-full mb-4 overflow-hidden bg-gray-200 dark:bg-gray-700 ring-4 ring-blue-100 dark:ring-blue-900/30">
+                      {member.image ? (
+                        <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-blue-400 to-indigo-500 flex items-center justify-center text-white text-2xl font-bold">
+                          {member.name.split(' ').map(n => n[0]).join('')}
+                        </div>
+                      )}
+                    </div>
+                    <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">{member.name}</h3>
+                    <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">{member.role}</p>
+                    <span className="mt-4 text-[10px] uppercase tracking-widest text-gray-400 dark:text-gray-500">Hover to view profile</span>
+                  </div>
+
+                  {/* BACK */}
+                  <div className="flip-face flip-back rounded-2xl p-6 shadow-xl border border-cyan-400/30 bg-gradient-to-br from-blue-700 via-blue-600 to-cyan-600 text-white flex flex-col">
+                    <h3 className="text-base font-bold mb-1">{member.name}</h3>
+                    <p className="text-xs text-cyan-100 mb-3">{member.role}</p>
+                    {member.researchInterests && (
+                      <>
+                        <p className="text-[11px] font-semibold uppercase tracking-wider text-cyan-200 mb-2">
+                          {tt.researchInterests}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5 mb-auto">
+                          {member.researchInterests.slice(0, 5).map((interest, idx) => (
+                            <span key={idx} className="bg-white/15 backdrop-blur-sm text-white text-[11px] px-2 py-1 rounded-md border border-white/20">
+                              {interest}
+                            </span>
+                          ))}
+                        </div>
+                      </>
+                    )}
+                    {member.googleScholar && (
+                      <a
+                        href={member.googleScholar}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-4 inline-flex items-center justify-center gap-1.5 text-xs font-semibold bg-white/20 hover:bg-white/30 rounded-full px-4 py-2 transition-colors border border-white/30"
+                      >
+                        <ExternalLink className="h-3.5 w-3.5" />
+                        Google Scholar
+                      </a>
                     )}
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-sm text-blue-600 dark:text-blue-400 font-medium">
-                    {member.role}
-                  </p>
                 </div>
-
-                {/* Research Interests */}
-                {member.researchInterests && (
-                  <div className="mb-4">
-                    <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">
-                      {tt.researchInterests}
-                    </p>
-                    <div className="flex flex-wrap gap-1">
-                      {member.researchInterests.slice(0, 4).map((interest, idx) => (
-                        <span
-                          key={idx}
-                          className="bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 text-xs px-2 py-1 rounded-md"
-                        >
-                          {interest}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Links */}
-                {member.googleScholar && (
-                  <div className="pt-3 border-t border-gray-200 dark:border-gray-700">
-                    <a
-                      href={member.googleScholar}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400 hover:underline"
-                    >
-                      <ExternalLink className="h-3 w-3" />
-                      Google Scholar
-                    </a>
-                  </div>
-                )}
               </motion.div>
             ))}
           </div>
@@ -543,7 +540,7 @@ export default function Team() {
       )}
 
       {/* Join Us Section */}
-      <section className="py-20 bg-gradient-to-r from-emerald-600 to-teal-600">
+      <section className="py-20 bg-gradient-to-r from-blue-600 to-cyan-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -553,14 +550,14 @@ export default function Team() {
             <h2 className="text-4xl font-bold text-white mb-6">
               {tt.joinTeam}
             </h2>
-            <p className="text-xl text-emerald-100 mb-8">
+            <p className="text-xl text-blue-100 mb-8">
               {tt.joinTeamDesc}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-emerald-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
+              <button className="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-colors duration-300">
                 {tt.graduatePositions}
               </button>
-              <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-emerald-600 transition-colors duration-300">
+              <button className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-300">
                 {tt.researchCollaboration}
               </button>
             </div>
