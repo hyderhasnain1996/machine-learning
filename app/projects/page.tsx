@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import DecryptText from '@/app/components/ui/DecryptText'
 import Aurora from '@/app/components/ui/Aurora'
-import { Rocket, MapPin, Sprout, Sun, Home, Car, Building, Video, CheckCircle2, Sparkles, Target, Cpu, Zap, Users, ArrowRight, ExternalLink, Bot, TrendingUp, LayoutDashboard, Maximize2, X } from 'lucide-react'
+import { Rocket, MapPin, Sprout, Sun, Home, Car, Building, Video, CheckCircle2, Sparkles, Target, Cpu, Zap, Users, ArrowRight, ExternalLink, Bot, TrendingUp, Play, PlayCircle, X } from 'lucide-react'
 import Link from 'next/link'
 import { currentProjects, projectDashboards } from '../data/labData'
 import { useLanguage } from '../i18n/LanguageContext'
@@ -22,6 +22,9 @@ const iconMap = {
   Bot,
   TrendingUp,
 }
+
+const formatDuration = (seconds: number) =>
+  `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`
 
 export default function Projects() {
   const { lang } = useLanguage()
@@ -183,8 +186,8 @@ export default function Projects() {
         </motion.div>
       </section>
 
-      {/* Research Dashboards Section */}
-      <section id="dashboards" className="py-20 relative">
+      {/* Latest Lab Projects (video walkthroughs) */}
+      <section id="project-videos" className="py-20 relative">
         <div className="absolute top-10 right-10 w-96 h-96 bg-cyan-300/20 dark:bg-cyan-500/10 rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
         <div className="absolute bottom-10 left-10 w-96 h-96 bg-emerald-300/20 dark:bg-emerald-500/10 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000"></div>
 
@@ -197,7 +200,7 @@ export default function Projects() {
             className="text-center mb-14"
           >
             <div className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/40 dark:to-cyan-900/40 rounded-full mb-5 border border-blue-200 dark:border-blue-800">
-              <LayoutDashboard className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+              <PlayCircle className="h-5 w-5 text-blue-600 dark:text-blue-400" />
               <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">{tp.dashboardsBadge}</span>
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
@@ -214,7 +217,7 @@ export default function Projects() {
 
           <div className="grid md:grid-cols-2 gap-8">
             {projectDashboards.map((dashboard, index) => {
-              const IconComponent = iconMap[dashboard.icon as keyof typeof iconMap] || LayoutDashboard
+              const IconComponent = iconMap[dashboard.icon as keyof typeof iconMap] || Rocket
               const local = localizedDashboards[index]
 
               return (
@@ -229,16 +232,16 @@ export default function Projects() {
                   <div className={`absolute -inset-0.5 bg-gradient-to-r ${dashboard.gradient} rounded-3xl blur-lg opacity-25 group-hover:opacity-50 transition duration-500`}></div>
 
                   <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden h-full flex flex-col">
-                    {/* Dashboard screenshot */}
+                    {/* Video preview */}
                     <button
                       type="button"
                       onClick={() => setPreviewIndex(index)}
                       aria-label={`${tp.dashboardView}: ${dashboard.title}`}
-                      className="relative block w-full aspect-video overflow-hidden bg-slate-100 dark:bg-slate-900 cursor-zoom-in"
+                      className="relative block w-full aspect-video overflow-hidden bg-slate-100 dark:bg-slate-900 cursor-pointer"
                     >
                       <img
                         src={dashboard.image}
-                        alt={`${dashboard.title} dashboard`}
+                        alt={`${dashboard.title} video preview`}
                         loading="lazy"
                         className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700"
                       />
@@ -250,9 +253,18 @@ export default function Projects() {
                         </div>
                       </div>
 
-                      <div className="absolute top-5 right-5 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <Maximize2 className="h-4 w-4 text-white" />
-                        <span className="text-white text-xs font-semibold">{tp.dashboardView}</span>
+                      {/* Play button */}
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="relative flex items-center justify-center">
+                          <span className="absolute inline-flex h-20 w-20 rounded-full bg-white/40 animate-ping opacity-40"></span>
+                          <span className={`relative w-20 h-20 rounded-full bg-gradient-to-br ${dashboard.gradient} flex items-center justify-center shadow-2xl ring-4 ring-white/40 group-hover:scale-110 transition-transform duration-300`}>
+                            <Play className="h-8 w-8 text-white fill-white ml-1" />
+                          </span>
+                        </span>
+                      </div>
+
+                      <div className="absolute bottom-5 right-5 bg-black/60 backdrop-blur-md text-white px-2.5 py-1 rounded-md text-xs font-semibold tabular-nums">
+                        {formatDuration(dashboard.duration)}
                       </div>
 
                       <div className="absolute bottom-5 left-5 flex flex-wrap gap-2">
@@ -312,6 +324,16 @@ export default function Projects() {
                           ))}
                         </div>
                       </div>
+
+                      <button
+                        type="button"
+                        onClick={() => setPreviewIndex(index)}
+                        className={`w-full bg-gradient-to-r ${dashboard.gradient} text-white px-6 py-3.5 rounded-xl font-semibold hover:shadow-2xl transition-all duration-300 group/btn flex items-center justify-center gap-2 mt-6`}
+                      >
+                        <Play className="h-4 w-4 fill-white" />
+                        <span>{tp.dashboardView}</span>
+                        <span className="text-white/80 text-sm tabular-nums">· {formatDuration(dashboard.duration)}</span>
+                      </button>
                     </div>
                   </div>
                 </motion.div>
@@ -494,7 +516,7 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Dashboard preview lightbox */}
+      {/* Project video player */}
       <AnimatePresence>
         {previewDashboard && (
           <motion.div
@@ -529,10 +551,15 @@ export default function Projects() {
                   <X className="h-5 w-5" />
                 </button>
               </div>
-              <img
-                src={previewDashboard.image}
-                alt={`${previewDashboard.title} dashboard`}
-                className="w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl bg-slate-900"
+              <video
+                key={previewDashboard.id}
+                src={previewDashboard.video}
+                poster={previewDashboard.image}
+                controls
+                autoPlay
+                playsInline
+                preload="metadata"
+                className="w-full max-h-[80vh] rounded-2xl shadow-2xl bg-black"
               />
             </motion.div>
           </motion.div>

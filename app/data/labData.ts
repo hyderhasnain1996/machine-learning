@@ -485,13 +485,15 @@ export interface ProjectDashboard {
   field: string
   tag: string
   image: string
+  video: string
+  duration: number
   gradient: string
   icon: string
   highlights: string[]
   technologies: string[]
 }
 
-// Interactive dashboards built by lab members (from the Student Project Atlas)
+// Lab projects with video walkthroughs (from the Student Project Atlas)
 export const projectDashboards: ProjectDashboard[] = [
   {
     id: "pv-scope",
@@ -501,6 +503,8 @@ export const projectDashboards: ProjectDashboard[] = [
     field: "Solar Energy",
     tag: "Computer Vision",
     image: "/dashboards/pv-scope.jpg",
+    video: "/project-videos/pv-scope.mp4",
+    duration: 61,
     gradient: "from-orange-500 via-amber-500 to-yellow-600",
     icon: "Sun",
     highlights: [
@@ -518,6 +522,8 @@ export const projectDashboards: ProjectDashboard[] = [
     field: "Solar Energy",
     tag: "Computer Vision",
     image: "/dashboards/solarmap-ai.jpg",
+    video: "/project-videos/solarmap-ai.mp4",
+    duration: 57,
     gradient: "from-emerald-500 via-teal-500 to-cyan-600",
     icon: "Sun",
     highlights: [
@@ -535,6 +541,8 @@ export const projectDashboards: ProjectDashboard[] = [
     field: "Solar Energy",
     tag: "Physics-Informed AI",
     image: "/dashboards/pi-solar-power.jpg",
+    video: "/project-videos/pi-solar-power.mp4",
+    duration: 77,
     gradient: "from-yellow-500 via-amber-500 to-orange-600",
     icon: "Sun",
     highlights: [
@@ -552,6 +560,8 @@ export const projectDashboards: ProjectDashboard[] = [
     field: "Solar Energy",
     tag: "Simulation",
     image: "/dashboards/solar-pv-simulator.jpg",
+    video: "/project-videos/solar-pv-simulator.mp4",
+    duration: 64,
     gradient: "from-rose-500 via-orange-500 to-amber-500",
     icon: "Sun",
     highlights: [
@@ -569,6 +579,8 @@ export const projectDashboards: ProjectDashboard[] = [
     field: "Forecasting",
     tag: "Energy Forecasting",
     image: "/dashboards/hyrat-meta.jpg",
+    video: "/project-videos/hyrat-meta.mp4",
+    duration: 59,
     gradient: "from-violet-500 via-purple-500 to-indigo-600",
     icon: "TrendingUp",
     highlights: [
@@ -586,6 +598,8 @@ export const projectDashboards: ProjectDashboard[] = [
     field: "Forecasting",
     tag: "Machine Learning",
     image: "/dashboards/prophetboost-studio.jpg",
+    video: "/project-videos/prophetboost-studio.mp4",
+    duration: 58,
     gradient: "from-sky-500 via-blue-500 to-indigo-600",
     icon: "TrendingUp",
     highlights: [
@@ -603,6 +617,8 @@ export const projectDashboards: ProjectDashboard[] = [
     field: "Robotics",
     tag: "Reinforcement Learning",
     image: "/dashboards/learning-to-navigate.jpg",
+    video: "/project-videos/learning-to-navigate.mp4",
+    duration: 100,
     gradient: "from-blue-600 via-indigo-600 to-cyan-600",
     icon: "Bot",
     highlights: [
@@ -620,6 +636,8 @@ export const projectDashboards: ProjectDashboard[] = [
     field: "Smart Agriculture",
     tag: "Farm Monitoring",
     image: "/dashboards/smart-farm.jpg",
+    video: "/project-videos/smart-farm.mp4",
+    duration: 117,
     gradient: "from-green-600 via-emerald-500 to-teal-600",
     icon: "Sprout",
     highlights: [
