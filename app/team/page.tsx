@@ -507,7 +507,7 @@ export default function Team() {
               <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-blue-700 to-cyan-600 bg-clip-text text-transparent">
                 {tt.alumni}
               </h2>
-              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+              <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl md:max-w-none mx-auto">
                 {lang === 'ko'
                   ? '전 세계 대학과 연구 기관에서 활약하고 있는 연구실 졸업생들입니다'
                   : 'Former lab members now advancing research at universities and institutes worldwide'}
