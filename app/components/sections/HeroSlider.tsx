@@ -18,6 +18,11 @@ const koStatLabels: Record<string, string> = {
   impact: '영향력', citations: '인용', journals: '저널',
   members: '구성원', experience: '경력', awards: '수상',
   devices: '디바이스', networks: '네트워크', efficiency: '효율',
+  researchAreas: '연구 분야', established: '설립',
+}
+// English labels for keys that don't read well as-is
+const enStatLabels: Record<string, string> = {
+  researchAreas: 'Research Areas', established: 'Established',
 }
 const koStatValues: Record<string, string> = {
   Global: '글로벌', High: '높음', 'Top-tier': '최상위', '20+ Years': '20년+', Multiple: '다수',
@@ -324,10 +329,10 @@ export default function HeroSlider({
                           className="text-center px-5 py-3 rounded-2xl bg-white/10 backdrop-blur-md border border-white/20 hover:border-cyan-300/60 hover:bg-white/15 transition-all duration-300"
                         >
                           <div className="text-3xl sm:text-4xl font-black bg-gradient-to-r from-white to-cyan-200 bg-clip-text text-transparent">
-                            <AnimatedCounter value={lang === 'ko' ? (koStatValues[value] ?? value) : value} />
+                            {key === 'established' ? value : <AnimatedCounter value={lang === 'ko' ? (koStatValues[value] ?? value) : value} />}
                           </div>
                           <div className="text-sm text-white/80 capitalize tracking-wide">
-                            {lang === 'ko' ? (koStatLabels[key] ?? key) : key}
+                            {lang === 'ko' ? (koStatLabels[key] ?? key) : (enStatLabels[key] ?? key)}
                           </div>
                         </div>
                       )
