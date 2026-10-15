@@ -528,7 +528,7 @@ export default function Team() {
                       <div className="mt-3 pt-3 border-t border-gray-100 dark:border-gray-700">
                         <p className="flex items-center justify-center gap-1.5 text-[11px] font-semibold uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">
                           <Briefcase className="h-3.5 w-3.5" />
-                          {lang === 'ko' ? '현재' : 'Currently'}
+                          {lang === 'ko' ? '현재 소속' : 'Current Affiliation'}
                         </p>
                         <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 leading-snug">
                           {lang === 'ko' ? (member.currentRole.positionKo ?? member.currentRole.position) : member.currentRole.position}

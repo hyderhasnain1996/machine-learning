@@ -779,9 +779,9 @@ export const alumniMembers: TeamMember[] = [
     role: "Former Ph.D. Student",
     title: "Ph.D.",
     currentRole: {
-      position: "Assistant Professor of Artificial Intelligence and Human Interactions",
+      position: "Assistant Professor",
       organization: "School of Computing, Montclair State University, USA",
-      positionKo: "인공지능 및 인간 상호작용 조교수",
+      positionKo: "조교수",
       organizationKo: "몽클레어 주립대학교 컴퓨팅학부, 미국",
     },
     image: "/deba.jpg",
@@ -805,7 +805,7 @@ export const alumniMembers: TeamMember[] = [
     status: "alumni",
     joinDate: "2018-03-01",
     graduationDate: "2023-08-31",
-    currentPosition: "Assistant Professor of Artificial Intelligence and Human Interactions",
+    currentPosition: "Assistant Professor",
     currentAffiliation: "School of Computing, Montclair State University, USA"
   },
   {
