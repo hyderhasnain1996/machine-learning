@@ -184,7 +184,7 @@ export const heroSlides = [
     gradient: "from-blue-500 via-sky-600 to-cyan-700",
     cta: "Meet Our Team",
     link: "/team",
-    stats: { members: "25+", experience: "20+ Years", awards: "Multiple" }
+    stats: { members: "14+", experience: "20+ Years", awards: "Multiple" }
   },
   {
     id: 4,
