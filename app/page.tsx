@@ -432,7 +432,13 @@ export default function Home() {
                 {/* Gradient border effect */}
                 <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 via-sky-500 to-cyan-500 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-500"></div>
 
-                <div className="shimmer-card relative bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 h-full flex flex-col">
+                <a
+                  href={publication.link || (publication.doi ? `https://doi.org/${publication.doi}` : '/publications')}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${lp?.title ?? publication.title} (opens in a new tab)`}
+                  className="shimmer-card relative bg-white dark:bg-gray-800 rounded-3xl p-6 shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 h-full flex flex-col cursor-pointer focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-400"
+                >
                   {/* Blinking status indicator */}
                   <div className="absolute -top-2 -right-2">
                     <span className="relative flex h-3 w-3">
@@ -505,11 +511,11 @@ export default function Home() {
                         {publication.impactFactor}
                       </div>
                     </div>
-                    <button className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-all hover:scale-110">
+                    <span className="text-blue-600 dark:text-blue-400 group-hover:text-blue-700 dark:group-hover:text-blue-300 transition-all group-hover:scale-110" aria-hidden="true">
                       <ExternalLink className="h-5 w-5" />
-                    </button>
+                    </span>
                   </div>
-                </div>
+                </a>
                 </TiltCard>
               </motion.div>
             )})}
