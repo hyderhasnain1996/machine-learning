@@ -1,11 +1,12 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import DecryptText from '@/app/components/ui/DecryptText'
 import Aurora from '@/app/components/ui/Aurora'
-import { Rocket, MapPin, Sprout, Sun, Home, Car, Building, Video, CheckCircle2, Sparkles, Target, Cpu, Zap, Users, ArrowRight, ExternalLink } from 'lucide-react'
+import { Rocket, MapPin, Sprout, Sun, Home, Car, Building, Video, CheckCircle2, Sparkles, Target, Cpu, Zap, Users, ArrowRight, ExternalLink, Bot, TrendingUp, LayoutDashboard, Maximize2, X } from 'lucide-react'
 import Link from 'next/link'
-import { currentProjects } from '../data/labData'
+import { currentProjects, projectDashboards } from '../data/labData'
 import { useLanguage } from '../i18n/LanguageContext'
 import { translations } from '../i18n/translations'
 
@@ -18,12 +19,24 @@ const iconMap = {
   Building,
   Rocket,
   Video,
+  Bot,
+  TrendingUp,
 }
 
 export default function Projects() {
   const { lang } = useLanguage()
   const tp = translations[lang].projects
   const localizedProjects = translations[lang].currentProjects
+  const localizedDashboards = translations[lang].projectDashboards
+  const [previewIndex, setPreviewIndex] = useState<number | null>(null)
+  const previewDashboard = previewIndex !== null ? projectDashboards[previewIndex] : null
+
+  useEffect(() => {
+    if (previewIndex === null) return
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setPreviewIndex(null) }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [previewIndex])
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 dark:from-gray-900 dark:via-slate-900 dark:to-indigo-950">
@@ -120,8 +133,17 @@ export default function Projects() {
                 transition={{ delay: 0.3, duration: 0.6 }}
                 className="text-center"
               >
-                <div className="text-4xl font-bold text-cyan-300 mb-1">6</div>
+                <div className="text-4xl font-bold text-cyan-300 mb-1">{currentProjects.length}</div>
                 <div className="text-sm text-blue-200">{tp.statActiveProjects}</div>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.4, duration: 0.6 }}
+                className="text-center"
+              >
+                <div className="text-4xl font-bold text-emerald-300 mb-1">{projectDashboards.length}</div>
+                <div className="text-sm text-blue-200">{tp.statDashboards}</div>
               </motion.div>
               <motion.div
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -318,6 +340,189 @@ export default function Projects() {
           </div>
         </div>
       </section>
+
+      {/* Research Dashboards Section */}
+      <section id="dashboards" className="py-20 relative">
+        <div className="absolute top-10 right-10 w-96 h-96 bg-cyan-300/20 dark:bg-cyan-500/10 rounded-full mix-blend-overlay filter blur-3xl animate-blob"></div>
+        <div className="absolute bottom-10 left-10 w-96 h-96 bg-emerald-300/20 dark:bg-emerald-500/10 rounded-full mix-blend-overlay filter blur-3xl animate-blob animation-delay-2000"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-14"
+          >
+            <div className="inline-flex items-center gap-2 px-5 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/40 dark:to-cyan-900/40 rounded-full mb-5 border border-blue-200 dark:border-blue-800">
+              <LayoutDashboard className="h-5 w-5 text-blue-600 dark:text-blue-400" />
+              <span className="text-sm font-semibold text-blue-700 dark:text-blue-300">{tp.dashboardsBadge}</span>
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-5 bg-gradient-to-r from-blue-600 via-sky-600 to-cyan-600 bg-clip-text text-transparent">
+              {tp.dashboardsTitle}
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              {tp.dashboardsDesc}
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {projectDashboards.map((dashboard, index) => {
+              const IconComponent = iconMap[dashboard.icon as keyof typeof iconMap] || LayoutDashboard
+              const local = localizedDashboards[index]
+
+              return (
+                <motion.div
+                  key={dashboard.id}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.6, delay: (index % 2) * 0.15 }}
+                  className="relative group"
+                >
+                  <div className={`absolute -inset-0.5 bg-gradient-to-r ${dashboard.gradient} rounded-3xl blur-lg opacity-25 group-hover:opacity-50 transition duration-500`}></div>
+
+                  <div className="relative bg-white dark:bg-slate-800 rounded-3xl shadow-2xl overflow-hidden h-full flex flex-col">
+                    {/* Dashboard screenshot */}
+                    <button
+                      type="button"
+                      onClick={() => setPreviewIndex(index)}
+                      aria-label={`${tp.dashboardView}: ${dashboard.title}`}
+                      className="relative block w-full aspect-video overflow-hidden bg-slate-100 dark:bg-slate-900 cursor-zoom-in"
+                    >
+                      <img
+                        src={dashboard.image}
+                        alt={`${dashboard.title} dashboard`}
+                        loading="lazy"
+                        className="w-full h-full object-cover object-top transform group-hover:scale-105 transition-transform duration-700"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent"></div>
+
+                      <div className="absolute top-5 left-5">
+                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${dashboard.gradient} flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300`}>
+                          <IconComponent className="h-7 w-7 text-white" />
+                        </div>
+                      </div>
+
+                      <div className="absolute top-5 right-5 flex items-center gap-2 bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <Maximize2 className="h-4 w-4 text-white" />
+                        <span className="text-white text-xs font-semibold">{tp.dashboardView}</span>
+                      </div>
+
+                      <div className="absolute bottom-5 left-5 flex flex-wrap gap-2">
+                        <span className="bg-white/20 backdrop-blur-md text-white px-3 py-1.5 rounded-full text-xs font-semibold border border-white/30">
+                          {local?.field ?? dashboard.field}
+                        </span>
+                        <span className="bg-black/30 backdrop-blur-md text-white px-3 py-1.5 rounded-full text-xs font-semibold border border-white/20">
+                          {local?.tag ?? dashboard.tag}
+                        </span>
+                      </div>
+                    </button>
+
+                    {/* Content */}
+                    <div className="p-8 flex-1 flex flex-col">
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-blue-600 group-hover:to-cyan-600 transition-all leading-tight">
+                        {dashboard.title}
+                      </h3>
+                      <p className="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-4">
+                        {local?.tagline ?? dashboard.tagline}
+                      </p>
+                      <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        {local?.description ?? dashboard.description}
+                      </p>
+
+                      <div className="mb-6 flex-1">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Sparkles className="h-4 w-4 text-purple-600 dark:text-purple-400" />
+                          <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wide">
+                            {tp.dashboardHighlights}
+                          </h4>
+                        </div>
+                        <div className="space-y-2">
+                          {(local?.highlights ?? dashboard.highlights).map((item, idx) => (
+                            <div key={idx} className="flex items-start gap-2">
+                              <CheckCircle2 className="h-4 w-4 text-sky-600 dark:text-sky-400 mt-0.5 flex-shrink-0" />
+                              <span className="text-sm text-gray-600 dark:text-gray-300">{item}</span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="pt-6 border-t border-gray-200 dark:border-gray-700">
+                        <div className="flex items-center gap-2 mb-3">
+                          <Cpu className="h-4 w-4 text-blue-600 dark:text-blue-400" />
+                          <h4 className="text-sm font-bold text-gray-900 dark:text-white uppercase tracking-wide">
+                            {tp.technologies}
+                          </h4>
+                        </div>
+                        <div className="flex flex-wrap gap-2">
+                          {dashboard.technologies.map((tech, idx) => (
+                            <span
+                              key={idx}
+                              className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/30 dark:to-indigo-900/30 text-blue-700 dark:text-blue-300 text-xs px-3 py-1.5 rounded-full font-medium border border-blue-200 dark:border-blue-700"
+                            >
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Dashboard preview lightbox */}
+      <AnimatePresence>
+        {previewDashboard && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/85 backdrop-blur-sm flex items-center justify-center p-4"
+            onClick={() => setPreviewIndex(null)}
+            role="dialog"
+            aria-modal="true"
+            aria-label={previewDashboard.title}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              exit={{ scale: 0.95, opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              className="relative w-full max-w-6xl"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <div className="flex items-center justify-between mb-3 text-white">
+                <div>
+                  <h3 className="text-xl font-bold">{previewDashboard.title}</h3>
+                  <p className="text-sm text-blue-200">{localizedDashboards[previewIndex!]?.tagline ?? previewDashboard.tagline}</p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setPreviewIndex(null)}
+                  aria-label={tp.dashboardClose}
+                  className="w-10 h-10 rounded-full bg-white/15 hover:bg-white/25 border border-white/25 flex items-center justify-center transition-colors"
+                >
+                  <X className="h-5 w-5" />
+                </button>
+              </div>
+              <img
+                src={previewDashboard.image}
+                alt={`${previewDashboard.title} dashboard`}
+                className="w-full max-h-[80vh] object-contain rounded-2xl shadow-2xl bg-slate-900"
+              />
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Call to Action */}
       <section className="py-20 relative overflow-hidden">

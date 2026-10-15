@@ -477,6 +477,160 @@ export const currentProjects: Project[] = [
   }
 ]
 
+export interface ProjectDashboard {
+  id: string
+  title: string
+  tagline: string
+  description: string
+  field: string
+  tag: string
+  image: string
+  gradient: string
+  icon: string
+  highlights: string[]
+  technologies: string[]
+}
+
+// Interactive dashboards built by lab members (from the Student Project Atlas)
+export const projectDashboards: ProjectDashboard[] = [
+  {
+    id: "pv-scope",
+    title: "PV-Scope",
+    tagline: "One platform, three scales: multi-resolution solar panel segmentation",
+    description: "Discover, identify and measure photovoltaic systems in satellite, aerial and UAV imagery. An agentic MAPVNet router picks the specialist model trained for each image's scale, so every panel pixel is marked accurately whatever the source.",
+    field: "Solar Energy",
+    tag: "Computer Vision",
+    image: "/dashboards/pv-scope.jpg",
+    gradient: "from-orange-500 via-amber-500 to-yellow-600",
+    icon: "Sun",
+    highlights: [
+      "Analyse a single image in about a second, or a whole folder in one run",
+      "Agentic routing across SegFormer and Swin-UNet specialists",
+      "Train your own model with no code, then export scores and PDF reports"
+    ],
+    technologies: ["MAPVNet", "SegFormer", "Swin-UNet", "Multi-Resolution Segmentation"]
+  },
+  {
+    id: "solarmap-ai",
+    title: "SolarMap AI",
+    tagline: "Find, measure and verify solar installations across Jeju",
+    description: "Maps solar PV systems in satellite imagery of Jeju and compares what the model finds against the official register. Operators can correct outlines by hand, estimate energy production and retrain the model from their corrections.",
+    field: "Solar Energy",
+    tag: "Computer Vision",
+    image: "/dashboards/solarmap-ai.jpg",
+    gradient: "from-emerald-500 via-teal-500 to-cyan-600",
+    icon: "Sun",
+    highlights: [
+      "Pixel-level panel detection on real satellite imagery",
+      "Spots installations missing from the official register",
+      "Human-in-the-loop correction, retraining and dataset export"
+    ],
+    technologies: ["Semantic Segmentation", "Satellite Imagery", "Human-in-the-Loop", "Energy Estimation"]
+  },
+  {
+    id: "pi-solar-power",
+    title: "PI-Solar Power",
+    tagline: "Physics-informed solar forecasting you can verify",
+    description: "Asks one question: if a machine-learning forecaster is given the physics of the sun, does it forecast better, and can we prove it? Solar position, clear-sky irradiance and cell temperature set the ceiling, and the same learner is scored with and without physics on unseen data.",
+    field: "Solar Energy",
+    tag: "Physics-Informed AI",
+    image: "/dashboards/pi-solar-power.jpg",
+    gradient: "from-yellow-500 via-amber-500 to-orange-600",
+    icon: "Sun",
+    highlights: [
+      "42 rooftop PV sites, or upload your own power CSV",
+      "Before-and-after comparison of models with and without physics",
+      "Prediction bands for uncertainty-aware forecasts"
+    ],
+    technologies: ["Physics-Informed ML", "Clear-Sky Modeling", "Probabilistic Forecasting", "PV Analytics"]
+  },
+  {
+    id: "solar-pv-simulator",
+    title: "Solar PV Simulator",
+    tagline: "Configure modules and explore partial-shading scenarios",
+    description: "A step-by-step simulator for photovoltaic experiments: choose a real module or upload your own, set the array layout, irradiance and cell temperature, then explore shading scenarios to see how global maximum power point tracking responds.",
+    field: "Solar Energy",
+    tag: "Simulation",
+    image: "/dashboards/solar-pv-simulator.jpg",
+    gradient: "from-rose-500 via-orange-500 to-amber-500",
+    icon: "Sun",
+    highlights: [
+      "Library of commercial modules plus custom uploads",
+      "Setup, scenario and results workflow",
+      "Advanced research parameters for MPPT experiments"
+    ],
+    technologies: ["PV Modeling", "Global MPPT", "Partial Shading", "Streamlit"]
+  },
+  {
+    id: "hyrat-meta",
+    title: "HyRaT-Meta",
+    tagline: "Forecasting energy demand, renewable generation and curtailment",
+    description: "A research framework that forecasts how the grid will keep supply and demand in balance: energy load, renewable generation, and the curtailment that happens when there is more renewable power than the grid can use.",
+    field: "Forecasting",
+    tag: "Energy Forecasting",
+    image: "/dashboards/hyrat-meta.jpg",
+    gradient: "from-violet-500 via-purple-500 to-indigo-600",
+    icon: "TrendingUp",
+    highlights: [
+      "Explore grid data and supply-demand imbalance day by day",
+      "Live, step-by-step forecasting sessions with accuracy checks",
+      "Bilingual English and Korean interface"
+    ],
+    technologies: ["Meta-Learning", "Time-Series Forecasting", "Grid Analytics", "Curtailment Modeling"]
+  },
+  {
+    id: "prophetboost-studio",
+    title: "ProphetBoost Studio",
+    tagline: "Forecast electricity demand in one click",
+    description: "Pick a dataset, pick your models, and see how well they predict, with live charts and side-by-side scores. Uses the built-in Jeju Island dataset or your own CSV, and runs several models at once for a fair comparison.",
+    field: "Forecasting",
+    tag: "Machine Learning",
+    image: "/dashboards/prophetboost-studio.jpg",
+    gradient: "from-sky-500 via-blue-500 to-indigo-600",
+    icon: "TrendingUp",
+    highlights: [
+      "Ten models including ProphetBoost, XGBoost, LightGBM and neural networks",
+      "Live forecasts with side-by-side accuracy comparison",
+      "Jeju Island electricity load dataset built in"
+    ],
+    technologies: ["ProphetBoost", "XGBoost", "LightGBM", "Load Forecasting"]
+  },
+  {
+    id: "learning-to-navigate",
+    title: "Learning to Navigate",
+    tagline: "Goal-directed robot navigation with reinforcement learning",
+    description: "Robots learn to reach a goal while avoiding obstacles, trained with reinforcement learning in the Webots R2025a simulator on both an NAO humanoid and a quadruped platform.",
+    field: "Robotics",
+    tag: "Reinforcement Learning",
+    image: "/dashboards/learning-to-navigate.jpg",
+    gradient: "from-blue-600 via-indigo-600 to-cyan-600",
+    icon: "Bot",
+    highlights: [
+      "Goal-directed navigation with obstacle avoidance",
+      "NAO humanoid and quadruped robots",
+      "Simulated training in Webots R2025a"
+    ],
+    technologies: ["Reinforcement Learning", "Webots", "Robot Navigation", "Obstacle Avoidance"]
+  },
+  {
+    id: "smart-farm",
+    title: "Smart Farm",
+    tagline: "Evidence-grounded monitoring and inspection planning",
+    description: "Monitors farm conditions, identifies the areas that need attention and helps plan inspections. The AI shows its evidence, while the operator approves every action, so devices are never changed automatically.",
+    field: "Smart Agriculture",
+    tag: "Farm Monitoring",
+    image: "/dashboards/smart-farm.jpg",
+    gradient: "from-green-600 via-emerald-500 to-teal-600",
+    icon: "Sprout",
+    highlights: [
+      "Real-time cultivation zone and sensor monitoring",
+      "AI evidence review with operator approval",
+      "Guided recovery workflow and record export"
+    ],
+    technologies: ["Adaptive RAG", "IoT Sensors", "Decision Support", "Evidence Grounding"]
+  }
+]
+
 export const navigationItems = [
   { name: "Home", href: "/", icon: "Home" },
   { name: "Research", href: "/research", icon: "Beaker" },
