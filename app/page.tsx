@@ -178,9 +178,11 @@ export default function Home() {
         </p>
         <Marquee
           items={[
-            "Deep Learning", "Computer Vision", "Large Language Models", "Generative AI",
-            "Edge AI", "IoT", "Transformers", "Neural Networks", "Reinforcement Learning",
-            "Medical Imaging", "Digital Twin", "Knowledge Distillation", "RAG", "Vision Transformers",
+            "Solar PV Segmentation", "Satellite Solar Mapping", "Global MPPT", "Probabilistic Forecasting",
+            "Physics-Informed AI", "Meta-Learning", "Conformal Prediction", "Uncertainty Quantification",
+            "Grid-State Forecasting", "Energy Demand Forecasting", "Vision-Language Models",
+            "Real-Time Video Segmentation", "Knowledge Distillation", "Super-Resolution", "Edge AI",
+            "Adaptive RAG", "Reinforcement Learning", "Explainable AI", "Smart Farming AI",
           ]}
         />
       </section>
