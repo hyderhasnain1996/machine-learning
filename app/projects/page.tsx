@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import DecryptText from '@/app/components/ui/DecryptText'
 import Aurora from '@/app/components/ui/Aurora'
@@ -23,6 +24,12 @@ const iconMap = {
   TrendingUp,
 }
 
+// Deterministic pseudo-random value in [0, 1) so server and client render the same particles
+const seeded = (i: number, salt: number) => {
+  const x = Math.sin(i * 12.9898 + salt * 78.233) * 43758.5453
+  return x - Math.floor(x)
+}
+
 const formatDuration = (seconds: number) =>
   `${Math.floor(seconds / 60)}:${String(seconds % 60).padStart(2, '0')}`
 
@@ -32,6 +39,8 @@ export default function Projects() {
   const localizedProjects = translations[lang].currentProjects
   const localizedDashboards = translations[lang].projectDashboards
   const [previewIndex, setPreviewIndex] = useState<number | null>(null)
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
   const previewDashboard = previewIndex !== null ? projectDashboards[previewIndex] : null
 
   useEffect(() => {
@@ -70,8 +79,8 @@ export default function Projects() {
               key={i}
               className="absolute w-2 h-2 bg-white rounded-full"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                left: `${(seeded(i, 1) * 100).toFixed(2)}%`,
+                top: `${(seeded(i, 2) * 100).toFixed(2)}%`,
               }}
               animate={{
                 y: [0, -30, 0],
@@ -79,9 +88,9 @@ export default function Projects() {
                 scale: [1, 1.5, 1],
               }}
               transition={{
-                duration: 3 + Math.random() * 2,
+                duration: 3 + seeded(i, 3) * 2,
                 repeat: Infinity,
-                delay: Math.random() * 2,
+                delay: seeded(i, 4) * 2,
               }}
             />
           ))}
@@ -516,7 +525,8 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* Project video player */}
+      {/* Project video player (portaled to <body> so page transforms can't push it off-screen) */}
+      {mounted && createPortal(
       <AnimatePresence>
         {previewDashboard && (
           <motion.div
@@ -564,7 +574,9 @@ export default function Projects() {
             </motion.div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence>,
+      document.body
+      )}
 
       {/* Call to Action */}
       <section className="py-20 relative overflow-hidden">
