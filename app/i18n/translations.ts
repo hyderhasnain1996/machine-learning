@@ -81,16 +81,16 @@ export const translations = {
       ],
       featuredPubs: [
         {
-          title: 'A hybrid deep learning framework for multivariate energy forecasting and peak load prediction in electric vehicle charging infrastructure',
-          abstract: 'A hybrid deep learning framework for multivariate energy forecasting and peak load prediction in electric vehicle charging infrastructure.',
+          title: 'MTML-EV: Multi-target meta-learning for cross-zone urban electric vehicle charging infrastructure management',
+          abstract: 'A multi-target meta-learning framework that jointly predicts EV charging occupancy, energy demand and electricity price in unseen urban zones, using BiGRU representations with FOMAML adaptation.',
         },
         {
-          title: 'A Robust Deep Learning Framework for Mitigating Label Noise With Dual Selective Attention',
-          abstract: 'A robust deep learning framework (Dual Selective Attention Network - DSAN) proposed to improve robustness against mislabeled data in deep learning tasks.',
+          title: 'PV-JSSR: Joint super-resolution and segmentation with cross-task interaction for photovoltaic panel mapping from multi-resolution imagery',
+          abstract: 'Joint super-resolution and semantic segmentation for photovoltaic panel mapping, with GSD-aware embedding and bidirectional cross-task interaction, achieving 0.865 IoU and 0.919 Dice.',
         },
         {
-          title: 'A Lightweight multi-path convolutional neural network architecture using optimal features selection for multiclass classification of brain tumor using magnetic resonance images',
-          abstract: 'This paper presents a novel lightweight multi-path convolutional neural network architecture specifically designed for brain tumor classification using MRI images. The proposed method incorporates optimal feature selection techniques to enhance classification accuracy while maintaining computational efficiency.',
+          title: 'Dual teacher multiscale distillation for lightweight solar cell defect classification',
+          abstract: 'Distills ViT-Base and Swin-Large into a lightweight MobileNetV3 through dual-teacher multi-scale knowledge distillation, reaching 97.5% accuracy with only 3.26M parameters for embedded inspection.',
         },
       ],
     },
@@ -799,16 +799,16 @@ export const translations = {
       ],
       featuredPubs: [
         {
-          title: '전기차 충전 인프라에서의 다변량 에너지 예측 및 최대 부하 예측을 위한 하이브리드 딥러닝 프레임워크',
-          abstract: '전기차 충전 인프라에서 다변량 에너지 예측 및 최대 부하 예측을 위한 하이브리드 딥러닝 프레임워크.',
+          title: 'MTML-EV: 도시 구역 간 전기차 충전 인프라 관리를 위한 다중 목표 메타러닝',
+          abstract: 'BiGRU 표현과 FOMAML 적응을 활용하여, 새로운 도시 구역에서 전기차 충전기 점유율, 에너지 수요, 전기 요금을 동시에 예측하는 다중 목표 메타러닝 프레임워크.',
         },
         {
-          title: '이중 선택적 어텐션을 활용한 레이블 노이즈 완화를 위한 강인한 딥러닝 프레임워크',
-          abstract: '딥러닝 작업에서 잘못 레이블된 데이터에 대한 강인성을 향상시키기 위해 제안된 이중 선택적 어텐션 네트워크(DSAN) 기반 강인한 딥러닝 프레임워크.',
+          title: 'PV-JSSR: 다중 해상도 영상 기반 태양광 패널 매핑을 위한 교차 과업 상호작용 결합 초해상도 및 분할',
+          abstract: 'GSD 인식 임베딩과 양방향 교차 과업 상호작용으로 태양광 패널 매핑을 위한 초해상도와 의미론적 분할을 함께 수행하며, IoU 0.865와 Dice 0.919를 달성.',
         },
         {
-          title: '자기공명영상을 이용한 뇌종양 다중 분류를 위한 최적 특징 선택 기반 경량 다중 경로 합성곱 신경망 아키텍처',
-          abstract: '본 논문은 MRI 영상을 이용한 뇌종양 분류를 위해 특별히 설계된 새로운 경량 다중 경로 합성곱 신경망 아키텍처를 제시합니다. 제안된 방법은 계산 효율성을 유지하면서 분류 정확도를 향상시키기 위한 최적 특징 선택 기법을 포함합니다.',
+          title: '경량 태양전지 결함 분류를 위한 이중 교사 다중 스케일 증류',
+          abstract: '이중 교사 다중 스케일 지식 증류로 ViT-Base와 Swin-Large를 경량 MobileNetV3로 증류하여, 단 326만 개의 파라미터로 97.5% 정확도를 달성하고 임베디드 검사 환경에 적용.',
         },
       ],
     },

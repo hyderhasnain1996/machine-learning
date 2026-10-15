@@ -17,6 +17,54 @@ export interface Publication {
 
 export const publications: Publication[] = [
   {
+    id: "pub-2026-mtml-ev",
+    title: "MTML-EV: Multi-target meta-learning for cross-zone urban electric vehicle charging infrastructure management",
+    authors: ["Muhammad Waqar", "Yong-Woon Kim", "Yung-Cheol Byun"],
+    journal: "Sustainable Cities and Society",
+    year: 2026,
+    impactFactor: "13.3",
+    doi: "10.1016/j.scs.2026.107865",
+    link: "https://doi.org/10.1016/j.scs.2026.107865",
+    category: "energy-systems",
+    tags: ["Meta-Learning", "EV Charging", "Multi-Target Forecasting", "BiGRU", "FOMAML"],
+    type: "journal",
+    featured: true,
+    abstract: "MTML-EV is a multi-target meta-learning framework for urban EV charging systems. It learns transferable temporal representations with BiGRU and FOMAML adaptation to jointly predict occupancy, energy demand and electricity price in unseen zones, outperforming deep learning and Transformer baselines under cross-zone shifts.",
+    citations: 0
+  },
+  {
+    id: "pub-2026-pv-jssr",
+    title: "PV-JSSR: Joint super-resolution and segmentation with cross-task interaction for photovoltaic panel mapping from multi-resolution imagery",
+    authors: ["Amreen Batool", "Yong-Woon Kim", "Yung-Cheol Byun"],
+    journal: "Applied Energy",
+    year: 2026,
+    impactFactor: "12.2",
+    doi: "10.1016/j.apenergy.2026.128627",
+    link: "https://doi.org/10.1016/j.apenergy.2026.128627",
+    category: "computer-vision",
+    tags: ["Super-Resolution", "Semantic Segmentation", "Photovoltaic Mapping", "Multi-Resolution Imagery"],
+    type: "journal",
+    featured: true,
+    abstract: "PV-JSSR jointly performs super-resolution and semantic segmentation for photovoltaic panel mapping. A GSD-aware embedding improves multi-resolution robustness and bidirectional cross-task interaction enhances segmentation, achieving 0.865 IoU and 0.919 Dice on a multi-resolution PV dataset.",
+    citations: 0
+  },
+  {
+    id: "pub-2026-dual-teacher",
+    title: "Dual teacher multiscale distillation for lightweight solar cell defect classification",
+    authors: ["Hasnain Hyder", "Yong-Woon Kim", "Chulung Kang", "Yung-Cheol Byun"],
+    journal: "Solar Energy",
+    year: 2026,
+    impactFactor: "7.9",
+    doi: "10.1016/j.solener.2026.115122",
+    link: "https://doi.org/10.1016/j.solener.2026.115122",
+    category: "computer-vision",
+    tags: ["Knowledge Distillation", "Solar Cell Defects", "Lightweight Models", "Edge AI"],
+    type: "journal",
+    featured: true,
+    abstract: "A dual-teacher multi-scale knowledge distillation framework that distills ViT-Base and Swin-Large into a lightweight MobileNetV3, achieving 97.5% accuracy with only 3.26M parameters and demonstrating high-throughput inference on embedded devices.",
+    citations: 0
+  },
+  {
     id: "pub-2025-000",
     title: "A hybrid deep learning framework for multivariate energy forecasting and peak load prediction in electric vehicle charging infrastructure",
     authors: ["Muhammad Waqar", "Yong-Woon Kim", "Yung-Cheol Byun"],
@@ -28,7 +76,7 @@ export const publications: Publication[] = [
     category: "energy-systems",
     tags: ["Deep Learning", "Energy Forecasting", "EV Charging", "Load Prediction"],
     type: "journal",
-    featured: true,
+    featured: false,
     abstract: "A hybrid deep learning framework for multivariate energy forecasting and peak load prediction in electric vehicle charging infrastructure.",
     citations: 0
   },
@@ -44,7 +92,7 @@ export const publications: Publication[] = [
     category: "machine-learning",
     tags: ["Label Noise", "Attention", "Deep Learning", "Robustness"],
     type: "journal",
-    featured: true,
+    featured: false,
     abstract: "A robust deep learning framework (Dual Selective Attention Network - DSAN) proposed to improve robustness against mislabeled data in deep learning tasks.",
     citations: 2
   },
@@ -60,7 +108,7 @@ export const publications: Publication[] = [
     category: "medical-ai",
     tags: ["Deep Learning", "Medical Imaging", "Brain Tumor", "CNN", "Feature Selection"],
     type: "journal",
-    featured: true,
+    featured: false,
     abstract: "This paper presents a novel lightweight multi-path convolutional neural network architecture specifically designed for brain tumor classification using MRI images. The proposed method incorporates optimal feature selection techniques to enhance classification accuracy while maintaining computational efficiency.",
     citations: 15
   },

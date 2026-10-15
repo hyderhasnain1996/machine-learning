@@ -20,29 +20,16 @@ const categoryColors: Record<string, { bg: string; text: string; badge: string }
   'machine-learning': { bg: 'bg-gradient-to-br from-purple-100 to-pink-200 dark:from-purple-900 dark:to-pink-800',    text: 'text-purple-600 dark:text-purple-400', badge: 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200' },
 }
 
-const PINNED_ID = 'pub-2025-002'
-const PINNED_ID_3 = 'pub-2025-yolov8'
+// Papers shown first, in this order
+const PINNED_IDS = ['pub-2026-mtml-ev', 'pub-2026-pv-jssr', 'pub-2026-dual-teacher']
 // Client cache is only used for an instant first paint; the page ALWAYS
 // re-fetches from the server afterwards (stale-while-revalidate), so it can
 // never get stuck showing an outdated list.
-const CACHE_KEY = 'publications_cache_v4'
+const CACHE_KEY = 'publications_cache_v5'
 
 function applyPins<T extends { id: string }>(list: T[]): T[] {
-  let result = [...list]
-
-  const idx2 = result.findIndex(p => p.id === PINNED_ID)
-  if (idx2 !== -1 && idx2 !== 1) {
-    const pinned = result.splice(idx2, 1)[0]
-    result.splice(1, 0, pinned)
-  }
-
-  const idx3 = result.findIndex(p => p.id === PINNED_ID_3)
-  if (idx3 !== -1 && idx3 !== 2) {
-    const pinned = result.splice(idx3, 1)[0]
-    result.splice(2, 0, pinned)
-  }
-
-  return result
+  const pinned = PINNED_IDS.map(id => list.find(p => p.id === id)).filter((p): p is T => !!p)
+  return [...pinned, ...list.filter(p => !PINNED_IDS.includes(p.id))]
 }
 
 // Lab's official totals; the hero shows these unless the live data is higher
