@@ -35,8 +35,10 @@ export interface TeamMember {
   currentRole?: {
     position: string
     organization: string
+    location?: string
     positionKo?: string
     organizationKo?: string
+    locationKo?: string
   }
   socialLinks?: {
     twitter?: string
@@ -603,9 +605,11 @@ export const alumniMembers: TeamMember[] = [
     title: "Ph.D.",
     currentRole: {
       position: "Associate Professor",
-      organization: "West Visayas State University (WVSU), Iloilo City, Philippines",
+      organization: "West Visayas State University",
+      location: "Iloilo City, Philippines",
       positionKo: "부교수",
-      organizationKo: "웨스트비사야스 주립대학교(WVSU), 필리핀 일로일로",
+      organizationKo: "웨스트비사야스 주립대학교",
+      locationKo: "필리핀 일로일로",
     },
     email: "cyreneo@example.com",
     image: "/Cy1.jpg",
@@ -652,9 +656,11 @@ export const alumniMembers: TeamMember[] = [
     title: "Research Scientist",
     currentRole: {
       position: "Marie Curie Postdoctoral Research Fellow",
-      organization: "Tampere University, Finland",
+      organization: "Tampere University",
+      location: "Finland",
       positionKo: "마리 퀴리 박사후 연구원",
-      organizationKo: "탐페레 대학교, 핀란드",
+      organizationKo: "탐페레 대학교",
+      locationKo: "핀란드",
     },
     image: "/Subhajit.jpg",
     bio: "Dr. Subhajit Chatterjee completed his Ph.D. and Post-doctoral research at our lab, focusing on medical image analysis and machine learning. He is now working as a Research Scientist at Tampere University, Finland.",
@@ -687,9 +693,11 @@ export const alumniMembers: TeamMember[] = [
     title: "Research Fellow",
     currentRole: {
       position: "Assistant Professor",
-      organization: "School of Computing, Gachon University, South Korea",
+      organization: "Gachon University",
+      location: "South Korea",
       positionKo: "조교수",
-      organizationKo: "가천대학교 컴퓨팅학부",
+      organizationKo: "가천대학교",
+      locationKo: "대한민국",
     },
     image: "/sadiqa24.jpg",
     bio: "Dr. Sadiqa Jafari completed her Ph.D. and Post-doctoral research focusing on battery degradation prediction and energy systems. She is currently a Research Fellow at Vrije Universiteit Brussel, Belgium.",
@@ -720,9 +728,11 @@ export const alumniMembers: TeamMember[] = [
     title: "Ph.D.",
     currentRole: {
       position: "Lecturer Professor",
-      organization: "Ajou University, Suwon, South Korea",
+      organization: "Ajou University",
+      location: "Suwon, South Korea",
       positionKo: "강의교수",
-      organizationKo: "아주대학교, 경기도 수원",
+      organizationKo: "아주대학교",
+      locationKo: "경기도 수원",
     },
     image: "/Jun.jpg",
     bio: "Dr. Yongjun Kim completed his Ph.D. at our lab, focusing on machine learning and artificial intelligence. He is currently working as a researcher at KIST AI/R Lab in South Korea.",
@@ -755,9 +765,11 @@ export const alumniMembers: TeamMember[] = [
     title: "Ph.D.",
     currentRole: {
       position: "Assistant Professor",
-      organization: "School of Computing, Montclair State University, USA",
+      organization: "Montclair State University",
+      location: "New Jersey, USA",
       positionKo: "조교수",
-      organizationKo: "몽클레어 주립대학교 컴퓨팅학부, 미국",
+      organizationKo: "몽클레어 주립대학교",
+      locationKo: "미국 뉴저지",
     },
     image: "/deba.jpg",
     bio: "Dr. Debapryia Hazra completed her Ph.D. at our lab, specializing in machine learning and data science. She is currently working at Stanford University in the United States of America.",
@@ -790,9 +802,11 @@ export const alumniMembers: TeamMember[] = [
     title: "Ph.D.",
     currentRole: {
       position: "Senior Lecturer in Computer Science and AI",
-      organization: "Kristianstad University, Sweden",
+      organization: "Kristianstad University",
+      location: "Sweden",
       positionKo: "컴퓨터과학 및 AI 선임 강사",
-      organizationKo: "크리스티안스타드 대학교, 스웨덴",
+      organizationKo: "크리스티안스타드 대학교",
+      locationKo: "스웨덴",
     },
     image: "/image.png",
     bio: "Dr. Zeinab Shahbazi completed her Ph.D. at our lab, focusing on machine learning and artificial intelligence. She is currently working at Barcelona University in Spain.",
@@ -825,9 +839,11 @@ export const alumniMembers: TeamMember[] = [
     title: "Post Doc",
     currentRole: {
       position: "Postdoctoral Researcher",
-      organization: "RWTH Aachen University, Germany",
+      organization: "RWTH Aachen University",
+      location: "Germany",
       positionKo: "박사후 연구원",
-      organizationKo: "아헨 공과대학교(RWTH), 독일",
+      organizationKo: "아헨 공과대학교(RWTH)",
+      locationKo: "독일",
     },
     image: "/phyo.jpeg",
     bio: "Dr. Pyae Pyae Phyo completed her Post-Doctoral research at our lab, specializing in machine learning and artificial intelligence. She is currently working at Eindhoven University of Technology in the Netherlands.",
@@ -860,9 +876,11 @@ export const alumniMembers: TeamMember[] = [
     title: "Ph.D.",
     currentRole: {
       position: "Assistant Teaching Professor",
-      organization: "School of Computing, College of Science and Mathematics, Montclair State University, New Jersey, USA",
+      organization: "Montclair State University",
+      location: "New Jersey, USA",
       positionKo: "강의 조교수",
-      organizationKo: "몽클레어 주립대학교 과학수학대학 컴퓨팅학부, 미국 뉴저지",
+      organizationKo: "몽클레어 주립대학교",
+      locationKo: "미국 뉴저지",
     },
     image: "/Prince.jpeg",
     bio: "Dr. Prince Waqas Khan completed his Ph.D. at our lab, focusing on machine learning and data science. He is currently working at West Virginia University in Morgantown, WV, USA.",
@@ -895,9 +913,11 @@ export const alumniMembers: TeamMember[] = [
     title: "Masters",
     currentRole: {
       position: "Postdoctoral Researcher",
-      organization: "University of Manitoba, Canada",
+      organization: "University of Manitoba",
+      location: "Canada",
       positionKo: "박사후 연구원",
-      organizationKo: "매니토바 대학교, 캐나다",
+      organizationKo: "매니토바 대학교",
+      locationKo: "캐나다",
     },
     image: "/liaq.jpg",
     bio: "Mr. Mudassar Liaq completed his Master's degree at our lab, specializing in machine learning and computer science. He is currently studying at Lakehead University in Canada.",
@@ -929,10 +949,12 @@ export const alumniMembers: TeamMember[] = [
     role: "Former Ph.D. Student",
     title: "Ph.D.",
     currentRole: {
-      position: "Lecturer and Postdoctoral Researcher",
-      organization: "Language Technology Group, University of Hamburg, Germany",
+      position: "Lecturer & Postdoctoral Researcher",
+      organization: "University of Hamburg",
+      location: "Germany",
       positionKo: "강사 및 박사후 연구원",
-      organizationKo: "함부르크 대학교 언어기술 연구그룹, 독일",
+      organizationKo: "함부르크 대학교",
+      locationKo: "독일",
     },
     image: "/wafa-shafqat.jpg",
     bio: "Dr. Wafa Shafqat completed her Ph.D. at our lab. She is now a Lecturer and Postdoctoral Researcher in the Language Technology research group at the University of Hamburg, Germany.",
