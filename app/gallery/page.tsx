@@ -3,7 +3,8 @@
 import { motion } from 'framer-motion'
 import DecryptText from '@/app/components/ui/DecryptText'
 import Aurora from '@/app/components/ui/Aurora'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { X } from 'lucide-react'
 import { useLanguage } from '../i18n/LanguageContext'
 import { translations } from '../i18n/translations'
@@ -62,6 +63,8 @@ const galleryImages = [
 export default function Gallery() {
   const [selectedCategory, setSelectedCategory] = useState('all')
   const [selectedImage, setSelectedImage] = useState<typeof galleryImages[0] | null>(null)
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
   const { lang } = useLanguage()
   const tg = translations[lang].gallery
 
@@ -224,8 +227,8 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Lightbox Modal */}
-      {selectedImage && (
+      {/* Lightbox Modal (portaled to <body> so page transforms can't push it off-screen) */}
+      {mounted && selectedImage && createPortal(
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -254,7 +257,8 @@ export default function Gallery() {
               </p>
             </div>
           </div>
-        </motion.div>
+        </motion.div>,
+        document.body
       )}
     </div>
   )
